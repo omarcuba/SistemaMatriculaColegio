@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link href="util/css/estiloInicio.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width" />
+	<title>INICIO</title>
+</h:head>
+<h:body>
+	<div id="header">
+		<div id="imagenAlumnos"></div>
+	</div>
+	<h:form id="display">
+		<div id="titulos">
+			<p:commandButton value="Login" action="LOGIN" oncomplete=":form"
+				icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="Prueba" action="MODELO" oncomplete=":form"
+				icon="ui-icon-disk" style="font-size:14px;" /> 
+		</div>		
+	</h:form>
+	<div id="contenedor">
+	</div>
+</h:body>
+</html>
