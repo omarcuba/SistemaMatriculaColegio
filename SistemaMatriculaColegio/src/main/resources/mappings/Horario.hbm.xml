@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/02/2014 11:46:25 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="dev.com.matricula.model.Horario" table="horario"
+		catalog="bdmatricula">
+		<id name="idHorario" type="string">
+			<column name="IdHorario" length="5" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="docente" class="dev.com.matricula.model.Docente"
+			fetch="select">
+			<column name="IdDocente" length="5" not-null="true" />
+		</many-to-one>
+		<many-to-one name="aula" class="dev.com.matricula.model.Aula"
+			fetch="select">
+			<column name="IdAula" length="5" not-null="true" />
+		</many-to-one>
+		<many-to-one name="curso" class="dev.com.matricula.model.Curso"
+			fetch="select">
+			<column name="IdCurso" length="5" not-null="true" />
+		</many-to-one>
+		<many-to-one name="anhoescolar" class="dev.com.matricula.model.AnhoEscolar"
+			fetch="select">
+			<column name="IdAnhoEscolar" length="4" not-null="true" />
+		</many-to-one>
+		<property name="dia" type="string">
+			<column name="Dia" length="10" not-null="true" />
+		</property>
+		<property name="horaInicial" type="date">
+			<column name="HoraInicial" length="10" not-null="true" />
+		</property>
+		<property name="horaFinal" type="date">
+			<column name="HoraFinal" length="10" not-null="true" />
+		</property>
+		<property name="codUsuario" type="java.lang.Integer">
+			<column name="CodUsuario" />
+		</property>
+		<property name="fechaOperacion" type="timestamp">
+			<column name="FechaOperacion" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

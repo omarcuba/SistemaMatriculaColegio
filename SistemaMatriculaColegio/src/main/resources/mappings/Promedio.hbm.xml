@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/02/2014 11:46:25 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="dev.com.matricula.model.Promedio" table="promedio"
+		catalog="bdmatricula">
+		<composite-id name="id" class="dev.com.matricula.model.PromedioId">
+			<key-property name="promedio" type="big_decimal">
+				<column name="Promedio" precision="5" />
+			</key-property>
+			<key-property name="idAlumno" type="string">
+				<column name="IdAlumno" length="5" />
+			</key-property>
+			<key-property name="idCurso" type="string">
+				<column name="IdCurso" length="5" />
+			</key-property>
+			<key-property name="codUsuario" type="java.lang.Short">
+				<column name="CodUsuario" />
+			</key-property>
+			<key-property name="fechaOperacion" type="timestamp">
+				<column name="FechaOperacion" length="19" />
+			</key-property>
+		</composite-id>
+		<many-to-one name="curso" class="dev.com.matricula.model.Curso"
+			update="false" insert="false" fetch="select">
+			<column name="IdCurso" length="5" not-null="true" />
+		</many-to-one>
+		<many-to-one name="alumno" class="dev.com.matricula.model.Alumno"
+			update="false" insert="false" fetch="select">
+			<column name="IdAlumno" length="5" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

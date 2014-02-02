@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/02/2014 11:46:25 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="dev.com.matricula.model.Rol" table="rol" catalog="bdmatricula">
+		<id name="idRol" type="int">
+			<column name="IdRol" />
+			<generator class="assigned" />
+		</id>
+		<property name="descripcion" type="string">
+			<column name="Descripcion" length="30" not-null="true" />
+		</property>
+		<property name="estado" type="char">
+			<column name="Estado" length="1" not-null="true" />
+		</property>
+		<property name="codUsuario" type="java.lang.Integer">
+			<column name="CodUsuario" />
+		</property>
+		<property name="fechaOperacion" type="timestamp">
+			<column name="FechaOperacion" length="19" />
+		</property>
+		<set name="rolusuarios" table="rolusuario" inverse="true" lazy="true"
+			fetch="select">
+			<key>
+				<column name="IdRol" not-null="true" />
+			</key>
+			<one-to-many class="dev.com.matricula.model.Rolusuario" />
+		</set>
+	</class>
+</hibernate-mapping>
