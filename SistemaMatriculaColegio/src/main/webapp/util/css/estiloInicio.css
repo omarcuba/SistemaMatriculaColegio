@@ -7,40 +7,43 @@ and open the template in the editor.
     Created on : 11/11/2013, 07:07:34 PM
     Author     : WILLY
 */
+body {
+	margin: 0;
+	background: url(../image/fondo-rapado.jpg);
+	position: relative;
+}
 
-body{
-    margin:0;
-    background:url(../image/fondo-rapado.jpg);
-    position:relative;
+#header {
+	width: 100%;
+	height: 160px;
+	background: url(../image/fondo-rayado.jpg);
+	margin-bottom: 2px;
 }
-#header{
-    width: 100%;
-    height: 160px;
-    background:url(../image/fondo-rayado.jpg);
-    margin-bottom:2px;
+
+#imagenAlumnos {
+	width: 100%;
+	height: 160px;
+	background: url(../image/alumnos.jpg) no-repeat;
+	margin: 0 auto;
+	margin-bottom: 0;
+	top: 20px;
+	margin-left: 65%;
+	position: relative;
 }
-#imagenAlumnos{
-    width:100%;
-    height:160px;
-    background:url(../image/alumnos.jpg) no-repeat;
-    margin:0 auto;
-    margin-bottom:0;
-    top: 20px;
-    margin-left: 65%;
-    position: relative;
+
+#contenedor {
+	width: 100%;
+	height: 600px;
+	margin: auto;
+	background: url(../image/fondo-celeste.png);
+	top: 250px;
+	left: 0px;
 }
-#contenedor{
-	width:100%;
-	height:600px;
-	margin:auto;
-	background:url(../image/fondo-celeste.png);
-	top:250px;
-	left:0px;
-}
-#titulos{
-	width:100%;
-	height:35px;
-	margin:0 auto;
-	background-color:#CEE3F6;
-	left:0px;
+
+#titulos {
+	width: 100%;
+	height: 35px;
+	margin: 0 auto;
+	background-color: #CEE3F6;
+	left: 0px;
 }
