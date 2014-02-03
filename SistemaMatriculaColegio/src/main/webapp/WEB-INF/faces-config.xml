@@ -5,4 +5,22 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 
+	<navigation-rule>
+
+		<navigation-case>
+			<from-outcome>INICIO</from-outcome>
+			<to-view-id>/inicio.xhtml</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>LOGIN</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>INTRANET</from-outcome>
+			<to-view-id>/paginas/intranet.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
 </faces-config>

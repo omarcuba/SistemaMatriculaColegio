@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<link href="util/css/estiloInicio.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" />
@@ -14,11 +15,76 @@
 	</div>
 	<h:form id="display">
 		<div id="titulos">
-			<p:commandButton value="Login" action="LOGIN" oncomplete=":form"
+			<p:growl id="messages" showDetail="true" />
+			<p:commandButton value="Inicio" action="MODELO" oncomplete=":form"
 				icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Prueba" action="MODELO" oncomplete=":form"
+			<p:commandButton value="Acceso Intranet" action="LOGIN"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="Organización" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="Visión y Misión" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="Investigación" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="Comunidad" action="MODELO" oncomplete=":form"
 				icon="ui-icon-disk" style="font-size:14px;" />
 		</div>
+
+		<table class="principal" width="100%" cellpadding="0" cellspacing="0"
+			border="1px">
+			<tbody>
+				<tr>
+					<td>
+						<table class="cuerpo" align="center" cellpadding="0"
+							cellspacing="0" border="0">
+							<tbody>
+								<tr>
+									<td colspan="4">
+										<table width="800" border="0" cellspacing="0">
+											<tbody>
+												<tr>
+													<td width="60" height="150" bgcolor="#33FF00">
+														<h1>campo para mostrar logoeos</h1>
+													</td>
+													<td width="10" height="150" bgcolor="#3399CC">
+														<h1>Ant</h1>
+													</td>
+													<td width="400" height="150" bgcolor="#6699FF">
+														<h1>campo para mostrar las imagenes del colegio</h1>
+													</td>
+													<td width="10" height="150" bgcolor="#3399CC">
+														<h1>sig</h1>
+													</td>
+												</tr>
+												<tr>
+													<td width="20" bgcolor="blue">
+														<h1>Campo numero H</h1>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+
+									<td colspan="4">
+										<table width="200" border="0" cellspacing="0">
+											<tbody>
+												<tr>
+													<td width="40" bgcolor="green">
+														<h1>Campo para mostra detalles de anecdotas,
+															aaniversarios, , reconocimientos</h1>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
 	</h:form>
 	<div id="contenedor"></div>
 </h:body>
