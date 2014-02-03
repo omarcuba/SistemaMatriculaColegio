@@ -25,7 +25,7 @@
 			<key>
 				<column name="IdRol" not-null="true" />
 			</key>
-			<one-to-many class="dev.com.matricula.model.Rolusuario" />
+			<one-to-many class="dev.com.matricula.model.RolUsuario" />
 		</set>
 	</class>
 </hibernate-mapping>
