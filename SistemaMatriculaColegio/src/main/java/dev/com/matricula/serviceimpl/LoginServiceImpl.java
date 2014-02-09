@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
- */
-
 package dev.com.matricula.serviceimpl;
 
 import dev.com.matricula.dao.UsuarioDao;
@@ -14,9 +8,6 @@ import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
 import dev.com.matricula.service.LoginService;
 
-/**
- * @author WILLY
- */
 public class LoginServiceImpl implements LoginService {
 
   private UsuarioDao usuarioDao;

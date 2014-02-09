@@ -17,18 +17,20 @@
 			<to-view-id>/login.xhtml</to-view-id>
 		</navigation-case>
 
-
 		<navigation-case>
 			<from-outcome>INTRANET</from-outcome>
 			<to-view-id>/pages/intranet.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>REGISTRAR_USUARIO</from-outcome>
 			<to-view-id>/pages/registrarUsuario.xhtml</to-view-id>
 		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>RECUPERAR_CUENTA</from-outcome>
 			<to-view-id>/pages/recuperarCuenta.xhtml</to-view-id>
 		</navigation-case>
+
 	</navigation-rule>
 </faces-config>
