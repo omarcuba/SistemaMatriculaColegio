@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<style type="text/css">
+@import url("../util/css/estiloInicio.css");
+</style>
+	<title>REGISTRAR USUARIO</title>
+</h:head>
+<h:body>
+	<div id="header" style="width: 320px;">
+		<h:form id="form">
+			<p:panel header="Registro de Usuario" style="font-size: 12px;">
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
+					<h:outputLabel value="Identificador: " />
+					<p:inputMask value="#{UsuarioBean.usuario.idUsuario}" mask="9999" />
+
+					<h:outputLabel value="Nombre: " />
+					<p:inputMask value="#{UsuarioBean.usuario.nombre}" />
+
+					<h:outputLabel value="Ap. Materno: " />
+					<p:inputMask value="#{UsuarioBean.usuario.apPaterno}"
+						mask="aaaaaaaaaaaaaaaaa" />
+
+					<h:outputLabel value="Ap. Paterno: " />
+					<p:inputMask value="#{UsuarioBean.usuario.apMaterno}"
+						mask="aaaaaaaaaaaaaaaaa" />
+
+					<h:outputLabel value="Dni: " />
+					<p:inputMask value="#{UsuarioBean.usuario.dni}" mask="99999999" />
+
+					<h:outputLabel value="Usuario: " />
+					<p:inputMask value="#{UsuarioBean.usuario.login}"
+						mask="aaaaaaaaaaaa" />
+
+					<h:outputLabel value="Password: " />
+					<p:inputMask value="#{UsuarioBean.usuario.clave}" />
+
+					<h:outputLabel value="Confirmacion: " />
+					<p:inputMask value="#{UsuarioBean.confirma}" />
+
+				</h:panelGrid>
+				<p:separator />
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:commandButton value="Grabar" style="font-size:12px;" />
+					<p:commandButton value="Limpiar" style="font-size:12px;" />
+					<p:commandButton value="Cancelar" action="LOGIN"
+						style="font-size:12px;" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+</h:body>
+</html>
+
+
+

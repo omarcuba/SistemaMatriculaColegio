@@ -12,26 +12,28 @@
 </h:head>
 
 <h:body>
-	<div>
+	<div id="header" style="width: 350px;">
 		<h:form id="formLogin">
-			<p:growl id="growl" showDetail="true" />
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel for="username" value="USUARIO :" />
-				<p:inputText value="#{loginBean.usuario.login}" id="username"
-					required="true" label="username" />
-				<h:outputLabel for="password" value="CONTRASEÑA :" />
-				<p:password value="#{loginBean.usuario.clave}" id="password"
-					required="true" label="password" />
-				<f:facet name="footer">
-					<p:commandButton id="loginButton" value="Ingresar" update="growl"
-						style="font-size:14px;" action="#{loginBean.login}"
-						oncomplete=":form" />
-				</f:facet>
-			</h:panelGrid>
-			<br />
-			<a href="../pages/recuperarCuenta.xhtml">¿No puede acceder al
-				Sistema?</a>
-			<a href="../pages/registrarUsuario.xhtml"> ¿Registrarse? </a>
+			<p:panel header="Registro de Usuario" style="font-size: 12px;">
+				<p:growl id="growl" showDetail="true" />
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
+					<h:outputLabel for="username" value="USUARIO :" />
+					<p:inputText value="#{loginBean.usuario.login}" id="username"
+						required="true" label="username" />
+					<h:outputLabel for="password" value="CONTRASEÑA :" />
+					<p:password value="#{loginBean.usuario.clave}" id="password"
+						required="true" label="password" />
+					<f:facet name="footer">
+						<p:commandButton id="loginButton" value="Ingresar" update="growl"
+							style="font-size:14px;" action="#{loginBean.login}"
+							oncomplete=":form" />
+					</f:facet>
+				</h:panelGrid>
+				<br />
+				<a href="pages/recuperarCuenta.xhtml">¿No puede acceder al
+					Sistema?</a>
+				<a href="pages/registrarUsuario.xhtml"> ¿Registrarse? </a>
+			</p:panel>
 		</h:form>
 	</div>
 </h:body>
