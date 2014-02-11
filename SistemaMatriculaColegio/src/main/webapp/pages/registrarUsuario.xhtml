@@ -15,26 +15,21 @@
 		<h:form id="form">
 			<p:panel header="Registro de Usuario" style="font-size: 12px;">
 				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
-					<h:outputLabel value="Identificador: " />
-					<p:inputMask value="#{UsuarioBean.usuario.idUsuario}" mask="9999" />
 
 					<h:outputLabel value="Nombre: " />
 					<p:inputMask value="#{UsuarioBean.usuario.nombre}" />
 
 					<h:outputLabel value="Ap. Materno: " />
-					<p:inputMask value="#{UsuarioBean.usuario.apPaterno}"
-						mask="aaaaaaaaaaaaaaaaa" />
+					<p:inputMask value="#{UsuarioBean.usuario.apPaterno}" />
 
 					<h:outputLabel value="Ap. Paterno: " />
-					<p:inputMask value="#{UsuarioBean.usuario.apMaterno}"
-						mask="aaaaaaaaaaaaaaaaa" />
+					<p:inputMask value="#{UsuarioBean.usuario.apMaterno}" />
 
 					<h:outputLabel value="Dni: " />
 					<p:inputMask value="#{UsuarioBean.usuario.dni}" mask="99999999" />
 
 					<h:outputLabel value="Usuario: " />
-					<p:inputMask value="#{UsuarioBean.usuario.login}"
-						mask="aaaaaaaaaaaa" />
+					<p:inputMask value="#{UsuarioBean.usuario.login}" />
 
 					<h:outputLabel value="Password: " />
 					<p:inputMask value="#{UsuarioBean.usuario.clave}" />
@@ -44,8 +39,11 @@
 
 				</h:panelGrid>
 				<p:separator />
+				<p:growl id="growl" showDetail="true" />
 				<h:panelGrid columns="3" cellpadding="5">
-					<p:commandButton value="Grabar" style="font-size:12px;" />
+					<p:commandButton id="grabar" value="Grabar" update="growl"
+						style="font-size:14px;" action="#{UsuarioBean.registrarUsuario}"
+						oncomplete=":form" />
 					<p:commandButton value="Limpiar" style="font-size:12px;" />
 					<p:commandButton value="Cancelar" action="LOGIN"
 						style="font-size:12px;" />

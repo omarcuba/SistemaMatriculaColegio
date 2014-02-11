@@ -11,23 +11,28 @@
 </h:head>
 <h:body>
 	<div id="header">
+		<div id="imagenPrincipal"></div>
 		<div id="imagenAlumnos"></div>
 	</div>
 	<h:form id="display">
 		<div id="titulos">
 			<p:growl id="messages" showDetail="true" />
-			<p:commandButton value="Inicio" action="MODELO" oncomplete=":form"
+			<p:commandButton value="INICIO" action="MODELO" oncomplete=":form"
 				icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Acceso Intranet" action="LOGIN"
+			<p:commandButton value="ORGANIZACIÓN" action="MODELO"
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Organización" action="MODELO"
+			<p:commandButton value="VISIÓN Y MISIÓN" action="MODELO"
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Visión y Misión" action="MODELO"
-				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Investigación" action="MODELO"
-				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="Comunidad" action="MODELO" oncomplete=":form"
+			<p:commandButton value="INTRANET" action="LOGIN" oncomplete=":form"
 				icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="MATRICULA" action="LOGIN" oncomplete=":form"
+				icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="INVESTIGACIÓN" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="BIBLIOTECA" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<p:commandButton value="CONVOCATORIAS" action="MODELO"
+				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
 		</div>
 
 		<table class="principal" width="100%" cellpadding="0" cellspacing="0"
@@ -40,25 +45,19 @@
 							<tbody>
 								<tr>
 									<td colspan="4">
-										<table width="800" border="0" cellspacing="0">
+										<table width="1000" border="0" cellspacing="0">
 											<tbody>
 												<tr>
-													<td width="60" height="150" bgcolor="#33FF00">
-														<h1>campo para mostrar logoeos</h1>
+													<td width="200" height="280" bgcolor="#0B0B3B">
+														<p style="color: #FFFFFF; font-style: oblique;">*
+															PROPUESTA PEDAGÓGICA</p>
+														<p style="color: #FFFFFF; font-style: oblique;">*
+															PROPUESTA SECUNDARIOS</p>
+														<p style="color: #FFFFFF; font-style: oblique;">*
+															BECAS Y OPORTUNIDADES ACADÉMICAS</p>
 													</td>
-													<td width="10" height="150" bgcolor="#3399CC">
-														<h1>Ant</h1>
-													</td>
-													<td width="400" height="150" bgcolor="#6699FF">
-														<h1>campo para mostrar las imagenes del colegio</h1>
-													</td>
-													<td width="10" height="150" bgcolor="#3399CC">
-														<h1>sig</h1>
-													</td>
-												</tr>
-												<tr>
-													<td width="20" bgcolor="blue">
-														<h1>Campo numero H</h1>
+													<td width="800" height="280" bgcolor="#6699FF">
+														<div id="imagenCampus"></div>
 													</td>
 												</tr>
 											</tbody>
@@ -66,12 +65,11 @@
 									</td>
 
 									<td colspan="4">
-										<table width="200" border="0" cellspacing="0">
+										<table width="200" border="1" cellspacing="0">
 											<tbody>
 												<tr>
-													<td width="40" bgcolor="green">
-														<h1>Campo para mostra detalles de anecdotas,
-															aaniversarios, , reconocimientos</h1>
+													<td width="40" height="280" bgcolor="#0B2161">
+														<div id="imagenYoutube"></div>
 													</td>
 												</tr>
 											</tbody>
@@ -85,6 +83,5 @@
 			</tbody>
 		</table>
 	</h:form>
-	<div id="contenedor"></div>
 </h:body>
 </html>

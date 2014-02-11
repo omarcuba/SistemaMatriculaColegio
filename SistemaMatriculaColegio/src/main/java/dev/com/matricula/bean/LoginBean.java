@@ -22,6 +22,7 @@ public class LoginBean implements Serializable {
   private String idUsuario = "";
   private String rol = "";
   public static String USUARIO = "";
+  public static int COD_USUARIO;
 
   public LoginBean() {
     usuario = new Usuario();
@@ -36,11 +37,8 @@ public class LoginBean implements Serializable {
       if (usuario != null) {
         this.idUsuario = "" + usuario.getIdUsuario();
         USUARIO = usuario.getLogin();
-        System.out.println("Mi Usuario: " + getIdUsuario());
-        System.out.println("Mi Usuario: " + usuario.getLogin());
-        System.out.println("Mi Password: " + usuario.getClave());
+        COD_USUARIO = usuario.getIdUsuario();
         rolUsuario = loginService.obtenerDatoUsuarioRol(getIdUsuario());
-        System.out.println("Mi Rol: " + rolUsuario.getRol().getIdRol());
         if (rolUsuario != null) {
           this.rol = "" + rolUsuario.getRol().getIdRol();
           if (getRol().equals("1")) {
