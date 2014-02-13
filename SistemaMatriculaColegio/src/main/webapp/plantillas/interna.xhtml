@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view>
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Matricula General</title>
+	</h:head>
+
+	<h:body>
+
+		<table>
+			<tr>
+				<ui:insert name="header">
+					<ui:include src="/secciones/cabecera.xhtml" />
+				</ui:insert>
+			</tr>
+			<tr>
+				<td><ui:insert name="menu">
+						<ui:include src="/secciones/menuSlide.xhtml" />
+					</ui:insert></td>
+				<td><ui:insert name="body" /></td>
+			</tr>
+			<tr>
+				<ui:insert>
+					<ui:include src="/secciones/pie.xhtml" />
+				</ui:insert>
+			</tr>
+		</table>
+
+	</h:body>
+
+</f:view>
+
+</html>
