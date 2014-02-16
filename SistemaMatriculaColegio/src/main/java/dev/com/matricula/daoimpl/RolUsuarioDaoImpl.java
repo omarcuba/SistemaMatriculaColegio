@@ -1,28 +1,26 @@
 package dev.com.matricula.daoimpl;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import dev.com.matricula.dao.RolUsuarioDao;
 import dev.com.matricula.model.RolUsuario;
-import dev.com.matricula.util.HibernateUtil;
 
-public class RolUsuarioDaoImpl implements RolUsuarioDao {
+public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioDao {
 
   String ID_USUARIO = "usuario.idUsuario";
   private RolUsuario rolUsuario;
 
   @Override
-  public boolean insertarRolUsuario(RolUsuario rolUsuario) {
+  public boolean registrarRolUsuario(RolUsuario rolUsuario) {
     try {
-      System.out.println("********************************");
-      System.out.println("id rol usuario : " + rolUsuario.getIdRolUsuario());
-      System.out.println("id de rol : " + rolUsuario.getRol().getIdRol());
-      System.out.println("id usuario : " + rolUsuario.getUsuario().getIdUsuario());
-      System.out.println("estado : " + rolUsuario.getEstado());
-      System.out.println("codigo registro : " + rolUsuario.getCodUsuario());
-      System.out.println("fecha registo : " + rolUsuario.getFechaOperacion());
+      Session session = getSessionFactory().openSession();
+      session.beginTransaction();
+      session.saveOrUpdate(rolUsuario);
+      session.getTransaction().commit();
+      session.close();
       return true;
     } catch (Exception e) {
       return false;
@@ -30,21 +28,17 @@ public class RolUsuarioDaoImpl implements RolUsuarioDao {
   }
 
   @Override
-  public String obtenerUltimoIdRolUsuario() {
-    Session session = HibernateUtil.getSessionFactory().openSession();
-    session.beginTransaction();
-    String ultimo = "1";
-    Criteria criteria = session.createCriteria(RolUsuario.class);
-    criteria.add(Restrictions.eq(ID_USUARIO, ultimo));
-    rolUsuario = (RolUsuario) criteria.uniqueResult();
+  public Integer obtenerUltimoIdRolUsuario() {
+    Session session = getSessionFactory().openSession();
+    Query query = session.createSQLQuery("select max(idrolusuario+1) from RolUsuario");
+    Object obj = query.uniqueResult();
     session.close();
-    String Codigo = "";
-    return Codigo;
+    return Integer.parseInt(obj.toString());
   }
 
   @Override
   public RolUsuario obtenerDatoRolUsuario(String codUsuario) {
-    Session session = HibernateUtil.getSessionFactory().openSession();
+    Session session = getSessionFactory().openSession();
     session.beginTransaction();
     Criteria criteria = session.createCriteria(RolUsuario.class);
     criteria.add(Restrictions.eq(ID_USUARIO, Integer.parseInt(codUsuario)));

@@ -9,8 +9,8 @@ public interface UsuarioService {
 
   public boolean registrarAccesoRol(RolUsuario rolUsuario);
 
-  public String BuscarUltimoidRolUsuario();
+  public Integer buscarUltimoidRolUsuario();
 
-  public String BuscarUltimoidUsuario();
+  public Integer buscarUltimoidUsuario();
 
 }

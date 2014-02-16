@@ -9,6 +9,9 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="util/css/estiloInicio.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+@import url("../util/css/estiloInicio.css");
+</style>
 </h:head>
 
 <h:body>
@@ -19,20 +22,24 @@
 				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
 					<h:outputLabel for="username" value="USUARIO :" />
 					<p:inputText value="#{loginBean.usuario.login}" id="username"
-						required="true" label="username" />
+						label="username" />
 					<h:outputLabel for="password" value="CONTRASEÑA :" />
 					<p:password value="#{loginBean.usuario.clave}" id="password"
-						required="true" label="password" />
+						label="password" />
 					<f:facet name="footer">
 						<p:commandButton id="loginButton" value="Ingresar" update="growl"
 							style="font-size:14px;" action="#{loginBean.login}"
 							oncomplete=":form" />
 					</f:facet>
 				</h:panelGrid>
-				<br />
-				<a href="pages/recuperarCuenta.xhtml">¿No puede acceder al
-					Sistema?</a>
-				<a href="pages/registrarUsuario.xhtml"> ¿Registrarse? </a>
+				<p:separator />
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
+					<p:commandButton value="No puede acceder al Sistema"
+						action="RECUPERAR_CUENTA" style="font-size:9px;"
+						oncomplete=":form" />
+					<p:commandButton value="Registrarse?" action="REGISTRAR_USUARIO"
+						style="font-size:9px;" oncomplete=":form" />
+				</h:panelGrid>
 			</p:panel>
 		</h:form>
 	</div>

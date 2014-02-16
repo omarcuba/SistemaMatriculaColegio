@@ -4,10 +4,12 @@ import dev.com.matricula.model.Usuario;
 
 public interface UsuarioDao {
 
-  public boolean insertarUsuario(Usuario usuario);
+  public boolean registrarUsuario(Usuario usuario);
 
-  public String obtenerUltimoIdUsuario();
+  public Integer obtenerUltimoIdUsuario();
 
   public Usuario obtenerDatoUsuarioAcceso(String usuario, String clave);
+
+  public String mostrarConsulta();
 
 }

@@ -32,21 +32,23 @@
 					<p:inputMask value="#{UsuarioBean.usuario.login}" />
 
 					<h:outputLabel value="Password: " />
-					<p:inputMask value="#{UsuarioBean.usuario.clave}" />
+					<p:password value="#{UsuarioBean.usuario.clave}" />
 
 					<h:outputLabel value="Confirmacion: " />
-					<p:inputMask value="#{UsuarioBean.confirma}" />
+					<p:password value="#{UsuarioBean.confirma}" />
 
 				</h:panelGrid>
 				<p:separator />
-				<p:growl id="growl" showDetail="true" />
+				<p:growl id="messages" showDetail="false" sticky="true" />
 				<h:panelGrid columns="3" cellpadding="5">
-					<p:commandButton id="grabar" value="Grabar" update="growl"
-						style="font-size:14px;" action="#{UsuarioBean.registrarUsuario}"
+					<p:commandButton id="grabar" value="Grabar" update="messages"
+						style="font-size:12px;" action="#{UsuarioBean.registrarUsuario}"
 						oncomplete=":form" />
-					<p:commandButton value="Limpiar" style="font-size:12px;" />
+					<p:commandButton id="limpiar" value="Limpiar"
+						action="REGISTRAR_USUARIO" style="font-size:12px;"
+						oncomplete=":form" />
 					<p:commandButton value="Cancelar" action="LOGIN"
-						style="font-size:12px;" />
+						style="font-size:12px;" oncomplete=":form" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>

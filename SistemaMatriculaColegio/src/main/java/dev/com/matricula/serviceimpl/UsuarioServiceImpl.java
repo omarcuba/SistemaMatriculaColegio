@@ -16,29 +16,27 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Override
   public boolean registrarUsuario(Usuario usuarioP) {
     usuarioDao = new UsuarioDaoImpl();
-    boolean rspt = usuarioDao.insertarUsuario(usuarioP);
+    boolean rspt = usuarioDao.registrarUsuario(usuarioP);
     return rspt;
   }
 
   @Override
   public boolean registrarAccesoRol(RolUsuario rolUsuarioP) {
     rolUsuarioDao = new RolUsuarioDaoImpl();
-    boolean rspt = rolUsuarioDao.insertarRolUsuario(rolUsuarioP);
+    boolean rspt = rolUsuarioDao.registrarRolUsuario(rolUsuarioP);
     return rspt;
   }
 
   @Override
-  public String BuscarUltimoidRolUsuario() {
+  public Integer buscarUltimoidRolUsuario() {
     rolUsuarioDao = new RolUsuarioDaoImpl();
-    String Codigo = rolUsuarioDao.obtenerUltimoIdRolUsuario();
-    return Codigo;
+    return rolUsuarioDao.obtenerUltimoIdRolUsuario();
   }
 
   @Override
-  public String BuscarUltimoidUsuario() {
+  public Integer buscarUltimoidUsuario() {
     usuarioDao = new UsuarioDaoImpl();
-    String Codigo = usuarioDao.obtenerUltimoIdUsuario();
-    return Codigo;
+    return usuarioDao.obtenerUltimoIdUsuario();
   }
 
 }
