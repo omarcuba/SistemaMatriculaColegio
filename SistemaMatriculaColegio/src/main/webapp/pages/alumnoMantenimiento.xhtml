@@ -11,11 +11,13 @@
 <h:body>
 	<ui:composition template="/plantillas/interna.xhtml">
 		<ui:define name="body">
-			<p:panelGrid columns="3" id="panel">
+			<h:form prependId="false">
+				<p:panelGrid columns="3" id="panel" styleClass="panelGridEstandar">
 
-				<h:outputText value="los campos marcados con (*) son obligatorios." />
-
-				<h:form prependId="false">
+					<f:facet name="header">
+						<h:outputText
+							value="Los campos marcados con (*) son obligatorios." />
+					</f:facet>
 
 					<h:outputLabel value="Nombres (*)" />
 					<h:outputLabel value=" : " />
@@ -28,24 +30,25 @@
 					<p:inputMask value="#{AlumnoBean.alumno.apMaterno}" required="true" />
 					<h:outputLabel value="Fecha de Nacimiento (*)" />
 					<h:outputLabel value=" : " />
-					<p:inputMask value="#{AlumnoBean.alumno.fechaNacimiento}"
-						required="true">
-						<f:convertDateTime pattern="d/M/yyyy" />
-					</p:inputMask>
+					<p:calendar value="#{AlumnoBean.alumno.fechaNacimiento}"
+						showOn="button" pattern="dd/MM/yyyy"/>
 					<h:outputLabel value="Teléfono" />
 					<h:outputLabel value=" : " />
 					<p:inputMask value="#{AlumnoBean.alumno.telefono}" />
 					<h:outputLabel value="Sexo (*)" />
 					<h:outputLabel value=" : " />
 					<p:selectOneMenu value="#{AlumnoBean.alumno.sexo}">
-						<f:selectItem itemLabel="Seleccionar" itemValue="" />
+						<f:selectItem itemLabel="Seleccionar" itemValue="S" />
 						<f:selectItem itemLabel="Femenino" itemValue="F" />
 						<f:selectItem itemLabel="Masculino" itemValue="M" />
 					</p:selectOneMenu>
+					<h:outputLabel value="Email (*)" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.email}" required="true" />
 
-				</h:form>
+				</p:panelGrid>
+			</h:form>
 
-			</p:panelGrid>
 		</ui:define>
 	</ui:composition>
 </h:body>

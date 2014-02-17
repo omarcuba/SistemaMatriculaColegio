@@ -81,13 +81,16 @@ body {
 	width: 994px;
 }
 
+/* Plantilla Interna - Inicio ******************************************/
 #plantillaInterna {
+	
 }
 
 #cabeceraInterna {
 	background-color: #036fab;
 	color: white;
-	height: 100px; margin : 2px 2px 5px 2px;
+	height: 100px;
+	margin: 2px 2px 5px 2px;
 	padding: 5px;
 	position: relative;
 	vertical-align: top;
@@ -115,15 +118,34 @@ body {
 	padding: 5px;
 	vertical-align: top;
 	width: 1175px;
+	vertical-align: top;
 }
 
 #pieInterno {
 	background-color: #c2dfef;
 	clear: both;
-	height: 20px; margin : 0 2px 2px 2px;
+	height: 20px;
+	margin: 0 2px 2px 2px;
 	padding: 5px;
 	position: relative;
 	vertical-align: top;
 	width: 1410px;
 	margin: 0 2px 2px 2px;
 }
+/* Plantilla Interna - Fin ******************************************/
+
+/* Elementos Estandar - Inicio ******************************************/
+.panelGridEstandar td {
+	border: none;
+	font-size: 12px;
+}
+
+.panelGridEstandar tr {
+	border: none;
+}
+
+.panelGridEstandar label {
+  font-weight: bold;
+}
+
+/* Elementos Estandar - Fin ******************************************/
