@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/plantillas/interna.xhtml">
+		<ui:define name="body">
+			<p:panelGrid columns="3" id="panel">
+
+				<h:outputText value="los campos marcados con (*) son obligatorios." />
+
+				<h:form prependId="false">
+
+					<h:outputLabel value="Nombres (*)" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.nombre}" required="true" />
+					<h:outputLabel value="Apellido Paterno (*)" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.apPaterno}" required="true" />
+					<h:outputLabel value="Apellido Materno (*)" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.apMaterno}" required="true" />
+					<h:outputLabel value="Fecha de Nacimiento (*)" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.fechaNacimiento}"
+						required="true">
+						<f:convertDateTime pattern="d/M/yyyy" />
+					</p:inputMask>
+					<h:outputLabel value="Teléfono" />
+					<h:outputLabel value=" : " />
+					<p:inputMask value="#{AlumnoBean.alumno.telefono}" />
+					<h:outputLabel value="Sexo (*)" />
+					<h:outputLabel value=" : " />
+					<p:selectOneMenu value="#{AlumnoBean.alumno.sexo}">
+						<f:selectItem itemLabel="Seleccionar" itemValue="" />
+						<f:selectItem itemLabel="Femenino" itemValue="F" />
+						<f:selectItem itemLabel="Masculino" itemValue="M" />
+					</p:selectOneMenu>
+
+				</h:form>
+
+			</p:panelGrid>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

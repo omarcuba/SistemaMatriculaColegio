@@ -80,3 +80,50 @@ body {
 	background-color: yellow;
 	width: 994px;
 }
+
+#plantillaInterna {
+}
+
+#cabeceraInterna {
+	background-color: #036fab;
+	color: white;
+	height: 100px; margin : 2px 2px 5px 2px;
+	padding: 5px;
+	position: relative;
+	vertical-align: top;
+	width: 1410px;
+	margin: 2px 2px 5px 2px;
+}
+
+#menuInterno {
+	background-color: #ece3a5;
+	display: inline-block;
+	float: left;
+	margin: 0px 5px 5px 2px;
+	min-height: 500px;
+	padding: 5px;
+	vertical-align: top;
+	width: 220px;
+}
+
+#contenidoInterno {
+	background-color: white;
+	display: inline-block;
+	float: left;
+	margin: 0 2px 5px 0;
+	min-height: 500px;
+	padding: 5px;
+	vertical-align: top;
+	width: 1175px;
+}
+
+#pieInterno {
+	background-color: #c2dfef;
+	clear: both;
+	height: 20px; margin : 0 2px 2px 2px;
+	padding: 5px;
+	position: relative;
+	vertical-align: top;
+	width: 1410px;
+	margin: 0 2px 2px 2px;
+}
