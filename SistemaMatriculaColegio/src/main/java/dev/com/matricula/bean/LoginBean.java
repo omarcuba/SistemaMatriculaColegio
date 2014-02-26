@@ -42,10 +42,19 @@ public class LoginBean implements Serializable {
         if (rolUsuario != null) {
           this.rol = "" + rolUsuario.getRol().getIdRol();
           if (getRol().equals("1")) {
-            retorno = "INTRANET";
+            retorno = "CONSULTAS";
           }
           if (getRol().equals("2")) {
+            retorno = "CONSULTAS";
+          }
+          if (getRol().equals("3")) {
+            retorno = "PROFESOR";
+          }
+          if (getRol().equals("4")) {
             retorno = "INTRANET";
+          }
+          if (getRol().equals("5")) {
+            retorno = "ADMINISTRADOR";
           }
         }
       }

@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 
+
 	<navigation-rule>
 
 		<navigation-case>
@@ -23,6 +24,11 @@
 		</navigation-case>
 
 		<navigation-case>
+			<from-outcome>CONSULTAS</from-outcome>
+			<to-view-id>/pages/consultas.xhtml</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
 			<from-outcome>REGISTRAR_USUARIO</from-outcome>
 			<to-view-id>/pages/registrarUsuario.xhtml</to-view-id>
 		</navigation-case>
@@ -31,6 +37,7 @@
 			<from-outcome>RECUPERAR_CUENTA</from-outcome>
 			<to-view-id>/pages/recuperarCuenta.xhtml</to-view-id>
 		</navigation-case>
+
 
 	</navigation-rule>
 </faces-config>

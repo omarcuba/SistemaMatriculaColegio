@@ -6,4 +6,5 @@ public interface AlumnoDao {
 
   boolean insertarAlumno(Alumno alumno);
 
+  public Alumno obtenerDatoAlumno(String codigo);
 }

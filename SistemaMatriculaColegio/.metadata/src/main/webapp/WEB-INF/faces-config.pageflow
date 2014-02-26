@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13926134185140" configfile="/SistemaMatriculaColegio/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1138" id="pf13932957471240" outlinks="pf13932957471241 pf13932957471242 pf13932957471243 pf13932957471244 pf13932957471255 pf13933360294900" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="inicio.xhtml" x="338" y="178" id="pf13932957471257" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13932957471241" path="/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="338" y="562" id="pf13932957471258" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf13932957471242" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/intranet.xhtml" x="338" y="946" id="pf13932957471259" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf13932957471243" path="/pages/intranet.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/registrarUsuario.xhtml" x="338" y="1330" id="pf139329574712510" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf13932957471244" path="/pages/registrarUsuario.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/recuperarCuenta.xhtml" x="338" y="1714" id="pf139329574712511" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf13932957471255" path="/pages/recuperarCuenta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/consultas.xhtml" id="pf13933360294901" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf13933360294900" path="/pages/consultas.xhtml"/>
+  <links id="pf13932957471241" target="pf13932957471257" source="pf13932957471240" outcome="INICIO"/>
+  <links id="pf13932957471242" target="pf13932957471258" source="pf13932957471240" outcome="LOGIN"/>
+  <links id="pf13932957471243" target="pf13932957471259" source="pf13932957471240" outcome="INTRANET"/>
+  <links id="pf13932957471244" target="pf139329574712510" source="pf13932957471240" outcome="REGISTRAR_USUARIO"/>
+  <links id="pf13932957471255" target="pf139329574712511" source="pf13932957471240" outcome="RECUPERAR_CUENTA"/>
+  <links id="pf13933360294900" target="pf13933360294901" source="pf13932957471240" outcome="CONSULTAS"/>
+</pageflow:Pageflow>

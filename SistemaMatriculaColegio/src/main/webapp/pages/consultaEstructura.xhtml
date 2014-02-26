@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="util/css/estiloInicio.css" rel="stylesheet"
+			type="text/css" />
+		<style type="text/css">
+@import url("../util/css/estiloInicio.css");
+</style>
+	</h:head>
+
+	<h:body>
+		<div id="plantillaInterna">
+			<div id="estructuraCabecera" align="center">
+				<ui:insert name="header">
+					<h:panelGrid columns="2">
+						<h:graphicImage url="/util/image/campus.jpg" />
+						<table width="290px">
+							<tbody>
+								<tr>
+									<th><h:outputText value="USAURIO :" /></th>
+									<th><h:outputText value="Patricia Flores Huapaya" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="TIPO :" /></th>
+									<th><h:outputText value="Alumno - 5to Grado" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="DETALLE :" /></th>
+									<th><h:outputText value="Ninguno" /></th>
+								</tr>
+							</tbody>
+						</table>
+					</h:panelGrid>
+				</ui:insert>
+			</div>
+			<p:separator />
+			<div align="center">
+				<table>
+					<tbody>
+						<tr>
+							<th><div id="estructuraCuerpo">
+									<ui:insert name="menu">
+										<h:form>
+											<p:growl id="mensajes" autoUpdate="true" />
+
+											<p:panelMenu style="width:180px;">
+												<p:submenu label="Información" style="font-size: 11px;">
+													<p:menuitem value="Datos de Alumno"
+														action="/pages/consultaDatoAlumno.xhtml"
+														style="font-size: 11px;" icon="ui-icon-disk" />
+													<p:menuitem value="Notas generales"
+														action="/pages/consultaNotas.xhtml"
+														style="font-size: 11px;" icon="ui-icon-disk" />
+													<p:menuitem value="Cursos matriculados"
+														action="/pages/consultaCursos.xhtml"
+														style="font-size: 11px;" icon="ui-icon-disk" />
+													<p:menuitem value="Alumnos del grado"
+														action="/pages/consultaAlumnos.xhtml"
+														style="font-size: 11px;" icon="ui-icon-disk" />
+													<p:menuitem value="Asistencia del alumno"
+														style="font-size: 11px;" icon="ui-icon-signal" />
+												</p:submenu>
+												<p:submenu label="Mantenimiento" style="font-size: 11px;">
+													<p:menuitem value="Alumno"
+														action="/pages/consultaCursos.xhtml"
+														style="font-size: 11px;" icon="ui-icon-disk" />
+													<p:menuitem value="Apoderado" style="font-size: 11px;"
+														icon="ui-icon-signal" />
+													<p:menuitem value="Parentesco" style="font-size: 11px;"
+														icon="ui-icon-signal" />
+													<p:submenu label="Avanzado" style="font-size: 11px;">
+														<p:menuitem value="Docente" style="font-size: 11px;"
+															icon="ui-icon-signal" />
+														<p:menuitem value="Curso"
+															action="/pages/consultaCursos.xhtml"
+															style="font-size: 11px;" icon="ui-icon-disk" />
+														<p:menuitem value="Aula" style="font-size: 11px;"
+															icon="ui-icon-signal" />
+													</p:submenu>
+												</p:submenu>
+												<p:submenu label="Configuración" style="font-size: 11px;">
+													<p:menuitem value="Año Escolar" style="font-size: 11px;"
+														icon="ui-icon-signal" />
+													<p:menuitem value="Horario" style="font-size: 11px;"
+														icon="ui-icon-signal" />
+													<p:menuitem value="Asignación" style="font-size: 11px;"
+														icon="ui-icon-signal" />
+												</p:submenu>
+											</p:panelMenu>
+											<p:separator />
+											<p:accordionPanel>
+												<p:tab title="Información" style="font-size: 11px;">
+													<h:panelGrid columns="2" cellpadding="10">
+														<h:outputText value="Mas adelante se implementará OK" />
+													</h:panelGrid>
+												</p:tab>
+												<p:tab title="Consultas" style="font-size: 11px;">
+													<h:panelGrid columns="2" cellpadding="10">
+														<h:outputText
+															value="Sigues dudando sobre esto, paciencia..." />
+													</h:panelGrid>
+												</p:tab>
+												<p:tab title="Contactos" style="font-size: 11px;">
+													<h:panelGrid columns="2" cellpadding="10">
+														<h:outputText
+															value="Carambas, luego se va a implementar :D" />
+													</h:panelGrid>
+												</p:tab>
+											</p:accordionPanel>
+										</h:form>
+									</ui:insert>
+								</div></th>
+							<th><div id="estructuraSemiCuerpo">
+									<ui:insert name="body">
+
+									</ui:insert>
+								</div></th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</h:body>
+
+</f:view>
+
+</html>

@@ -81,6 +81,42 @@ body {
 	width: 994px;
 }
 
+/******MANEJA TUS ESTILOS CSS PARA LUEGO JUNTARLOS*****EMPIEZO DE ACA
+PARA LA ESTRUCTURA DE CABECERA DE CONSULTA DE ALUMNOS***/
+#estructuraCabecera {
+	background-color: #036fab;
+	color: white;
+	height: 150px;
+	min-width: "1000px";
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+}
+
+#estructuraCuerpo {
+	background-color: #BDBDBD;
+	float: left;
+	margin: 0px 5px 5px 2px;
+	min-height: 500px;
+	padding: 5px;
+	vertical-align: top;
+	width: 180px;
+}
+
+#estructuraSemiCuerpo {
+	background-color: #036fa1;
+	border: 2px;
+	float: right;
+	height: 500px;
+	margin: 0 2px 5px 0;
+	min-higth: 500px;
+	padding: 5px;
+	vertical-align: top;
+	width: 780px;
+}
+
+/*********************FIN DE CSS***************************/
+
 /* Plantilla Interna - Inicio ******************************************/
 #plantillaInterna {
 	
@@ -145,7 +181,7 @@ body {
 }
 
 .panelGridEstandar label {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 /* Elementos Estandar - Fin ******************************************/

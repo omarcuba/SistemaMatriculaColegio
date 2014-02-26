@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/consultaEstructura.xhtml">
+		<ui:define name="body">
+			<h:form prependId="false">
+				<p:dataTable id="cars" var="car" value="#{tableBean.smallCarsModel}"
+					rowKey="#{car.model}" selection="#{tableBean.selectedCar}"
+					selectionMode="single">
+
+					<f:facet name="header">  
+            DETALLE DE ALUMNOS PERTENECIENTE AL GRADO  
+        </f:facet>
+					<p:column headerText="NOMBRE DE ALUMNOS" style="font-size:12px;">  
+            #{car.nombre}  
+        </p:column>
+					<p:column headerText="DNI" style="font-size:12px;" width="80">  
+            #{car.dni}  
+        </p:column>
+					<p:column headerText="Sexo" style="font-size:12px;" width="50">  
+            #{car.sexo}  
+        </p:column>
+					<p:column headerText="Edad" style="font-size:12px;" width="50">  
+            #{car.edad}  
+        </p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
