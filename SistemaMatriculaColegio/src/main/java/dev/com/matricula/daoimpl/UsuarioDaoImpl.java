@@ -50,13 +50,6 @@ public class UsuarioDaoImpl extends SessionFactoryImpl implements UsuarioDao {
     return usuario;
   }
 
-  @Override
-  public String mostrarConsulta() {
-    Session session = getSessionFactory().openSession();
-    Query query = session.createSQLQuery("select max(idrolusuario+1) from RolUsuario");
-    Object obj = query.uniqueResult();
-    session.close();
-    return obj.toString();
-  }
+  
 
 }

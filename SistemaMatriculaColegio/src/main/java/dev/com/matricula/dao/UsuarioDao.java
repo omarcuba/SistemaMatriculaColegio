@@ -10,6 +10,4 @@ public interface UsuarioDao {
 
   public Usuario obtenerDatoUsuarioAcceso(String usuario, String clave);
 
-  public String mostrarConsulta();
-
 }

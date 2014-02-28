@@ -18,57 +18,52 @@
 				<h:form id="form">
 					<p:panel header="Dato general del Alumno" style="font-size: 13px;">
 						<h:panelGrid columns="3" cellpadding="5" cellspacing="3">
-							<p:growl id="growl" showDetail="true" />
+
 							<h:outputLabel value="Identificador " />
 							<h:outputLabel value=" : " />
-							<h:outputText value="#{consultaDatoAlumno.alumno}" />
-							<!--  
+							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
+
 							<h:outputLabel value="Nombre " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
-
-							<h:outputLabel value="Ap. Materno " />
-							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.nombre}" />
 
 							<h:outputLabel value="Ap. Paterno " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.apPaterno}" />
+
+							<h:outputLabel value="Ap. Materno " />
+							<h:outputLabel value=" : " />
+							<h:outputText value="#{consultaDatoAlumno.alumno.apMaterno}" />
 
 							<h:outputLabel value="Dni " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" mask="99999999" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.telefono}" />
 
 							<h:outputLabel value="Fecha Nacim. " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText
+								value="#{consultaDatoAlumno.alumno.fechaNacimiento}" />
 
 							<h:outputLabel value="Teléfono " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.telefono}" />
 
 							<h:outputLabel value="Email " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.email}" />
 
 							<h:outputLabel value="Usuario " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
 
 							<h:outputLabel value="Grado " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
+							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
 
 							<h:outputLabel value="Sección " />
 							<h:outputLabel value=" : " />
-							<p:inputMask value="#{getAlumno.getNombre}" />
--->
-							<f:facet name="footer">
-								<p:commandButton id="loginButton" value="LlenarDatos"
-									update="growl" style="font-size:14px;"
-									action="#{consultaDatoAlumno.obtenerDatosAlumno}"
-									oncomplete=":form" />
-							</f:facet>
+							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
+
 						</h:panelGrid>
 
 					</p:panel>

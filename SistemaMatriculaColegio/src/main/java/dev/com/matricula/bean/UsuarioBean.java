@@ -2,8 +2,6 @@ package dev.com.matricula.bean;
 
 import java.io.Serializable;
 
-import dev.com.matricula.dao.UsuarioDao;
-import dev.com.matricula.daoimpl.UsuarioDaoImpl;
 import dev.com.matricula.model.Rol;
 import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
@@ -14,7 +12,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.naming.Context;
 
 @ManagedBean(name = "UsuarioBean")
 @SessionScoped
@@ -66,13 +63,6 @@ public class UsuarioBean implements Serializable {
     context.addMessage(null, new FacesMessage("Error en confirmación de contraseña",
             "No se pudo Registrar"));
     return "REGISTRAR_USUARIO";
-  }
-
-  public boolean mostrarConsulta() {
-    UsuarioDao usuarioDao = new UsuarioDaoImpl();
-    String mostrar = usuarioDao.mostrarConsulta();
-    System.out.println("Este dato Retorna: " + mostrar);
-    return false;
   }
 
   public RolUsuario getRolUsuario() {

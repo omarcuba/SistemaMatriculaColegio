@@ -33,9 +33,6 @@ public class AlumnoDaoImpl extends SessionFactoryImpl implements AlumnoDao {
     Criteria criteria = session.createCriteria(Alumno.class);
     criteria.add(Restrictions.eq(CODIGO, codigo));
     alumno = (Alumno) criteria.uniqueResult();
-    System.out.println("idUsuario: " + alumno.getIdAlumno());
-    System.out.println("Nombre: " + alumno.getNombre());
-    System.out.println("Apellido: " + alumno.getApPaterno());
     session.close();
     return alumno;
   }
