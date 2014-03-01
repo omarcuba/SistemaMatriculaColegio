@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="dev.com.matricula.model.Docente" table="docente" catalog="bdmatricula">
+        <id name="idDocente" type="int">
+            <column name="IdDocente" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="apPaterno" type="string">
+            <column name="ApPaterno" length="50" not-null="true" />
+        </property>
+        <property name="apMaterno" type="string">
+            <column name="ApMaterno" length="50" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="50" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="12" />
+        </property>
+        <property name="dni" type="string">
+            <column name="Dni" length="8" not-null="true" />
+        </property>
+        <property name="especialidad" type="string">
+            <column name="Especialidad" length="25" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="Sexo" length="1" not-null="true" />
+        </property>
+        <property name="codUsuario" type="java.lang.Integer">
+            <column name="CodUsuario" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="FechaOperacion" length="19" />
+        </property>
+        <set name="horarios" table="horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdDocente" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Horario" />
+        </set>
+        <set name="asignacions" table="asignacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdDocente" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Asignacion" />
+        </set>
+    </class>
+</hibernate-mapping>

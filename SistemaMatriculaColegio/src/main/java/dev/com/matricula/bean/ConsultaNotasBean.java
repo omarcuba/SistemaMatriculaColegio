@@ -29,14 +29,12 @@ public class ConsultaNotasBean implements Serializable {
     alumno = new Alumno();
     curso = new Curso();
     notas = new Notas();
-    // obtenerDatosAlumno();
+    obtenerNotasAlumno();
   }
 
   public List<Notas> obtenerNotasAlumno() {
     consultaNotasService = new ConsultaNotasServiceImpl();
-    // Se debe realizar la consulta mediante la BD iniciada por el usuario
-    // obteniendo así el codigo del alumno al cual consultar
-    notasList = (ArrayList<Notas>) consultaNotasService.obtenerNotasAlumno("1001");
+    notasList = (ArrayList<Notas>) consultaNotasService.obtenerNotasAlumno(LoginBean.CODIGO_ALUMNO);
     return notasList;
 
   }

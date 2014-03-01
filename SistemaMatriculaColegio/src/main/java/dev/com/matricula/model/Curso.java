@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,8 +11,8 @@ import java.util.Set;
  */
 public class Curso implements java.io.Serializable {
 
-  private String idCurso;
-  private String nombreCurso;
+  private int idCurso;
+  private String descripcion;
   private short horasTeoricas;
   private short horasPracticas;
   private char nivel;
@@ -27,21 +27,21 @@ public class Curso implements java.io.Serializable {
   public Curso() {
   }
 
-  public Curso(String idCurso, String nombreCurso, short horasTeoricas, short horasPracticas,
+  public Curso(int idCurso, String descripcion, short horasTeoricas, short horasPracticas,
           char nivel, char grado) {
     this.idCurso = idCurso;
-    this.nombreCurso = nombreCurso;
+    this.descripcion = descripcion;
     this.horasTeoricas = horasTeoricas;
     this.horasPracticas = horasPracticas;
     this.nivel = nivel;
     this.grado = grado;
   }
 
-  public Curso(String idCurso, String nombreCurso, short horasTeoricas, short horasPracticas,
+  public Curso(int idCurso, String descripcion, short horasTeoricas, short horasPracticas,
           char nivel, char grado, Integer codUsuario, Date fechaOperacion, Set notases,
           Set promedios, Set horarios, Set asignacions) {
     this.idCurso = idCurso;
-    this.nombreCurso = nombreCurso;
+    this.descripcion = descripcion;
     this.horasTeoricas = horasTeoricas;
     this.horasPracticas = horasPracticas;
     this.nivel = nivel;
@@ -54,20 +54,20 @@ public class Curso implements java.io.Serializable {
     this.asignacions = asignacions;
   }
 
-  public String getIdCurso() {
+  public int getIdCurso() {
     return this.idCurso;
   }
 
-  public void setIdCurso(String idCurso) {
+  public void setIdCurso(int idCurso) {
     this.idCurso = idCurso;
   }
 
-  public String getNombreCurso() {
-    return this.nombreCurso;
+  public String getDescripcion() {
+    return this.descripcion;
   }
 
-  public void setNombreCurso(String nombreCurso) {
-    this.nombreCurso = nombreCurso;
+  public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
   }
 
   public short getHorasTeoricas() {

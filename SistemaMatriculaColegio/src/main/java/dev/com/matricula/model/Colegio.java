@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;

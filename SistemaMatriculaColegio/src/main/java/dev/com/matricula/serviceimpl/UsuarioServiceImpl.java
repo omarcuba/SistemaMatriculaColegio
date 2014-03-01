@@ -4,7 +4,7 @@ import dev.com.matricula.dao.UsuarioDao;
 import dev.com.matricula.dao.RolUsuarioDao;
 import dev.com.matricula.daoimpl.UsuarioDaoImpl;
 import dev.com.matricula.daoimpl.RolUsuarioDaoImpl;
-import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
 import dev.com.matricula.service.UsuarioService;
 
@@ -21,7 +21,7 @@ public class UsuarioServiceImpl implements UsuarioService {
   }
 
   @Override
-  public boolean registrarAccesoRol(RolUsuario rolUsuarioP) {
+  public boolean registrarAccesoRol(Rolusuario rolUsuarioP) {
     rolUsuarioDao = new RolUsuarioDaoImpl();
     boolean rspt = rolUsuarioDao.registrarRolUsuario(rolUsuarioP);
     return rspt;

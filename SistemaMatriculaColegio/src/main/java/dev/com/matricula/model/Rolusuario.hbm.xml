@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="dev.com.matricula.model.Rolusuario" table="rolusuario" catalog="bdmatricula">
+        <id name="idRolUsuario" type="int">
+            <column name="IdRolUsuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="dev.com.matricula.model.Usuario" fetch="select">
+            <column name="IdUsuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rol" class="dev.com.matricula.model.Rol" fetch="select">
+            <column name="IdRol" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="char">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="codUsuario" type="java.lang.Integer">
+            <column name="CodUsuario" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="FechaOperacion" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

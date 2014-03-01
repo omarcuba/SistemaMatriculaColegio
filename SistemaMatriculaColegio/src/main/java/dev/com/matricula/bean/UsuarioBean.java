@@ -3,7 +3,7 @@ package dev.com.matricula.bean;
 import java.io.Serializable;
 
 import dev.com.matricula.model.Rol;
-import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
 import dev.com.matricula.service.UsuarioService;
 import dev.com.matricula.serviceimpl.UsuarioServiceImpl;
@@ -19,7 +19,7 @@ public class UsuarioBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Usuario usuario;
-  private RolUsuario rolUsuario;
+  private Rolusuario rolUsuario;
   private Rol rol;
   private UsuarioService usuarioService;
   private String confirma = "";
@@ -29,7 +29,7 @@ public class UsuarioBean implements Serializable {
   public UsuarioBean() {
     usuario = new Usuario();
     rol = new Rol();
-    rolUsuario = new RolUsuario();
+    rolUsuario = new Rolusuario();
   }
 
   public String registrarUsuario() {
@@ -65,11 +65,11 @@ public class UsuarioBean implements Serializable {
     return "REGISTRAR_USUARIO";
   }
 
-  public RolUsuario getRolUsuario() {
+  public Rolusuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(RolUsuario rolUsuario) {
+  public void setRolUsuario(Rolusuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 

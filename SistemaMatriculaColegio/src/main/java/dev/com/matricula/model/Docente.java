@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Docente implements java.io.Serializable {
 
-  private String idDocente;
+  private int idDocente;
   private String nombre;
   private String apPaterno;
   private String apMaterno;
@@ -29,7 +29,7 @@ public class Docente implements java.io.Serializable {
   public Docente() {
   }
 
-  public Docente(String idDocente, String nombre, String apPaterno, String apMaterno, String dni,
+  public Docente(int idDocente, String nombre, String apPaterno, String apMaterno, String dni,
           String especialidad, char sexo) {
     this.idDocente = idDocente;
     this.nombre = nombre;
@@ -40,7 +40,7 @@ public class Docente implements java.io.Serializable {
     this.sexo = sexo;
   }
 
-  public Docente(String idDocente, String nombre, String apPaterno, String apMaterno,
+  public Docente(int idDocente, String nombre, String apPaterno, String apMaterno,
           String direccion, String telefono, String dni, String especialidad, String email,
           char sexo, Integer codUsuario, Date fechaOperacion, Set horarios, Set asignacions) {
     this.idDocente = idDocente;
@@ -59,11 +59,11 @@ public class Docente implements java.io.Serializable {
     this.asignacions = asignacions;
   }
 
-  public String getIdDocente() {
+  public int getIdDocente() {
     return this.idDocente;
   }
 
-  public void setIdDocente(String idDocente) {
+  public void setIdDocente(int idDocente) {
     this.idDocente = idDocente;
   }
 

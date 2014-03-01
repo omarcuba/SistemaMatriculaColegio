@@ -27,7 +27,7 @@ public class AlumnoDaoImpl extends SessionFactoryImpl implements AlumnoDao {
   }
 
   @Override
-  public Alumno obtenerDatoAlumno(String codigo) {
+  public Alumno obtenerDatoAlumno(int codigo) {
     Session session = getSessionFactory().openSession();
     session.beginTransaction();
     Criteria criteria = session.createCriteria(Alumno.class);

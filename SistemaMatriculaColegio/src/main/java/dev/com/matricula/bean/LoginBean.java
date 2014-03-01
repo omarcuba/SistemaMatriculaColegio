@@ -1,9 +1,11 @@
 package dev.com.matricula.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
+import dev.com.matricula.model.Usuarioalumno;
 import dev.com.matricula.service.LoginService;
 import dev.com.matricula.serviceimpl.LoginServiceImpl;
 
@@ -16,17 +18,20 @@ public class LoginBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Usuario usuario;
-  private RolUsuario rolUsuario;
+  private Rolusuario rolUsuario;
   private LoginService loginService;
+  private ArrayList<Usuarioalumno> usuarioAlumnosList;
   private String ruta = "";
   private String idUsuario = "";
   private String rol = "";
+  private int seleccionAlumno = 0;
   public static String USUARIO = "";
   public static int COD_USUARIO;
+  public static int CODIGO_ALUMNO;
 
   public LoginBean() {
     usuario = new Usuario();
-    rolUsuario = new RolUsuario();
+    rolUsuario = new Rolusuario();
   }
 
   public String login() {
@@ -56,10 +61,20 @@ public class LoginBean implements Serializable {
           if (getRol().equals("5")) {
             retorno = "ADMINISTRADOR";
           }
+          obtenerDatosAlumno();
         }
       }
     }
     return retorno;
+  }
+
+  public void obtenerDatosAlumno() {
+    loginService = new LoginServiceImpl();
+    usuarioAlumnosList = (ArrayList<Usuarioalumno>) loginService.obtenerIdAlumno(COD_USUARIO);
+    // Se necesita análisis para colocar el valor del tipo de alumno para
+    // mostrar con "SELECCIONALUMNO"
+    // Dato que se ingresara por necesidad de Usuario
+    CODIGO_ALUMNO = usuarioAlumnosList.get(seleccionAlumno).getIdAlumno();
   }
 
   public LoginService getLoginService() {
@@ -86,11 +101,11 @@ public class LoginBean implements Serializable {
     this.usuario = usuario;
   }
 
-  public RolUsuario getRolUsuario() {
+  public Rolusuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(RolUsuario rolUsuario) {
+  public void setRolUsuario(Rolusuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 
@@ -108,6 +123,22 @@ public class LoginBean implements Serializable {
 
   public void setRol(String rol) {
     this.rol = rol;
+  }
+
+  public int getSeleccionAlumno() {
+    return seleccionAlumno;
+  }
+
+  public void setSeleccionAlumno(int seleccionAlumno) {
+    this.seleccionAlumno = seleccionAlumno;
+  }
+
+  public ArrayList<Usuarioalumno> getUsuarioAlumnosList() {
+    return usuarioAlumnosList;
+  }
+
+  public void setUsuarioAlumnosList(ArrayList<Usuarioalumno> usuarioAlumnosList) {
+    this.usuarioAlumnosList = usuarioAlumnosList;
   }
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="dev.com.matricula.model.Promedio" table="promedio" catalog="bdmatricula">
+        <id name="idPromedio" type="int">
+            <column name="IdPromedio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="curso" class="dev.com.matricula.model.Curso" fetch="select">
+            <column name="IdCurso" not-null="true" />
+        </many-to-one>
+        <many-to-one name="alumno" class="dev.com.matricula.model.Alumno" fetch="select">
+            <column name="IdAlumno" not-null="true" />
+        </many-to-one>
+        <property name="promedio" type="big_decimal">
+            <column name="Promedio" precision="5" />
+        </property>
+        <property name="codUsuario" type="java.lang.Short">
+            <column name="CodUsuario" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="FechaOperacion" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

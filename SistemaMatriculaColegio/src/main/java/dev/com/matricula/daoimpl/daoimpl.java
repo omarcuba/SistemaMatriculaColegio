@@ -25,6 +25,7 @@ public class daoimpl extends SessionFactoryImpl implements dao {
   private ArrayList<Notas> lista;
   String CODIGO_ALUMNO = "idAlumno";
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<Notas> mostrarNotas(String codigo) {
     Session session = getSessionFactory().openSession();

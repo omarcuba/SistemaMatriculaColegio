@@ -1,13 +1,13 @@
 package dev.com.matricula.dao;
 
-import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Rolusuario;
 
 public interface RolUsuarioDao {
 
-  public boolean registrarRolUsuario(RolUsuario rolUsuario);
+  public boolean registrarRolUsuario(Rolusuario rolUsuario);
 
   public Integer obtenerUltimoIdRolUsuario();
 
-  public RolUsuario obtenerDatoRolUsuario(String codUsuario);
+  public Rolusuario obtenerDatoRolUsuario(String codUsuario);
 
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="dev.com.matricula.model.Curso" table="curso" catalog="bdmatricula">
+        <id name="idCurso" type="int">
+            <column name="IdCurso" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="50" not-null="true" />
+        </property>
+        <property name="horasTeoricas" type="short">
+            <column name="HorasTeoricas" not-null="true" />
+        </property>
+        <property name="horasPracticas" type="short">
+            <column name="HorasPracticas" not-null="true" />
+        </property>
+        <property name="nivel" type="char">
+            <column name="Nivel" length="1" not-null="true" />
+        </property>
+        <property name="grado" type="char">
+            <column name="Grado" length="1" not-null="true" />
+        </property>
+        <property name="codUsuario" type="java.lang.Integer">
+            <column name="CodUsuario" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="FechaOperacion" length="19" />
+        </property>
+        <set name="notases" table="notas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdCurso" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Notas" />
+        </set>
+        <set name="promedios" table="promedio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdCurso" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Promedio" />
+        </set>
+        <set name="horarios" table="horario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdCurso" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Horario" />
+        </set>
+        <set name="asignacions" table="asignacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdCurso" not-null="true" />
+            </key>
+            <one-to-many class="dev.com.matricula.model.Asignacion" />
+        </set>
+    </class>
+</hibernate-mapping>

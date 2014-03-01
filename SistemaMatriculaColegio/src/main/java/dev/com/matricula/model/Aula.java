@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Aula implements java.io.Serializable {
 
-  private String idAula;
+  private int idAula;
   private String tipo;
   private short capacidad;
   private Integer codUsuario;
@@ -21,13 +21,13 @@ public class Aula implements java.io.Serializable {
   public Aula() {
   }
 
-  public Aula(String idAula, String tipo, short capacidad) {
+  public Aula(int idAula, String tipo, short capacidad) {
     this.idAula = idAula;
     this.tipo = tipo;
     this.capacidad = capacidad;
   }
 
-  public Aula(String idAula, String tipo, short capacidad, Integer codUsuario, Date fechaOperacion,
+  public Aula(int idAula, String tipo, short capacidad, Integer codUsuario, Date fechaOperacion,
           Set horarios) {
     this.idAula = idAula;
     this.tipo = tipo;
@@ -37,11 +37,11 @@ public class Aula implements java.io.Serializable {
     this.horarios = horarios;
   }
 
-  public String getIdAula() {
+  public int getIdAula() {
     return this.idAula;
   }
 
-  public void setIdAula(String idAula) {
+  public void setIdAula(int idAula) {
     this.idAula = idAula;
   }
 

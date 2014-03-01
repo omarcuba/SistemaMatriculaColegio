@@ -22,11 +22,11 @@ public class ConsultaDatoAlumnoBean implements Serializable {
     obtenerDatosAlumno();
   }
 
-  public Alumno obtenerDatosAlumno() {
+  private Alumno obtenerDatosAlumno() {
     consultaDatoAlumnoService = new ConsultaDatoAlumnoServiceImpl();
-    // Se debe realizar la consulta mediante la BD iniciada por el usuario
-    // obteniendo así el codigo del alumno al cual consultar
-    alumno = consultaDatoAlumnoService.obtenerDatoAlumno("1001");
+    alumno = consultaDatoAlumnoService.obtenerDatoAlumno(LoginBean.CODIGO_ALUMNO);
+    System.out.println("Alumno: " + alumno.getNombre()); // No vuelve a cargar
+                                                         // para la segunda vez
     return alumno;
   }
 

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
+	<session-factory name="">
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdmatricula</property>
@@ -13,22 +12,23 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.connection.pool_size">1</property>
 
-		<mapping resource="/mappings/Alumno.hbm.xml" />
-		<mapping resource="/mappings/AnhoEscolar.hbm.xml" />
-		<mapping resource="/mappings/Apoderado.hbm.xml" />
-		<mapping resource="/mappings/Asignacion.hbm.xml" />
-		<mapping resource="/mappings/Aula.hbm.xml" />
-		<mapping resource="/mappings/Colegio.hbm.xml" />
-		<mapping resource="/mappings/Curso.hbm.xml" />
-		<mapping resource="/mappings/Docente.hbm.xml" />
-		<mapping resource="/mappings/Horario.hbm.xml" />
-		<mapping resource="/mappings/Matricula.hbm.xml" />
-		<mapping resource="/mappings/Notas.hbm.xml" />
-		<mapping resource="/mappings/Parentesco.hbm.xml" />
-		<mapping resource="/mappings/Promedio.hbm.xml" />
-		<mapping resource="/mappings/Rol.hbm.xml" />
-		<mapping resource="/mappings/RolUsuario.hbm.xml" />
-		<mapping resource="/mappings/Usuario.hbm.xml" />
-
+		<mapping resource="dev/com/matricula/model/Usuario.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Usuarioalumno.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Anhoescolar.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Apoderado.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Asignacion.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Aula.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Colegio.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Curso.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Docente.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Horario.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Matricula.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Notas.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Parentesco.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Rol.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Rolusuario.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Usuariodocente.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Promedio.hbm.xml" />
+		<mapping resource="dev/com/matricula/model/Alumno.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

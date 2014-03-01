@@ -50,6 +50,4 @@ public class UsuarioDaoImpl extends SessionFactoryImpl implements UsuarioDao {
     return usuario;
   }
 
-  
-
 }

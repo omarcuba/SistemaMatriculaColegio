@@ -11,7 +11,7 @@ public class ConsultaNotasServiceImpl implements ConsultaNotasService {
   private NotasDao notasDao;
 
   @Override
-  public List<Notas> obtenerNotasAlumno(String codigo) {
+  public List<Notas> obtenerNotasAlumno(int codigo) {
     notasDao = new NotasDaoImpl();
     return notasDao.obtenerNotasAlumno(codigo);
   }

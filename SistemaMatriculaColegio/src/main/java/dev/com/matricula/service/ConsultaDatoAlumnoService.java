@@ -4,6 +4,6 @@ import dev.com.matricula.model.Alumno;
 
 public interface ConsultaDatoAlumnoService {
 
-  public Alumno obtenerDatoAlumno(String codigo);
+  public Alumno obtenerDatoAlumno(int codigo);
 
 }

@@ -6,15 +6,15 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import dev.com.matricula.dao.RolUsuarioDao;
-import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Rolusuario;
 
 public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioDao {
 
   String ID_USUARIO = "usuario.idUsuario";
-  private RolUsuario rolUsuario;
+  private Rolusuario rolUsuario;
 
   @Override
-  public boolean registrarRolUsuario(RolUsuario rolUsuario) {
+  public boolean registrarRolUsuario(Rolusuario rolUsuario) {
     try {
       Session session = getSessionFactory().openSession();
       session.beginTransaction();
@@ -37,12 +37,12 @@ public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioD
   }
 
   @Override
-  public RolUsuario obtenerDatoRolUsuario(String codUsuario) {
+  public Rolusuario obtenerDatoRolUsuario(String codUsuario) {
     Session session = getSessionFactory().openSession();
     session.beginTransaction();
-    Criteria criteria = session.createCriteria(RolUsuario.class);
+    Criteria criteria = session.createCriteria(Rolusuario.class);
     criteria.add(Restrictions.eq(ID_USUARIO, Integer.parseInt(codUsuario)));
-    rolUsuario = (RolUsuario) criteria.uniqueResult();
+    rolUsuario = (Rolusuario) criteria.uniqueResult();
     session.close();
     return rolUsuario;
   }

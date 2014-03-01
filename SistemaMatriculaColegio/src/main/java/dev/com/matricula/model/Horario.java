@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ import java.util.Date;
  */
 public class Horario implements java.io.Serializable {
 
-  private String idHorario;
+  private int idHorario;
   private Docente docente;
   private Aula aula;
   private Curso curso;
-  private AnhoEscolar anhoescolar;
+  private Anhoescolar anhoescolar;
   private String dia;
   private Date horaInicial;
   private Date horaFinal;
@@ -23,8 +23,8 @@ public class Horario implements java.io.Serializable {
   public Horario() {
   }
 
-  public Horario(String idHorario, Docente docente, Aula aula, Curso curso,
-          AnhoEscolar anhoescolar, String dia, Date horaInicial, Date horaFinal) {
+  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, Anhoescolar anhoescolar,
+          String dia, Date horaInicial, Date horaFinal) {
     this.idHorario = idHorario;
     this.docente = docente;
     this.aula = aula;
@@ -35,9 +35,8 @@ public class Horario implements java.io.Serializable {
     this.horaFinal = horaFinal;
   }
 
-  public Horario(String idHorario, Docente docente, Aula aula, Curso curso,
-          AnhoEscolar anhoescolar, String dia, Date horaInicial, Date horaFinal,
-          Integer codUsuario, Date fechaOperacion) {
+  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, Anhoescolar anhoescolar,
+          String dia, Date horaInicial, Date horaFinal, Integer codUsuario, Date fechaOperacion) {
     this.idHorario = idHorario;
     this.docente = docente;
     this.aula = aula;
@@ -50,11 +49,11 @@ public class Horario implements java.io.Serializable {
     this.fechaOperacion = fechaOperacion;
   }
 
-  public String getIdHorario() {
+  public int getIdHorario() {
     return this.idHorario;
   }
 
-  public void setIdHorario(String idHorario) {
+  public void setIdHorario(int idHorario) {
     this.idHorario = idHorario;
   }
 
@@ -82,11 +81,11 @@ public class Horario implements java.io.Serializable {
     this.curso = curso;
   }
 
-  public AnhoEscolar getAnhoescolar() {
+  public Anhoescolar getAnhoescolar() {
     return this.anhoescolar;
   }
 
-  public void setAnhoescolar(AnhoEscolar anhoescolar) {
+  public void setAnhoescolar(Anhoescolar anhoescolar) {
     this.anhoescolar = anhoescolar;
   }
 

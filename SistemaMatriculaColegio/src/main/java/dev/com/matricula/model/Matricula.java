@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ import java.util.Date;
  */
 public class Matricula implements java.io.Serializable {
 
-  private String idMatricula;
+  private int idMatricula;
   private Colegio colegio;
   private Alumno alumno;
   private Apoderado apoderado;
-  private AnhoEscolar anhoescolar;
+  private Anhoescolar anhoescolar;
   private Date fechaMatricula;
   private Date horaMatricula;
   private char nivel;
@@ -29,8 +29,8 @@ public class Matricula implements java.io.Serializable {
   public Matricula() {
   }
 
-  public Matricula(String idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
-          AnhoEscolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
+  public Matricula(int idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
+          Anhoescolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
           char seccion, char turno, char estado) {
     this.idMatricula = idMatricula;
     this.colegio = colegio;
@@ -46,8 +46,8 @@ public class Matricula implements java.io.Serializable {
     this.estado = estado;
   }
 
-  public Matricula(String idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
-          AnhoEscolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
+  public Matricula(int idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
+          Anhoescolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
           char seccion, char turno, String situacion, char estado, String observacion,
           Integer codUsuario, Date fechaOperacion) {
     this.idMatricula = idMatricula;
@@ -68,11 +68,11 @@ public class Matricula implements java.io.Serializable {
     this.fechaOperacion = fechaOperacion;
   }
 
-  public String getIdMatricula() {
+  public int getIdMatricula() {
     return this.idMatricula;
   }
 
-  public void setIdMatricula(String idMatricula) {
+  public void setIdMatricula(int idMatricula) {
     this.idMatricula = idMatricula;
   }
 
@@ -100,11 +100,11 @@ public class Matricula implements java.io.Serializable {
     this.apoderado = apoderado;
   }
 
-  public AnhoEscolar getAnhoescolar() {
+  public Anhoescolar getAnhoescolar() {
     return this.anhoescolar;
   }
 
-  public void setAnhoescolar(AnhoEscolar anhoescolar) {
+  public void setAnhoescolar(Anhoescolar anhoescolar) {
     this.anhoescolar = anhoescolar;
   }
 

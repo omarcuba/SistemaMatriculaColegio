@@ -13,37 +13,35 @@
 		<ui:define name="body">
 			<h:form id="form">
 
-				<p:dataTable id="cars" var="car" value="#{tableBean.smallCarsModel}"
-					rowKey="#{car.model}" selection="#{tableBean.selectedCar}"
-					selectionMode="single">
+				<p:dataTable value="#{consultaNotas.notasList}" var="noti">
 
-					<f:facet name="header">  
-            DETALLE GENERAL DE NOTAS DEL ALUMNO  
-        </f:facet>
+					<f:facet name="header">DETALLE GENERAL DE NOTAS DEL ALUMNO </f:facet>
+
 					<p:column headerText="DESCRIPCION DEL CURSO"
-						style="font-size:12px;">  
-            #{car.curso}  
-        </p:column>
-					<p:column headerText="1º Bim" style="font-size:12px;" width="50">  
-            #{car.bimA}  
-        </p:column>
-					<p:column headerText="2º Bim" style="font-size:12px;" width="50">  
-            #{car.bimB}  
-        </p:column>
-					<p:column headerText="3º Bim" style="font-size:12px;" width="50">  
-            #{car.bimC}  
-        </p:column>
-					<p:column headerText="4º Bim" style="font-size:12px;" width="50">  
-            #{car.bimD}  
-        </p:column>
-					<p:column headerText="Prom" style="font-size:12px;" width="50">  
-            #{car.promedio}  
-        </p:column>
+						style="font-size:12px;">
+						<h:outputText value="#{noti.curso.idCurso}" />
+					</p:column>
+
+					<p:column headerText="1º Bim" style="font-size:12px;" width="50">
+						<h:outputText value="#{noti.b1}" />
+					</p:column>
+					<p:column headerText="2º Bim" style="font-size:12px;" width="50">
+						<h:outputText value="#{noti.b2}" />
+					</p:column>
+					<p:column headerText="3º Bim" style="font-size:12px;" width="50">
+						<h:outputText value="#{noti.b3}" />
+					</p:column>
+					<p:column headerText="4º Bim" style="font-size:12px;" width="50">
+						<h:outputText value="#{noti.b4}" />
+					</p:column>
+					<p:column headerText="Prom" style="font-size:12px;" width="50">
+						<h:outputText value="#{noti.promedio}" />
+					</p:column>
 
 					<f:facet name="footer">
-						<p:commandButton id="viewButton" value="View"
+						<p:commandButton id="viewButton" value="Mostrar detalle"
 							icon="ui-icon-search" update=":form:display"
-							oncomplete="PF('carDialog').show()" />
+							style="font-size:12px;" oncomplete="PF('carDialog').show()" />
 					</f:facet>
 
 				</p:dataTable>

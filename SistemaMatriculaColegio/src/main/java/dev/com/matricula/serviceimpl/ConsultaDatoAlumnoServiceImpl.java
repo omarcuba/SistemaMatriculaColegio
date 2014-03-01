@@ -10,7 +10,7 @@ public class ConsultaDatoAlumnoServiceImpl implements ConsultaDatoAlumnoService 
   private AlumnoDao alumnoDao;
 
   @Override
-  public Alumno obtenerDatoAlumno(String codigo) {
+  public Alumno obtenerDatoAlumno(int codigo) {
     alumnoDao = new AlumnoDaoImpl();
     return alumnoDao.obtenerDatoAlumno(codigo);
   }

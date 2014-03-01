@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,12 +11,12 @@ import java.util.Set;
  */
 public class Apoderado implements java.io.Serializable {
 
-  private String idApoderado;
-  private String dni;
+  private int idApoderado;
   private String nombre;
   private String apPaterno;
   private String apMaterno;
   private char sexo;
+  private String dni;
   private String direccion;
   private Character estadoCivil;
   private String telefono;
@@ -28,25 +28,25 @@ public class Apoderado implements java.io.Serializable {
   public Apoderado() {
   }
 
-  public Apoderado(String idApoderado, String dni, String nombre, String apPaterno,
-          String apMaterno, char sexo) {
+  public Apoderado(int idApoderado, String nombre, String apPaterno, String apMaterno, char sexo,
+          String dni) {
     this.idApoderado = idApoderado;
-    this.dni = dni;
     this.nombre = nombre;
     this.apPaterno = apPaterno;
     this.apMaterno = apMaterno;
     this.sexo = sexo;
+    this.dni = dni;
   }
 
-  public Apoderado(String idApoderado, String dni, String nombre, String apPaterno,
-          String apMaterno, char sexo, String direccion, Character estadoCivil, String telefono,
-          Integer codUsuario, Date fechaOperacion, Set matriculas, Set parentescos) {
+  public Apoderado(int idApoderado, String nombre, String apPaterno, String apMaterno, char sexo,
+          String dni, String direccion, Character estadoCivil, String telefono, Integer codUsuario,
+          Date fechaOperacion, Set matriculas, Set parentescos) {
     this.idApoderado = idApoderado;
-    this.dni = dni;
     this.nombre = nombre;
     this.apPaterno = apPaterno;
     this.apMaterno = apMaterno;
     this.sexo = sexo;
+    this.dni = dni;
     this.direccion = direccion;
     this.estadoCivil = estadoCivil;
     this.telefono = telefono;
@@ -56,20 +56,12 @@ public class Apoderado implements java.io.Serializable {
     this.parentescos = parentescos;
   }
 
-  public String getIdApoderado() {
+  public int getIdApoderado() {
     return this.idApoderado;
   }
 
-  public void setIdApoderado(String idApoderado) {
+  public void setIdApoderado(int idApoderado) {
     this.idApoderado = idApoderado;
-  }
-
-  public String getDni() {
-    return this.dni;
-  }
-
-  public void setDni(String dni) {
-    this.dni = dni;
   }
 
   public String getNombre() {
@@ -102,6 +94,14 @@ public class Apoderado implements java.io.Serializable {
 
   public void setSexo(char sexo) {
     this.sexo = sexo;
+  }
+
+  public String getDni() {
+    return this.dni;
+  }
+
+  public void setDni(String dni) {
+    this.dni = dni;
   }
 
   public String getDireccion() {

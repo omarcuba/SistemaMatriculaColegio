@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="dev.com.matricula.model.Usuariodocente" table="usuariodocente" catalog="bdmatricula">
+        <id name="idUsuarioDocente" type="int">
+            <column name="IdUsuarioDocente" />
+            <generator class="assigned" />
+        </id>
+        <property name="idUsuario" type="int">
+            <column name="IdUsuario" not-null="true" />
+        </property>
+        <property name="idDocente" type="int">
+            <column name="IdDocente" not-null="true" />
+        </property>
+        <property name="codUsuario" type="java.lang.Integer">
+            <column name="CodUsuario" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="FechaOperacion" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

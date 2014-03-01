@@ -1,6 +1,6 @@
 package dev.com.matricula.model;
 
-// Generated 02/02/2014 11:46:24 AM by Hibernate Tools 4.0.0
+// Generated 28/02/2014 12:15:27 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,12 +11,13 @@ import java.util.Set;
  */
 public class Alumno implements java.io.Serializable {
 
-  private String idAlumno;
+  private int idAlumno;
   private String nombre;
   private String apPaterno;
   private String apMaterno;
   private Date fechaNacimiento;
   private String telefono;
+  private String dni;
   private char sexo;
   private String email;
   private Integer codUsuario;
@@ -29,25 +30,28 @@ public class Alumno implements java.io.Serializable {
   public Alumno() {
   }
 
-  public Alumno(String idAlumno, String nombre, String apPaterno, String apMaterno,
-          Date fechaNacimiento, char sexo) {
+  public Alumno(int idAlumno, String nombre, String apPaterno, String apMaterno,
+          Date fechaNacimiento, String dni, char sexo) {
     this.idAlumno = idAlumno;
     this.nombre = nombre;
     this.apPaterno = apPaterno;
     this.apMaterno = apMaterno;
     this.fechaNacimiento = fechaNacimiento;
+    this.dni = dni;
     this.sexo = sexo;
   }
 
-  public Alumno(String idAlumno, String nombre, String apPaterno, String apMaterno,
-          Date fechaNacimiento, String telefono, char sexo, String email, Integer codUsuario,
-          Date fechaOperacion, Set parentescos, Set matriculas, Set notases, Set promedios) {
+  public Alumno(int idAlumno, String nombre, String apPaterno, String apMaterno,
+          Date fechaNacimiento, String telefono, String dni, char sexo, String email,
+          Integer codUsuario, Date fechaOperacion, Set parentescos, Set matriculas, Set notases,
+          Set promedios) {
     this.idAlumno = idAlumno;
     this.nombre = nombre;
     this.apPaterno = apPaterno;
     this.apMaterno = apMaterno;
     this.fechaNacimiento = fechaNacimiento;
     this.telefono = telefono;
+    this.dni = dni;
     this.sexo = sexo;
     this.email = email;
     this.codUsuario = codUsuario;
@@ -58,11 +62,11 @@ public class Alumno implements java.io.Serializable {
     this.promedios = promedios;
   }
 
-  public String getIdAlumno() {
+  public int getIdAlumno() {
     return this.idAlumno;
   }
 
-  public void setIdAlumno(String idAlumno) {
+  public void setIdAlumno(int idAlumno) {
     this.idAlumno = idAlumno;
   }
 
@@ -104,6 +108,14 @@ public class Alumno implements java.io.Serializable {
 
   public void setTelefono(String telefono) {
     this.telefono = telefono;
+  }
+
+  public String getDni() {
+    return this.dni;
+  }
+
+  public void setDni(String dni) {
+    this.dni = dni;
   }
 
   public char getSexo() {

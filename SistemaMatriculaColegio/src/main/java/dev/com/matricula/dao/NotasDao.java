@@ -7,5 +7,5 @@ public interface NotasDao {
 
   boolean insertarNotas(Notas notas);
 
-  public List<Notas> obtenerNotasAlumno(String codigo);
+  public List<Notas> obtenerNotasAlumno(int codigo);
 }

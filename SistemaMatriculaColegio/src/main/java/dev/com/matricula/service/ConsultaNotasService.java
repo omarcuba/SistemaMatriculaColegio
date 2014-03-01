@@ -5,5 +5,5 @@ import dev.com.matricula.model.Notas;
 
 public interface ConsultaNotasService {
 
-  public List<Notas> obtenerNotasAlumno(String codigo);
+  public List<Notas> obtenerNotasAlumno(int codigo);
 }
