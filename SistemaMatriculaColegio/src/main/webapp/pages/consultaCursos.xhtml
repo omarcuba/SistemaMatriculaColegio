@@ -11,28 +11,29 @@
 <h:body>
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
-			<h:form prependId="false">
-				<p:dataTable id="cars" var="car" value="#{tableBean.smallCarsModel}"
-					rowKey="#{car.model}" selection="#{tableBean.selectedCar}"
-					selectionMode="single">
+			<h:form id="form">
 
-					<f:facet name="header">  
-            DETALLE DE DOCENTES POR CURSOS MATRICULADOS  
-        </f:facet>
+				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi">
+
+					<f:facet name="header">DETALLE DE DOCENTES POR CURSOS MATRICULADOS </f:facet>
+
 					<p:column headerText="DESCRIPCION DEL CURSO"
-						style="font-size:12px;">  
-            #{car.curso}
-        </p:column>
-					<p:column headerText="DOCENTE" style="font-size:12px;" width="300">  
-            #{car.docente}  
-        </p:column>
-					<p:column headerText="Hor-teo" style="font-size:12px;" width="50">  
-            #{car.teorica}  
-        </p:column>
-					<p:column headerText="Hor-Pra" style="font-size:12px;" width="50">  
-            #{car.practica}  
-        </p:column>
+						style="font-size:12px;">
+						<h:outputText value="#{asi.curso.idCurso}" />
+					</p:column>
+
+					<p:column headerText="DOCENTE" style="font-size:12px;" width="300">
+						<h:outputText value="#{asi.docente.idDocente}" />
+					</p:column>
+					<p:column headerText="Estado" style="font-size:12px;" width="50">
+						<h:outputText value="#{asi.seccion}" />
+					</p:column>
+					<p:column headerText="Año" style="font-size:12px;" width="50">
+						<h:outputText value="#{asi.anhoescolar.idAnhoEscolar}" />
+					</p:column>
+
 				</p:dataTable>
+
 			</h:form>
 		</ui:define>
 	</ui:composition>

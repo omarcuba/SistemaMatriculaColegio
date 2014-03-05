@@ -12,25 +12,25 @@
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form prependId="false">
-				<p:dataTable id="cars" var="car" value="#{tableBean.smallCarsModel}"
-					rowKey="#{car.model}" selection="#{tableBean.selectedCar}"
-					selectionMode="single">
+				<p:dataTable value="#{consultaAlumnos.matriculaList}" var="mat">
+					<f:facet name="header">DETALLE DE ALUMNOS MATRICULADO EN EL GRADO</f:facet>
 
-					<f:facet name="header">  
-            DETALLE DE ALUMNOS PERTENECIENTE AL GRADO  
-        </f:facet>
-					<p:column headerText="NOMBRE DE ALUMNOS" style="font-size:12px;">  
-            #{car.nombre}  
-        </p:column>
-					<p:column headerText="DNI" style="font-size:12px;" width="80">  
-            #{car.dni}  
-        </p:column>
-					<p:column headerText="Sexo" style="font-size:12px;" width="50">  
-            #{car.sexo}  
-        </p:column>
-					<p:column headerText="Edad" style="font-size:12px;" width="50">  
-            #{car.edad}  
-        </p:column>
+					<p:column headerText="NOMBRE" style="font-size:12px;">
+						<h:outputText value="#{mat.alumno.idAlumno}" />
+					</p:column>
+					<p:column headerText="AP-PATERNO" style="font-size:12px;" width="170">
+						<h:outputText value="#{mat.alumno.idAlumno}" />
+					</p:column>
+					<p:column headerText="AP-MATERNO" style="font-size:12px;" width="170">
+						<h:outputText value="#{mat.alumno.idAlumno}" />
+					</p:column>
+					<p:column headerText="MATRICULA" style="font-size:12px;" width="90">
+						<h:outputText value="#{mat.fechaMatricula}" />
+					</p:column>
+					<p:column headerText="Año" style="font-size:12px;" width="50">
+						<h:outputText value="#{mat.anhoescolar.idAnhoEscolar}" />
+					</p:column>
+					
 				</p:dataTable>
 			</h:form>
 		</ui:define>
