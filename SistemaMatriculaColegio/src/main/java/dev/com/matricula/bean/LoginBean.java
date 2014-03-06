@@ -38,10 +38,12 @@ public class LoginBean implements Serializable {
     String retorno = "LOGIN";
     if (!this.usuario.getLogin().isEmpty() && !this.usuario.getClave().isEmpty()) {
       loginService = new LoginServiceImpl();
+      // Validando Usuario
       usuario = loginService.obtenerDatoUsuarioAcceso(usuario.getLogin(), usuario.getClave());
       if (usuario != null) {
         COD_USUARIO = usuario.getIdUsuario();
         USUARIO = usuario.getLogin();
+        // Validando el Rol
         rolUsuario = loginService.obtenerDatoUsuarioRol(COD_USUARIO);
         if (rolUsuario != null) {
           rol = "" + rolUsuario.getRol().getIdRol();
@@ -71,13 +73,9 @@ public class LoginBean implements Serializable {
   private void obtenerDatosAlumno() {
     loginService = new LoginServiceImpl();
     usuarioAlumnosList = (ArrayList<Usuarioalumno>) loginService.obtenerIdAlumno(COD_USUARIO);
-    // TODAVIA TENGO PROBLEMAS ACA
-    System.out.println("CODIGO DE ALUMNO");
-    System.out.println("CODIGO DE ALUMNO" + usuarioAlumnosList.get(1).getIdAlumno());
     // Se necesita análisis para colocar el valor del tipo de alumno para
     // mostrar con "SELECCIONALUMNO"
     // Dato que se ingresara por necesidad de Usuario
-    System.out.println("CODIGO DE ALUMNO" + usuarioAlumnosList.get(seleccionAlumno).getIdAlumno());
     CODIGO_ALUMNO = usuarioAlumnosList.get(seleccionAlumno).getIdAlumno();
   }
 

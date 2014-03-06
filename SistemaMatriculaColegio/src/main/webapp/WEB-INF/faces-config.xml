@@ -19,11 +19,6 @@
 		</navigation-case>
 
 		<navigation-case>
-			<from-outcome>INTRANET</from-outcome>
-			<to-view-id>/pages/intranet.xhtml</to-view-id>
-		</navigation-case>
-
-		<navigation-case>
 			<from-outcome>MATRICULA</from-outcome>
 			<to-view-id>/pages/matricula.xhtml</to-view-id>
 		</navigation-case>

@@ -11,6 +11,7 @@ import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Rol;
 import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
+import dev.com.matricula.model.Usuarioalumno;
 import dev.com.matricula.service.MatriculaManteAlumnoService;
 import dev.com.matricula.serviceimpl.MatriculaManteAlumnoServiceImpl;
 
@@ -22,6 +23,7 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
   private Map<String, String> sexoMap = new HashMap<String, String>();
   private Alumno alumno;
   private Usuario usuario;
+  private Usuarioalumno usuarioAlumno;
   private Rol rol;
   private Rolusuario rolUsuario;
   private MatriculaManteAlumnoService matriculaManteAlumnoService;
@@ -33,6 +35,7 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     usuario = new Usuario();
     rolUsuario = new Rolusuario();
     rol = new Rol();
+    usuarioAlumno = new Usuarioalumno();
   }
 
   public String registrarAlumno() {
@@ -62,8 +65,15 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     rolUsuario.setEstado('1');
     rolUsuario.setCodUsuario(LoginBean.COD_USUARIO);
     boolean rsptRolUsuario = matriculaManteAlumnoService.registrarRolUsuario(rolUsuario);
+    
+    //Registrar Usuario_Alumno
+    usuarioAlumno.setIdUsuarioAlumno(matriculaManteAlumnoService.buscarUltimoidRolUsuarioAlumno());
+    usuarioAlumno.setIdUsuario(usuario.getIdUsuario());
+    usuarioAlumno.setIdAlumno(alumno.getIdAlumno());
+    usuarioAlumno.setCodUsuario(LoginBean.COD_USUARIO);
+    boolean rsptUsuarioAlumno = matriculaManteAlumnoService.registrarUsuarioAlumno(usuarioAlumno);
 
-    if (rsptAlumno && rsptUsuario && rsptRolUsuario)
+    if (rsptAlumno && rsptUsuario && rsptRolUsuario && rsptUsuarioAlumno)
       return "MATRICULA";
 
     return "FALLIDO";
@@ -107,6 +117,14 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
 
   public void setRol(Rol rol) {
     this.rol = rol;
+  }
+
+  public Usuarioalumno getUsuarioAlumno() {
+    return usuarioAlumno;
+  }
+
+  public void setUsuarioAlumno(Usuarioalumno usuarioAlumno) {
+    this.usuarioAlumno = usuarioAlumno;
   }
 
 }
