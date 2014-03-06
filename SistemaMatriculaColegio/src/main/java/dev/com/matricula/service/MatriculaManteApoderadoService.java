@@ -1,13 +1,13 @@
 package dev.com.matricula.service;
 
-import dev.com.matricula.model.Alumno;
+import dev.com.matricula.model.Apoderado;
 import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
 import dev.com.matricula.model.Usuarioalumno;
 
-public interface MatriculaManteAlumnoService {
+public interface MatriculaManteApoderadoService {
 
-  public Integer buscarUltimoidAlumno();
+  public Integer buscarUltimoidApoderado();
 
   public Integer buscarUltimoidUsuario();
 
@@ -15,7 +15,7 @@ public interface MatriculaManteAlumnoService {
 
   public Integer buscarUltimoidUsuarioAlumno();
 
-  boolean registrarAlumno(Alumno alumno);
+  boolean registrarApoderado(Apoderado apoderado);
 
   boolean registrarUsuario(Usuario usuario);
 

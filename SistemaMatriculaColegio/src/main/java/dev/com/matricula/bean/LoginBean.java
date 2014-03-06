@@ -25,6 +25,7 @@ public class LoginBean implements Serializable {
   private String rol = "";
   private int seleccionAlumno = 0;
   private String datoUsuarioVisita;
+  private String tipoUsuario = "No Existe";
   public static String USUARIO = "";
   public static int COD_USUARIO;
   public static int CODIGO_ALUMNO;
@@ -48,18 +49,23 @@ public class LoginBean implements Serializable {
         if (rolUsuario != null) {
           rol = "" + rolUsuario.getRol().getIdRol();
           if (getRol().equals("1")) {
+            tipoUsuario = "ALUMNO";
             retorno = "CONSULTAS";
           }
           if (getRol().equals("2")) {
+            tipoUsuario = "APODERADO";
             retorno = "CONSULTAS";
           }
           if (getRol().equals("3")) {
+            tipoUsuario = "DOCENTE";
             retorno = "DOCENTE";
           }
           if (getRol().equals("4")) {
+            tipoUsuario = "MATRICULANTE";
             retorno = "MATRICULA";
           }
           if (getRol().equals("5")) {
+            tipoUsuario = "ADMINISTRADOR";
             retorno = "ADMINISTRADOR";
           }
           obtenerDatosAlumno();
@@ -81,9 +87,8 @@ public class LoginBean implements Serializable {
 
   private void obtenerDatoUsuarioDeVisita() {
     if (usuario != null) {
-      datoUsuarioVisita = "";
       datoUsuarioVisita =
-              usuario.getNombre() + " " + usuario.getApMaterno() + " " + usuario.getApPaterno();
+              usuario.getNombre() + " " + usuario.getApPaterno() + " " + usuario.getApMaterno();
     }
   }
 
@@ -149,6 +154,14 @@ public class LoginBean implements Serializable {
 
   public void setDatoUsuarioVisita(String datoUsuarioVisita) {
     this.datoUsuarioVisita = datoUsuarioVisita;
+  }
+
+  public String getTipoUsuario() {
+    return tipoUsuario;
+  }
+
+  public void setTipoUsuario(String tipoUsuario) {
+    this.tipoUsuario = tipoUsuario;
   }
 
 }

@@ -65,9 +65,9 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     rolUsuario.setEstado('1');
     rolUsuario.setCodUsuario(LoginBean.COD_USUARIO);
     boolean rsptRolUsuario = matriculaManteAlumnoService.registrarRolUsuario(rolUsuario);
-    
-    //Registrar Usuario_Alumno
-    usuarioAlumno.setIdUsuarioAlumno(matriculaManteAlumnoService.buscarUltimoidRolUsuarioAlumno());
+
+    // Registrar Usuario_Alumno
+    usuarioAlumno.setIdUsuarioAlumno(matriculaManteAlumnoService.buscarUltimoidUsuarioAlumno());
     usuarioAlumno.setIdUsuario(usuario.getIdUsuario());
     usuarioAlumno.setIdAlumno(alumno.getIdAlumno());
     usuarioAlumno.setCodUsuario(LoginBean.COD_USUARIO);

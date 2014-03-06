@@ -2,29 +2,29 @@ package dev.com.matricula.daoimpl;
 
 import java.util.List;
 
-import dev.com.matricula.dao.UsuarioAlumnoDao;
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.dao.UsuarioDocenteDao;
+import dev.com.matricula.model.Usuariodocente;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioAlumnoDao {
+public class UsuarioDocenteDaoImpl extends SessionFactoryImpl implements UsuarioDocenteDao {
 
   private Session session;
   private Criteria criteria;
   private Query query;
   private int entero;
   private String CODIGO_USUARIO = "idUsuario";
-  private List<Usuarioalumno> usuarioAlumnolist;
+  private List<Usuariodocente> usuarioDocenteList;
 
   @Override
-  public boolean registrarUsuarioAlumno(Usuarioalumno usuarioAlumno) {
+  public boolean registrarUsuarioDocente(Usuariodocente usuarioDocente) {
     try {
       session = getSessionFactory().openSession();
       session.beginTransaction();
-      session.saveOrUpdate(usuarioAlumno);
+      session.saveOrUpdate(usuarioDocente);
       session.getTransaction().commit();
       session.close();
       return true;
@@ -35,9 +35,9 @@ public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioA
   }
 
   @Override
-  public Integer obtenerUltimoIdUsuarioAlumno() {
+  public Integer obtenerUltimoIdUsuarioDocente() {
     session = getSessionFactory().openSession();
-    query = session.createSQLQuery("select max(idusuarioalumno+1) from UsuarioAlumno");
+    query = session.createSQLQuery("select max(idusuariodocente+1) from UsuarioDocente");
     entero = Integer.parseInt(query.uniqueResult().toString());
     session.close();
     return entero;
@@ -45,25 +45,25 @@ public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioA
 
   @SuppressWarnings("unchecked")
   @Override
-  public List<Usuarioalumno> obtenerUsuarioAlumnos() {
+  public List<Usuariodocente> obtenerUsuarioDocentes() {
     session = getSessionFactory().openSession();
     session.beginTransaction();
-    criteria = session.createCriteria(Usuarioalumno.class);
-    usuarioAlumnolist = criteria.list();
+    criteria = session.createCriteria(Usuariodocente.class);
+    usuarioDocenteList = criteria.list();
     session.close();
-    return usuarioAlumnolist;
+    return usuarioDocenteList;
   }
 
   @SuppressWarnings("unchecked")
   @Override
-  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario) {
+  public List<Usuariodocente> obtenerIdDocente(int codigoUsuario) {
     session = getSessionFactory().openSession();
     session.beginTransaction();
-    criteria = session.createCriteria(Usuarioalumno.class);
+    criteria = session.createCriteria(Usuariodocente.class);
     criteria.add(Restrictions.eq(CODIGO_USUARIO, codigoUsuario));
-    usuarioAlumnolist = criteria.list();
+    usuarioDocenteList = criteria.list();
     session.close();
-    return usuarioAlumnolist;
+    return usuarioDocenteList;
   }
 
 }

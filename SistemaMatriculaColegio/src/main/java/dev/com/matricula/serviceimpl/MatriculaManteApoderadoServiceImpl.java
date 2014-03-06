@@ -1,30 +1,30 @@
 package dev.com.matricula.serviceimpl;
 
-import dev.com.matricula.dao.AlumnoDao;
+import dev.com.matricula.dao.ApoderadoDao;
 import dev.com.matricula.dao.RolUsuarioDao;
 import dev.com.matricula.dao.UsuarioAlumnoDao;
 import dev.com.matricula.dao.UsuarioDao;
-import dev.com.matricula.daoimpl.AlumnoDaoImpl;
+import dev.com.matricula.daoimpl.ApoderadoDaoImpl;
 import dev.com.matricula.daoimpl.RolUsuarioDaoImpl;
 import dev.com.matricula.daoimpl.UsuarioAlumnoDaoImpl;
 import dev.com.matricula.daoimpl.UsuarioDaoImpl;
-import dev.com.matricula.model.Alumno;
+import dev.com.matricula.model.Apoderado;
 import dev.com.matricula.model.Rolusuario;
 import dev.com.matricula.model.Usuario;
 import dev.com.matricula.model.Usuarioalumno;
-import dev.com.matricula.service.MatriculaManteAlumnoService;
+import dev.com.matricula.service.MatriculaManteApoderadoService;
 
-public class MatriculaManteAlumnoServiceImpl implements MatriculaManteAlumnoService {
+public class MatriculaManteApoderadoServiceImpl implements MatriculaManteApoderadoService {
 
-  private AlumnoDao alumnoDao;
+  private ApoderadoDao apoderadoDao;
   private UsuarioDao usuarioDao;
   private RolUsuarioDao rolUsuarioDao;
   private UsuarioAlumnoDao usuarioAlumnoDao;
 
   @Override
-  public Integer buscarUltimoidAlumno() {
-    alumnoDao = new AlumnoDaoImpl();
-    return alumnoDao.obtenerUltimoIdAlumno();
+  public Integer buscarUltimoidApoderado() {
+    apoderadoDao = new ApoderadoDaoImpl();
+    return apoderadoDao.obtenerUltimoIdApoderado();
   }
 
   @Override
@@ -46,9 +46,9 @@ public class MatriculaManteAlumnoServiceImpl implements MatriculaManteAlumnoServ
   }
 
   @Override
-  public boolean registrarAlumno(Alumno alumno) {
-    alumnoDao = new AlumnoDaoImpl();
-    return alumnoDao.registrarAlumno(alumno);
+  public boolean registrarApoderado(Apoderado apoderado) {
+    apoderadoDao = new ApoderadoDaoImpl();
+    return apoderadoDao.registrarApoderado(apoderado);
   }
 
   @Override

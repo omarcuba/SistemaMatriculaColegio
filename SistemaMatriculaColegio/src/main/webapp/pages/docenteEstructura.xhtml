@@ -23,22 +23,39 @@
 				<ui:insert name="header">
 					<h:panelGrid columns="2">
 						<h:graphicImage url="/util/image/docente.jpg" />
-						<table width="290px">
-							<tbody>
-								<tr>
-									<th><h:outputText value="USUARIO :" /></th>
-									<th><h:outputText value="#{loginBean.datoUsuarioVisita}" /></th>
-								</tr>
-								<tr>
-									<th><h:outputText value="TIPO :" /></th>
-									<th><h:outputText value="Alumno - 5to Grado" /></th>
-								</tr>
-								<tr>
-									<th><h:outputText value="DETALLE :" /></th>
-									<th><h:outputText value="Ninguno" /></th>
-								</tr>
-							</tbody>
-						</table>
+						<p:panel style="background:#46C4C2; font-size: 12px;" height="145"
+							header="Usuario de Visita">
+							<table width="240" cellpadding="2">
+								<tbody>
+									<tr>
+										<th width="60"><h:outputText value="Usuario"
+												style="font-size: 12px;" /></th>
+										<th width="5">:</th>
+										<th width="180"><h:outputText
+												value="#{loginBean.datoUsuarioVisita}"
+												style="font-size: 12px; color:blue;" /></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="Tipo" style="font-size: 12px;" /></th>
+										<th>:</th>
+										<th><h:outputText value="#{loginBean.tipoUsuario}"
+												style="font-size: 12px;color:white;" /></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="User" style="font-size: 12px;" /></th>
+										<th>:</th>
+										<th><h:outputText value="#{loginBean.usuario.login}"
+												style="font-size: 12px;color:white;" /></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="Tiempo" style="font-size: 12px;" /></th>
+										<th>:</th>
+										<th><h:outputText value="05:16"
+												style="font-size: 12px;color:white;" /></th>
+									</tr>
+								</tbody>
+							</table>
+						</p:panel>
 					</h:panelGrid>
 				</ui:insert>
 			</div>

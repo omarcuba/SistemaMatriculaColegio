@@ -12,7 +12,7 @@ public class AlumnoServiceImpl implements AlumnoService {
   @Override
   public boolean registrarAlumno(Alumno alumno) {
     alumnoDao = new AlumnoDaoImpl();
-    return alumnoDao.registrarUsuario(alumno);
+    return alumnoDao.registrarAlumno(alumno);
   }
 
 }
