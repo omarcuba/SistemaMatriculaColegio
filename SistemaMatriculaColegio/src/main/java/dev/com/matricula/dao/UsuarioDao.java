@@ -1,5 +1,7 @@
 package dev.com.matricula.dao;
 
+import java.util.List;
+
 import dev.com.matricula.model.Usuario;
 
 public interface UsuarioDao {
@@ -8,6 +10,8 @@ public interface UsuarioDao {
 
   public Integer obtenerUltimoIdUsuario();
 
-  public Usuario obtenerDatoUsuarioAcceso(String usuario, String clave);
+  public Usuario obtenerDatoUsuarioAcceso(String loginUsuario, String claveUsuario);
+
+  public List<Usuario> obtenerUsuario();
 
 }

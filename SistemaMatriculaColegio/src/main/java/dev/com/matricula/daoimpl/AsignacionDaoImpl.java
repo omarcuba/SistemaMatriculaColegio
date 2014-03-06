@@ -3,6 +3,7 @@ package dev.com.matricula.daoimpl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -11,13 +12,17 @@ import dev.com.matricula.model.Asignacion;
 
 public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionDao {
 
-  String CODIGO_ANHOESCOLAR = "anhoescolar.idAnhoEscolar";
+  private Session session;
+  private Criteria criteria;
+  private Query query;
+  private int entero;
+  private String CODIGO_ANHOESCOLAR = "anhoescolar.idAnhoEscolar";
   private List<Asignacion> asignacionList;
 
   @Override
-  public boolean insertarAsignacion(Asignacion asignacion) {
+  public boolean registrarAsignacion(Asignacion asignacion) {
     try {
-      Session session = getSessionFactory().openSession();
+      session = getSessionFactory().openSession();
       session.beginTransaction();
       session.saveOrUpdate(asignacion);
       session.getTransaction().commit();
@@ -28,11 +33,30 @@ public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionD
     }
   }
 
+  @Override
+  public Integer obtenerUltimoIdAsignacion() {
+    session = getSessionFactory().openSession();
+    query = session.createSQLQuery("select max(idasignacion+1) from Asignacion");
+    entero = Integer.parseInt(query.uniqueResult().toString());
+    session.close();
+    return entero;
+  }
+
   @SuppressWarnings("unchecked")
   @Override
-  public List<Asignacion> obtenerAsignacionAlumno(int codigo) {
-    Session session = getSessionFactory().openSession();
-    Criteria criteria = session.createCriteria(Asignacion.class);
+  public List<Asignacion> obtenerAsignaciones() {
+    session = getSessionFactory().openSession();
+    criteria = session.createCriteria(Asignacion.class);
+    asignacionList = criteria.list();
+    session.close();
+    return asignacionList;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Asignacion> obtenerAsignacionAlumno(int codigoAnhoEscolar) {
+    session = getSessionFactory().openSession();
+    criteria = session.createCriteria(Asignacion.class);
     criteria.add(Restrictions.eq(CODIGO_ANHOESCOLAR, "2013"));
     asignacionList = criteria.list();
     session.close();

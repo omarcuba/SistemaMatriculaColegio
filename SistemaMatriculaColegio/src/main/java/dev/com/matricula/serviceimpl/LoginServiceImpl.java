@@ -29,15 +29,15 @@ public class LoginServiceImpl implements LoginService {
   }
 
   @Override
-  public Rolusuario obtenerDatoUsuarioRol(String idUsuario) {
+  public Rolusuario obtenerDatoUsuarioRol(int idUsuario) {
     rolUsuarioDao = new RolUsuarioDaoImpl();
     rolUsuario = rolUsuarioDao.obtenerDatoRolUsuario(idUsuario);
     return rolUsuario;
   }
 
   @Override
-  public List<Usuarioalumno> obtenerIdAlumno(int codigo) {
+  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario) {
     usuarioAlumnoDao = new UsuarioAlumnoDaoImpl();
-    return usuarioAlumnoDao.obtenerIdAlumno(codigo);
+    return usuarioAlumnoDao.obtenerIdAlumno(codigoUsuario);
   }
 }

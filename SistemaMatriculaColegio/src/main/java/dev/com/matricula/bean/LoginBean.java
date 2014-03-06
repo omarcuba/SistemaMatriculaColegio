@@ -22,9 +22,9 @@ public class LoginBean implements Serializable {
   private LoginService loginService;
   private ArrayList<Usuarioalumno> usuarioAlumnosList;
   private String ruta = "";
-  private String idUsuario = "";
   private String rol = "";
   private int seleccionAlumno = 0;
+  private String datoUsuarioVisita;
   public static String USUARIO = "";
   public static int COD_USUARIO;
   public static int CODIGO_ALUMNO;
@@ -35,17 +35,16 @@ public class LoginBean implements Serializable {
   }
 
   public String login() {
-    String retorno = "INICIO";
+    String retorno = "LOGIN";
     if (!this.usuario.getLogin().isEmpty() && !this.usuario.getClave().isEmpty()) {
       loginService = new LoginServiceImpl();
       usuario = loginService.obtenerDatoUsuarioAcceso(usuario.getLogin(), usuario.getClave());
       if (usuario != null) {
-        this.idUsuario = "" + usuario.getIdUsuario();
-        USUARIO = usuario.getLogin();
         COD_USUARIO = usuario.getIdUsuario();
-        rolUsuario = loginService.obtenerDatoUsuarioRol(getIdUsuario());
+        USUARIO = usuario.getLogin();
+        rolUsuario = loginService.obtenerDatoUsuarioRol(COD_USUARIO);
         if (rolUsuario != null) {
-          this.rol = "" + rolUsuario.getRol().getIdRol();
+          rol = "" + rolUsuario.getRol().getIdRol();
           if (getRol().equals("1")) {
             retorno = "CONSULTAS";
           }
@@ -53,28 +52,41 @@ public class LoginBean implements Serializable {
             retorno = "CONSULTAS";
           }
           if (getRol().equals("3")) {
-            retorno = "PROFESOR";
+            retorno = "DOCENTE";
           }
           if (getRol().equals("4")) {
-            retorno = "INTRANET";
+            retorno = "MATRICULA";
           }
           if (getRol().equals("5")) {
             retorno = "ADMINISTRADOR";
           }
           obtenerDatosAlumno();
+          obtenerDatoUsuarioDeVisita();
         }
       }
     }
     return retorno;
   }
 
-  public void obtenerDatosAlumno() {
+  private void obtenerDatosAlumno() {
     loginService = new LoginServiceImpl();
     usuarioAlumnosList = (ArrayList<Usuarioalumno>) loginService.obtenerIdAlumno(COD_USUARIO);
+    // TODAVIA TENGO PROBLEMAS ACA
+    System.out.println("CODIGO DE ALUMNO");
+    System.out.println("CODIGO DE ALUMNO" + usuarioAlumnosList.get(1).getIdAlumno());
     // Se necesita análisis para colocar el valor del tipo de alumno para
     // mostrar con "SELECCIONALUMNO"
     // Dato que se ingresara por necesidad de Usuario
+    System.out.println("CODIGO DE ALUMNO" + usuarioAlumnosList.get(seleccionAlumno).getIdAlumno());
     CODIGO_ALUMNO = usuarioAlumnosList.get(seleccionAlumno).getIdAlumno();
+  }
+
+  private void obtenerDatoUsuarioDeVisita() {
+    if (usuario != null) {
+      datoUsuarioVisita = "";
+      datoUsuarioVisita =
+              usuario.getNombre() + " " + usuario.getApMaterno() + " " + usuario.getApPaterno();
+    }
   }
 
   public LoginService getLoginService() {
@@ -109,14 +121,6 @@ public class LoginBean implements Serializable {
     this.rolUsuario = rolUsuario;
   }
 
-  public String getIdUsuario() {
-    return idUsuario;
-  }
-
-  public void setIdUsuario(String idUsuario) {
-    this.idUsuario = idUsuario;
-  }
-
   public String getRol() {
     return rol;
   }
@@ -139,6 +143,14 @@ public class LoginBean implements Serializable {
 
   public void setUsuarioAlumnosList(ArrayList<Usuarioalumno> usuarioAlumnosList) {
     this.usuarioAlumnosList = usuarioAlumnosList;
+  }
+
+  public String getDatoUsuarioVisita() {
+    return datoUsuarioVisita;
+  }
+
+  public void setDatoUsuarioVisita(String datoUsuarioVisita) {
+    this.datoUsuarioVisita = datoUsuarioVisita;
   }
 
 }

@@ -6,7 +6,11 @@ import dev.com.matricula.model.Matricula;
 
 public interface MatriculaDao {
 
-  boolean insertarMatricula(Matricula matricula);
+  public boolean registrarMatricula(Matricula matricula);
 
-  public List<Matricula> obtenerMatriculaAlumno(int codigo);
+  public Integer obtenerUltimoIdMatricula();
+
+  public List<Matricula> obtenerMatriculas();
+
+  public List<Matricula> obtenerMatriculaAlumno(int codigoAnhoEscolar);
 }

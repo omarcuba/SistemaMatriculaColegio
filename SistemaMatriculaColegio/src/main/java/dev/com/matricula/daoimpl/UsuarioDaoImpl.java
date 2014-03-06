@@ -1,5 +1,7 @@
 package dev.com.matricula.daoimpl;
 
+import java.util.List;
+
 import dev.com.matricula.dao.UsuarioDao;
 import dev.com.matricula.model.Usuario;
 
@@ -10,14 +12,19 @@ import org.hibernate.criterion.Restrictions;
 
 public class UsuarioDaoImpl extends SessionFactoryImpl implements UsuarioDao {
 
-  String LOGIN = "login";
-  String CLAVE = "clave";
+  private Session session;
+  private Criteria criteria;
+  private Query query;
+  private int entero;
+  private String LOGIN_USUARIO = "login";
+  private String CLAVE_USUARIO = "clave";
   private Usuario usuario;
+  private List<Usuario> usuarioList;
 
   @Override
   public boolean registrarUsuario(Usuario usuario) {
     try {
-      Session session = getSessionFactory().openSession();
+      session = getSessionFactory().openSession();
       session.beginTransaction();
       session.saveOrUpdate(usuario);
       session.getTransaction().commit();
@@ -31,23 +38,34 @@ public class UsuarioDaoImpl extends SessionFactoryImpl implements UsuarioDao {
 
   @Override
   public Integer obtenerUltimoIdUsuario() {
-    Session session = getSessionFactory().openSession();
-    Query query = session.createSQLQuery("select max(idusuario+1) from Usuario");
-    Object obj = query.uniqueResult();
+    session = getSessionFactory().openSession();
+    query = session.createSQLQuery("select max(idusuario+1) from Usuario");
+    entero = Integer.parseInt(query.uniqueResult().toString());
     session.close();
-    return Integer.parseInt(obj.toString());
+    return entero;
   }
 
   @Override
-  public Usuario obtenerDatoUsuarioAcceso(String login, String clave) {
-    Session session = getSessionFactory().openSession();
+  public Usuario obtenerDatoUsuarioAcceso(String loginUsuario, String claveUsuario) {
+    session = getSessionFactory().openSession();
     session.beginTransaction();
-    Criteria criteria = session.createCriteria(Usuario.class);
-    criteria.add(Restrictions.eq(LOGIN, login));
-    criteria.add(Restrictions.eq(CLAVE, clave));
+    criteria = session.createCriteria(Usuario.class);
+    criteria.add(Restrictions.eq(LOGIN_USUARIO, loginUsuario));
+    criteria.add(Restrictions.eq(CLAVE_USUARIO, claveUsuario));
     usuario = (Usuario) criteria.uniqueResult();
     session.close();
     return usuario;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Usuario> obtenerUsuario() {
+    session = getSessionFactory().openSession();
+    session.beginTransaction();
+    criteria = session.createCriteria(Usuario.class);
+    usuarioList = criteria.list();
+    session.close();
+    return usuarioList;
   }
 
 }

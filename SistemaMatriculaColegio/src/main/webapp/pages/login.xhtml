@@ -16,16 +16,14 @@
 
 <h:body>
 	<div id="header" style="width: 350px;">
-		<h:form id="formLogin">
+		<h:form id="form">
 			<p:panel header="Registro de Usuario" style="font-size: 12px;">
 				<p:growl id="growl" showDetail="true" />
 				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
 					<h:outputLabel for="username" value="USUARIO :" />
-					<p:inputText value="#{loginBean.usuario.login}" id="username"
-						label="username" />
+					<p:inputText value="#{loginBean.usuario.login}" />
 					<h:outputLabel for="password" value="CONTRASEÑA :" />
-					<p:password value="#{loginBean.usuario.clave}" id="password"
-						label="password" />
+					<p:password value="#{loginBean.usuario.clave}"  />
 					<f:facet name="footer">
 						<p:commandButton id="loginButton" value="Ingresar" update="growl"
 							style="font-size:14px;" action="#{loginBean.login}"

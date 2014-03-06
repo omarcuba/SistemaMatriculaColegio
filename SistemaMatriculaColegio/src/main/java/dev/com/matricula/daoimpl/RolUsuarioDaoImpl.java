@@ -1,5 +1,7 @@
 package dev.com.matricula.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,13 +12,18 @@ import dev.com.matricula.model.Rolusuario;
 
 public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioDao {
 
-  String ID_USUARIO = "usuario.idUsuario";
+  private Session session;
+  private Criteria criteria;
+  private Query query;
+  private int entero;
+  private String CODIGO_USUARIO = "usuario.idUsuario";
   private Rolusuario rolUsuario;
+  private List<Rolusuario> rolUsuarioList;
 
   @Override
   public boolean registrarRolUsuario(Rolusuario rolUsuario) {
     try {
-      Session session = getSessionFactory().openSession();
+      session = getSessionFactory().openSession();
       session.beginTransaction();
       session.saveOrUpdate(rolUsuario);
       session.getTransaction().commit();
@@ -29,22 +36,32 @@ public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioD
 
   @Override
   public Integer obtenerUltimoIdRolUsuario() {
-    Session session = getSessionFactory().openSession();
-    Query query = session.createSQLQuery("select max(idrolusuario+1) from RolUsuario");
-    Object obj = query.uniqueResult();
+    session = getSessionFactory().openSession();
+    query = session.createSQLQuery("select max(idrolusuario+1) from RolUsuario");
+    entero = Integer.parseInt(query.uniqueResult().toString());
     session.close();
-    return Integer.parseInt(obj.toString());
+    return entero;
   }
 
   @Override
-  public Rolusuario obtenerDatoRolUsuario(String codUsuario) {
-    Session session = getSessionFactory().openSession();
+  public Rolusuario obtenerDatoRolUsuario(int codigoUsuario) {
+    session = getSessionFactory().openSession();
     session.beginTransaction();
-    Criteria criteria = session.createCriteria(Rolusuario.class);
-    criteria.add(Restrictions.eq(ID_USUARIO, Integer.parseInt(codUsuario)));
+    criteria = session.createCriteria(Rolusuario.class);
+    criteria.add(Restrictions.eq(CODIGO_USUARIO, codigoUsuario));
     rolUsuario = (Rolusuario) criteria.uniqueResult();
     session.close();
     return rolUsuario;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Rolusuario> obtenerRolusuarios() {
+    session = getSessionFactory().openSession();
+    criteria = session.createCriteria(Rolusuario.class);
+    rolUsuarioList = criteria.list();
+    session.close();
+    return rolUsuarioList;
   }
 
 }

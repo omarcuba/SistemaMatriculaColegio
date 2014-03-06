@@ -6,6 +6,12 @@ import dev.com.matricula.model.Usuarioalumno;
 
 public interface UsuarioAlumnoDao {
 
-  public List<Usuarioalumno> obtenerIdAlumno(int codigo);
+  public boolean registrarUsuario(Usuarioalumno usuarioAlumno);
+
+  public Integer obtenerUltimoIdUsuarioAlumno();
+
+  public List<Usuarioalumno> obtenerUsuarioAlumnos();
+
+  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario);
 
 }

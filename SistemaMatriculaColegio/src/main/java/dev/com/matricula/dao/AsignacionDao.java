@@ -6,7 +6,12 @@ import dev.com.matricula.model.Asignacion;
 
 public interface AsignacionDao {
 
-  boolean insertarAsignacion(Asignacion asignacion);
+  public boolean registrarAsignacion(Asignacion asignacion);
 
-  public List<Asignacion> obtenerAsignacionAlumno(int codigo);
+  public Integer obtenerUltimoIdAsignacion();
+
+  public List<Asignacion> obtenerAsignaciones();
+
+  public List<Asignacion> obtenerAsignacionAlumno(int codigoAnhoEscolar);
+
 }

@@ -10,7 +10,7 @@ public interface LoginService {
 
   public Usuario obtenerDatoUsuarioAcceso(String login, String clave);
 
-  public Rolusuario obtenerDatoUsuarioRol(String idUsuario);
+  public Rolusuario obtenerDatoUsuarioRol(int idUsuario);
 
-  public List<Usuarioalumno> obtenerIdAlumno(int codigo);
+  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario);
 }
