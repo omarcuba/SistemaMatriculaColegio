@@ -8,6 +8,8 @@
 	<link href="util/css/estiloInicio.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" />
 	<title>INICIO</title>
+	<script language="javascript" type="text/javascript"
+		src="util/js/popups.js"></script>
 </h:head>
 <h:body>
 	<div id="header">
@@ -23,7 +25,8 @@
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
 			<p:commandButton value="VISIÓN Y MISIÓN" action="MODELO"
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<p:commandButton value="INTRANET" action="LOGIN" oncomplete=":form"
+			<p:commandButton value="INTRANET"
+				onclick="popUpGeneral('pages/login.xhtml');"
 				icon="ui-icon-disk" style="font-size:14px;" />
 			<p:commandButton value="MATRICULA" action="LOGIN" oncomplete=":form"
 				icon="ui-icon-disk" style="font-size:14px;" />
@@ -31,6 +34,7 @@
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
 			<p:commandButton value="BIBLIOTECA" action="MODELO"
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
+			<input type="text" id="visita"></input>
 		</div>
 
 		<table class="principal" width="100%" cellpadding="0" cellspacing="0"
@@ -81,5 +85,6 @@
 			</tbody>
 		</table>
 	</h:form>
+
 </h:body>
 </html>

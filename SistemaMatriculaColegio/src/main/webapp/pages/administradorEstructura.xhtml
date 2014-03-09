@@ -23,35 +23,32 @@
 				<ui:insert name="header">
 					<h:panelGrid columns="2">
 						<h:graphicImage url="/util/image/administrador.jpg" />
-						<p:panel style="background:#46C4C2; font-size: 12px;" height="145"
+						<p:panel style="background:#46C4C2; font-size: 12px;"
 							header="Usuario de Visita">
 							<table width="240" cellpadding="2">
 								<tbody>
 									<tr>
-										<th width="60"><h:outputText value="Usuario"
-												style="font-size: 12px;" /></th>
+										<th width="60"><h:outputText value="Usuario" /></th>
 										<th width="5">:</th>
 										<th width="180"><h:outputText
-												value="#{loginBean.datoUsuarioVisita}"
-												style="font-size: 12px; color:blue;" /></th>
+												value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
 									</tr>
 									<tr>
-										<th><h:outputText value="Tipo" style="font-size: 12px;" /></th>
+										<th><h:outputText value="Tipo" /></th>
 										<th>:</th>
-										<th><h:outputText value="#{loginBean.tipoUsuario}"
-												style="font-size: 12px;color:white;" /></th>
+										<th><input type="text" value="#{loginBean.tipoUsuario}"
+											style="color: white;" /></th>
 									</tr>
 									<tr>
-										<th><h:outputText value="User" style="font-size: 12px;" /></th>
+										<th><h:outputText value="Hora" /></th>
 										<th>:</th>
-										<th><h:outputText value="#{loginBean.usuario.login}"
-												style="font-size: 12px;color:white;" /></th>
+										<th><div id="reloj" style="color: white; width: 4px;"></div></th>
 									</tr>
 									<tr>
-										<th><h:outputText value="Tiempo" style="font-size: 12px;" /></th>
+										<th><h:outputText value="Fecha " /></th>
 										<th>:</th>
-										<th><h:outputText value="05:16"
-												style="font-size: 12px;color:white;" /></th>
+										<th><input type="text" id="fechaNombre"
+											style="color: white;" /></th>
 									</tr>
 								</tbody>
 							</table>
@@ -68,6 +65,8 @@
 									<ui:insert name="menu">
 										<h:form>
 											<p:growl id="mensajes" autoUpdate="true" />
+											<p:commandButton value="@--- Inicio --@"
+												action="/pages/administrador.xhtml" />
 											<p:panelMenu style="width:180px;">
 												<p:submenu label="Matricula" style="font-size: 11px;">
 													<p:menuitem value="Crear" style="font-size: 11px;"
@@ -130,6 +129,8 @@
 				</table>
 			</div>
 		</div>
+		<script language="javascript" type="text/javascript"
+			src="../util/js/script.js"></script>
 	</h:body>
 
 </f:view>
