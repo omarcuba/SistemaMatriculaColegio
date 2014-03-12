@@ -12,69 +12,59 @@
 <h:body>
 	<ui:composition template="/pages/matriculaEstructura.xhtml">
 		<ui:define name="body">
-			<div id="header" style="width: 430px;">
+			<div id="header" style="width: 400px;">
 				<h:form id="form">
-					<p:panel style="font-size: 13px;">
+					<p:panel styleClass="panelP">
 						<f:facet name="header">MANTENIMIENTO GENERAL DE APODERADO</f:facet>
-						<h:outputText
-							value="Los campos marcados con (*) son obligatorios."
-							style="font-size:11px;" />
-						<p:panelGrid columns="3" cellpadding="5"
-							styleClass="panelGridEstandar">
-							<h:outputLabel value="Nombres (*)" />
-							<h:outputLabel value=" : " />
+						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
+							<h:outputLabel value="Nombres(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteApoderado.apoderado.nombre}" />
 							<h:outputLabel value="Apellido Paterno (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value=":" />
 							<p:inputMask
 								value="#{matriculaManteApoderado.apoderado.apPaterno}" />
-							<h:outputLabel value="Apellido Materno (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Apellido Materno(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask
 								value="#{matriculaManteApoderado.apoderado.apMaterno}" />
-							<h:outputLabel value="Dni (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Dni(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteApoderado.apoderado.dni}" />
 							<h:outputLabel value="Teléfono" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value=":" />
 							<p:inputMask
 								value="#{matriculaManteApoderado.apoderado.telefono}" />
-							<h:outputLabel value="Sexo (*)" />
-							<h:outputLabel value=" : " />
-							<p:selectOneMenu id="sexo"
-								value="#{matriculaManteApoderado.apoderado.sexo}"
-								style="width:160px;">
+							<h:outputLabel value="Sexo(*)" />
+							<h:outputLabel value=":" />
+							<p:selectOneMenu id="sexo" style="width:160px;"
+								value="#{matriculaManteApoderado.apoderado.sexo}">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
 								<f:selectItems value="#{matriculaManteAlumno.sexoMap}" />
 							</p:selectOneMenu>
-							<h:outputLabel value="Estado Civil (*)" />
-							<h:outputLabel value=" : " />
-							<p:selectOneMenu id="estadoCivil"
-								value="#{matriculaManteApoderado.apoderado.estadoCivil}"
-								style="width:160px;">
+							<h:outputLabel value="Estado Civil(*)" />
+							<h:outputLabel value=":" />
+							<p:selectOneMenu id="estadoCivil" style="width:160px;"
+								value="#{matriculaManteApoderado.apoderado.estadoCivil}">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
 								<f:selectItems value="#{matriculaManteApoderado.civilMap}" />
 							</p:selectOneMenu>
-							<h:outputLabel value="Direccion " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Direccion" />
+							<h:outputLabel value=":" />
 							<p:inputMask
 								value="#{matriculaManteApoderado.apoderado.direccion}" />
-						</p:panelGrid>
-
+							<h:outputText style="font-size: 10px; color: red;"
+								value="Campos Obligatorios(*)" />
+						</h:panelGrid>
 						<p:separator />
-
 						<p:growl id="messages" showDetail="false" sticky="true" />
-						<h:panelGrid columns="3" cellpadding="5">
+						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
 							<p:commandButton id="grabar" value="Grabar" update="messages"
-								style="font-size:12px;"
 								action="#{matriculaManteApoderado.registrarApoderado}"
 								oncomplete=":form" />
-							<p:commandButton value="Limpiar" style="font-size:12px;"
-								oncomplete=":form" />
-							<p:commandButton value="Cancelar" style="font-size:12px;"
-								oncomplete=":form" />
+							<p:commandButton value="Limpiar" oncomplete=":form" />
+							<p:commandButton value="Cancelar" oncomplete=":form" />
 						</h:panelGrid>
-
 					</p:panel>
 				</h:form>
 			</div>

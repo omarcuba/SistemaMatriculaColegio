@@ -7,125 +7,106 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <f:view>
-
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="util/css/estiloInicio.css" rel="stylesheet"
+		<link href="../util/css/estiloIntranet.css" rel="stylesheet"
 			type="text/css" />
-		<style type="text/css">
-@import url("../util/css/estiloInicio.css");
-</style>
 	</h:head>
 
 	<h:body>
-		<div id="plantillaInterna">
-			<div id="estructuraCabecera" align="center">
-				<ui:insert name="header">
-					<h:panelGrid columns="2">
-						<h:graphicImage url="/util/image/campus.jpg" />
-						<p:panel style="background:#46C4C2; font-size: 12px;"
-							header="Usuario de Visita">
-							<table width="240" cellpadding="2">
-								<tbody>
-									<tr>
-										<th width="60"><h:outputText value="Usuario" /></th>
-										<th width="5">:</th>
-										<th width="180"><h:outputText
-												value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Tipo" /></th>
-										<th>:</th>
-										<th><input type="text" value="#{loginBean.tipoUsuario}"
-											style="color: white;" /></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Hora" /></th>
-										<th>:</th>
-										<th><div id="reloj" style="color: white; width: 4px;"></div></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Fecha " /></th>
-										<th>:</th>
-										<th><input type="text" id="fechaNombre"
-											style="color: white;" /></th>
-									</tr>
-								</tbody>
-							</table>
-						</p:panel>
-					</h:panelGrid>
-				</ui:insert>
-			</div>
-			<p:separator />
-			<div align="center">
-				<table>
-					<tbody>
-						<tr>
-							<th><div id="estructuraCuerpo">
-									<ui:insert name="menu">
-										<h:form>
-											<p:growl id="mensajes" autoUpdate="true" />
-											<p:commandButton value="@--- Inicio --@"
-												action="/pages/consultas.xhtml" />
-											<p:panelMenu style="width:180px;">
-												<p:submenu label="Información" style="font-size: 11px;">
-													<p:menuitem value="Datos de Alumno"
-														action="/pages/consultaDatoAlumno.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Notas generales"
-														action="/pages/consultaNotas.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Cursos matriculados"
-														action="/pages/consultaCursos.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Alumnos del grado"
-														action="/pages/consultaAlumnos.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Asistencia del alumno"
-														style="font-size: 11px;" icon="ui-icon-signal" />
+		<div id="estructuraCabecera" align="center">
+			<ui:insert name="header">
+				<h:panelGrid columns="2" styleClass="panelGridH">
+					<h:graphicImage url="/util/image/campus.jpg" />
+					<p:panel style="background:#46C4C2;" header="Usuario de Visita">
+						<table width="240" cellpadding="2">
+							<tbody>
+								<tr>
+									<th width="60"><h:outputText value="Usuario" /></th>
+									<th>:</th>
+									<th width="180"><h:outputText
+											value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Tipo" /></th>
+									<th>:</th>
+									<th><input type="text" value="#{loginBean.tipoUsuario}"
+										style="color: white;" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Hora" /></th>
+									<th>:</th>
+									<th><div id="reloj" style="color: white;"></div></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Fecha" /></th>
+									<th>:</th>
+									<th><input type="text" id="fechaNombre"
+										style="color: white;" /></th>
+								</tr>
+							</tbody>
+						</table>
+					</p:panel>
+				</h:panelGrid>
+			</ui:insert>
+		</div>
+		<p:separator />
+		<div align="center">
+			<table>
+				<tbody>
+					<tr>
+						<th><div id="estructuraCuerpo">
+								<ui:insert name="menu">
+									<h:form id="form">
+										<p:growl id="mensajes" autoUpdate="true" />
+										<p:commandButton value="@--- Inicio --@"
+											action="/pages/consultas.xhtml" style="font-size: 15px;" />
+										<p:panelMenu style="width:180px;" styleClass="panelMenuP">
+											<p:submenu label="Información">
+												<p:menuitem value="Datos de Alumno" icon="ui-icon-disk"
+													action="/pages/consultaDatoAlumno.xhtml" />
+												<p:menuitem value="Notas generales" icon="ui-icon-disk"
+													action="/pages/consultaNotas.xhtml" />
+												<p:menuitem value="Cursos matriculados" icon="ui-icon-disk"
+													action="/pages/consultaCursos.xhtml" />
+												<p:menuitem value="Alumnos del grado" icon="ui-icon-disk"
+													action="/pages/consultaAlumnos.xhtml" />
+												<p:menuitem value="Asistencia del alumno"
+													icon="ui-icon-signal" />
+											</p:submenu>
+											<p:submenu label="Mantenimiento">
+												<p:menuitem value="Alumno" icon="ui-icon-disk"
+													action="/pages/consultaCursos.xhtml" />
+												<p:menuitem value="Apoderado" icon="ui-icon-signal" />
+												<p:menuitem value="Parentesco" icon="ui-icon-signal" />
+												<p:submenu label="Avanzado">
+													<p:menuitem value="Docente" icon="ui-icon-signal" />
+													<p:menuitem value="Curso" icon="ui-icon-disk"
+														action="/pages/consultaCursos.xhtml" />
+													<p:menuitem value="Aula" icon="ui-icon-signal" />
 												</p:submenu>
-												<p:submenu label="Mantenimiento" style="font-size: 11px;">
-													<p:menuitem value="Alumno"
-														action="/pages/consultaCursos.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Apoderado" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Parentesco" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:submenu label="Avanzado" style="font-size: 11px;">
-														<p:menuitem value="Docente" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-														<p:menuitem value="Curso"
-															action="/pages/consultaCursos.xhtml"
-															style="font-size: 11px;" icon="ui-icon-disk" />
-														<p:menuitem value="Aula" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-													</p:submenu>
-												</p:submenu>
-												<p:submenu label="Configuración" style="font-size: 11px;">
-													<p:menuitem value="Año Escolar" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Horario" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Asignación" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-												</p:submenu>
-											</p:panelMenu>
-											<p:separator />
-											<!--  
+											</p:submenu>
+											<p:submenu label="Configuración">
+												<p:menuitem value="Año Escolar" icon="ui-icon-signal" />
+												<p:menuitem value="Horario" icon="ui-icon-signal" />
+												<p:menuitem value="Asignación" icon="ui-icon-signal" />
+											</p:submenu>
+										</p:panelMenu>
+										<p:separator />
+										<!--  
 											<p:accordionPanel>
-												<p:tab title="Información" style="font-size: 11px;">
+												<p:tab title="Información">
 													<h:panelGrid columns="2" cellpadding="10">
 														<h:outputText value="Mas adelante se implementará OK" />
 													</h:panelGrid>
 												</p:tab>
-												<p:tab title="Consultas" style="font-size: 11px;">
+												<p:tab title="Consultas">
 													<h:panelGrid columns="2" cellpadding="10">
 														<h:outputText
 															value="Sigues dudando sobre esto, paciencia..." />
 													</h:panelGrid>
 												</p:tab>
-												<p:tab title="Contactos" style="font-size: 11px;">
+												<p:tab title="Contactos">
 													<h:panelGrid columns="2" cellpadding="10">
 														<h:outputText
 															value="Carambas, luego se va a implementar :D" />
@@ -133,18 +114,17 @@
 												</p:tab>
 											</p:accordionPanel>
 											-->
-										</h:form>
-									</ui:insert>
-								</div></th>
-							<th><div id="estructuraSemiCuerpo">
-									<ui:insert name="body">
+									</h:form>
+								</ui:insert>
+							</div></th>
+						<th><div id="estructuraSemiCuerpo">
+								<ui:insert name="body">
 
-									</ui:insert>
-								</div></th>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+								</ui:insert>
+							</div></th>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<script language="javascript" type="text/javascript"
 			src="../util/js/script.js"></script>

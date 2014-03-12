@@ -11,59 +11,52 @@
 <h:body>
 	<ui:composition template="/pages/matriculaEstructura.xhtml">
 		<ui:define name="body">
-			<div id="header" style="width: 440px;">
+			<div id="header" style="width: 400px;">
 				<h:form id="form">
-					<p:panel style="font-size: 12px;">
+					<p:panel styleClass="panelP">
 						<f:facet name="header">MANTENIMIENTO GENERAL DE ALUMNO</f:facet>
-						<h:outputText
-							value="Los campos marcados con (*) son obligatorios."
-							style="font-size:11px;" />
-						<p:panelGrid columns="3" cellpadding="5"
-							styleClass="panelGridEstandar">
-							<h:outputLabel value="Nombres (*)" />
-							<h:outputLabel value=" : " />
+						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
+							<h:outputLabel value="Nombres(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.nombre}" />
-							<h:outputLabel value="Apellido Paterno (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Apellido Paterno(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.apPaterno}" />
-							<h:outputLabel value="Apellido Materno (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Apellido Materno(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.apMaterno}" />
-							<h:outputLabel value="DNI" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Dni(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.dni}" />
-							<h:outputLabel value="Fecha Nacimiento (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Fecha Nacimiento(*)" />
+							<h:outputLabel value=":" />
 							<p:calendar
 								value="#{matriculaManteAlumno.alumno.fechaNacimiento}"
 								style="font-size:11px;" showOn="button" pattern="dd/MM/yyyy" />
 							<h:outputLabel value="Teléfono" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.telefono}" />
-							<h:outputLabel value="Sexo (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Sexo(*)" />
+							<h:outputLabel value=":" />
 							<p:selectOneMenu id="sexo"
 								value="#{matriculaManteAlumno.alumno.sexo}" style="width:160px;">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
 								<f:selectItems value="#{matriculaManteAlumno.sexoMap}" />
 							</p:selectOneMenu>
-							<h:outputLabel value="Email (*)" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Email(*)" />
+							<h:outputLabel value=":" />
 							<p:inputMask value="#{matriculaManteAlumno.alumno.email}" />
-						</p:panelGrid>
-
+							<h:outputText style="font-size: 10px; color:red;"
+							value="Campos Obligatorios(*)" />
+						</h:panelGrid>
 						<p:separator />
-
 						<p:growl id="messages" showDetail="false" sticky="true" />
-						<h:panelGrid columns="3" cellpadding="5">
+						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
 							<p:commandButton id="grabar" value="Grabar" update="messages"
-								style="font-size:12px;"
 								action="#{matriculaManteAlumno.registrarAlumno}"
 								oncomplete=":form" />
-							<p:commandButton value="Limpiar" style="font-size:12px;"
-								oncomplete=":form" />
-							<p:commandButton value="Cancelar" style="font-size:12px;"
-								oncomplete=":form" />
+							<p:commandButton value="Limpiar" oncomplete=":form" />
+							<p:commandButton value="Cancelar" oncomplete=":form" />
 						</h:panelGrid>
 
 					</p:panel>

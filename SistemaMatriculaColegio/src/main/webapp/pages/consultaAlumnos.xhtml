@@ -7,30 +7,31 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form prependId="false">
-				<p:dataTable value="#{consultaAlumnos.matriculaList}" var="mat">
+				<p:dataTable value="#{consultaAlumnos.matriculaList}" var="mat"
+					styleClass="dataTableP">
 					<f:facet name="header">DETALLE DE ALUMNOS MATRICULADO EN EL GRADO</f:facet>
-
-					<p:column headerText="NOMBRE" style="font-size:12px;">
+					<p:column headerText="Nombre">
 						<h:outputText value="#{mat.alumno.idAlumno}" />
 					</p:column>
-					<p:column headerText="AP-PATERNO" style="font-size:12px;" width="170">
+					<p:column headerText="Ap-Paterno" width="170">
 						<h:outputText value="#{mat.alumno.idAlumno}" />
 					</p:column>
-					<p:column headerText="AP-MATERNO" style="font-size:12px;" width="170">
+					<p:column headerText="Ap-Materno" width="170">
 						<h:outputText value="#{mat.alumno.idAlumno}" />
 					</p:column>
-					<p:column headerText="MATRICULA" style="font-size:12px;" width="90">
+					<p:column headerText="Matricula" width="90">
 						<h:outputText value="#{mat.fechaMatricula}" />
 					</p:column>
-					<p:column headerText="Año" style="font-size:12px;" width="50">
+					<p:column headerText="Año" width="50">
 						<h:outputText value="#{mat.anhoescolar.idAnhoEscolar}" />
 					</p:column>
-					
+
 				</p:dataTable>
 			</h:form>
 		</ui:define>

@@ -1,0 +1,72 @@
+body {
+	background: url(../image/fondo-acero.png);
+	margin: 0;
+	min-width: 1000px;
+	position: relative;
+}
+
+#contenedor {
+	background: url(../image/fondo-celeste.png);
+	height: 600px;
+	left: 0px;
+	margin: auto;
+	position: relative;
+	width: 100%;
+}
+
+#header {
+	background-color: #2d6ca2;
+	height: 160px;
+	margin-bottom: 3px;
+	position: relative;
+	width: 100%;
+}
+
+#imagenAlumnos {
+	background: url(../image/alumnos.jpg) no-repeat;
+	height: 160px;
+	margin-bottom: 0;
+	margin-left: 59%;
+	position: absolute;
+	top: 15px;
+	width: 420px;
+}
+
+#imagenCampus {
+	background: url(../image/campus1.jpg) no-repeat;
+	height: 280px;
+	margin-bottom: 0;
+	position: relative;
+	top: 5px;
+	width: 800px;
+}
+
+#imagenPrincipal {
+	background: url(../image/logoPrincipal.png) no-repeat;
+	height: 160px;
+	margin-bottom: 0;
+	margin-left: 2%;
+	position: absolute;
+	top: 15px;
+	width: 700px;
+}
+
+#titulos {
+	background-color: #CEE3F6;
+	height: 35px;
+	left: 0px;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+}
+
+/* ********************************************* */
+.principal {
+	background-image: url(../image/fondo_azulado.jpg);
+	background-repeat: repeat-x;
+}
+
+.cuerpo {
+	background-color: yellow;
+	width: 994px;
+}

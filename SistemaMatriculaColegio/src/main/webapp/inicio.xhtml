@@ -5,7 +5,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<link href="util/css/estiloInicio.css" rel="stylesheet" type="text/css" />
+	<link href="util/css/estiloPrincipal.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" />
 	<title>INICIO</title>
 	<script language="javascript" type="text/javascript"
@@ -16,7 +16,7 @@
 		<div id="imagenPrincipal"></div>
 		<div id="imagenAlumnos"></div>
 	</div>
-	<h:form id="display">
+	<h:form id="form">
 		<div id="titulos">
 			<p:growl id="messages" showDetail="true" />
 			<p:commandButton value="INICIO" action="MODELO" oncomplete=":form"
@@ -34,7 +34,6 @@
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
 			<p:commandButton value="BIBLIOTECA" action="MODELO"
 				oncomplete=":form" icon="ui-icon-disk" style="font-size:14px;" />
-			<input type="text" id="visita"></input>
 		</div>
 
 		<table class="principal" width="100%" cellpadding="0" cellspacing="0"
@@ -70,8 +69,8 @@
 										<table width="200" border="1" cellspacing="0">
 											<tbody>
 												<tr>
-													<td width="40" height="280" bgcolor="#0B2161">
-														<div id="imagenYoutube"></div>
+													<td width="10" height="280" bgcolor="#0B2161">
+														<div></div>
 													</td>
 												</tr>
 											</tbody>

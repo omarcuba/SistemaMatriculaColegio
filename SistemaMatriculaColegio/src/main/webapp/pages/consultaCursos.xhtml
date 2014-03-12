@@ -7,33 +7,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form id="form">
-
-				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi">
-
+				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi" styleClass="dataTableP">
 					<f:facet name="header">DETALLE DE DOCENTES POR CURSOS MATRICULADOS </f:facet>
-
-					<p:column headerText="DESCRIPCION DEL CURSO"
-						style="font-size:12px;">
+					<p:column headerText="Descrición del Curso" >
 						<h:outputText value="#{asi.curso.idCurso}" />
 					</p:column>
-
-					<p:column headerText="DOCENTE" style="font-size:12px;" width="300">
+					<p:column headerText="Docente" width="300">
 						<h:outputText value="#{asi.docente.idDocente}" />
 					</p:column>
-					<p:column headerText="Estado" style="font-size:12px;" width="50">
+					<p:column headerText="Estado" width="50">
 						<h:outputText value="#{asi.seccion}" />
 					</p:column>
-					<p:column headerText="Año" style="font-size:12px;" width="50">
+					<p:column headerText="Año" width="50">
 						<h:outputText value="#{asi.anhoescolar.idAnhoEscolar}" />
 					</p:column>
-
 				</p:dataTable>
-
 			</h:form>
 		</ui:define>
 	</ui:composition>

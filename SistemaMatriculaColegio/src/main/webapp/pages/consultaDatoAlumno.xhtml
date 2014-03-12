@@ -6,66 +6,50 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<style type="text/css">
-@import url("../util/css/estiloInicio.css");
-</style>
-	<title>REGISTRAR USUARIO</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
-			<div id="header" style="width: 360px;">
+			<div id="header" style="width: 340px;">
 				<h:form id="form">
-					<p:panel header="Dato general del Alumno" style="font-size: 13px;">
-						<h:panelGrid columns="3" cellpadding="5" cellspacing="3">
-
-							<h:outputLabel value="Identificador " />
-							<h:outputLabel value=" : " />
+					<p:panel header="Dato general del Alumno" styleClass="panelP">
+						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
+							<h:outputLabel value="Identificador" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
-
-							<h:outputLabel value="Nombre " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Nombre" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.nombre}" />
-
-							<h:outputLabel value="Ap. Paterno " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Ap. Paterno" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.apPaterno}" />
-
-							<h:outputLabel value="Ap. Materno " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Ap. Materno" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.apMaterno}" />
-
-							<h:outputLabel value="Dni " style="left: 0px;" />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Dni" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.telefono}" />
-
-							<h:outputLabel value="Fecha Nacim. " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Fecha Nacim." />
+							<h:outputLabel value=":" />
 							<h:outputText
 								value="#{consultaDatoAlumno.alumno.fechaNacimiento}" />
-
-							<h:outputLabel value="Teléfono " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Teléfono" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.telefono}" />
-
-							<h:outputLabel value="Email " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Email" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.email}" />
-
-							<h:outputLabel value="Usuario " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Usuario" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
-
-							<h:outputLabel value="Grado " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Grado" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
-
-							<h:outputLabel value="Sección " />
-							<h:outputLabel value=" : " />
+							<h:outputLabel value="Sección" />
+							<h:outputLabel value=":" />
 							<h:outputText value="#{consultaDatoAlumno.alumno.idAlumno}" />
-
 						</h:panelGrid>
-
 					</p:panel>
 				</h:form>
 			</div>

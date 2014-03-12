@@ -9,135 +9,111 @@
 <f:view>
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="../util/css/estiloInicio.css" rel="stylesheet"
+		<link href="../util/css/estiloIntranet.css" rel="stylesheet"
 			type="text/css" />
 	</h:head>
 
 	<h:body>
-		<div id="plantillaInterna">
-			<div id="estructuraCabecera" align="center">
-				<ui:insert name="header">
-					<h:panelGrid columns="2">
-						<h:graphicImage url="/util/image/matricula.jpg" />
-						<p:panel style="background:#46C4C2; font-size: 12px;"
-							header="Usuario de Visita">
-							<table width="240" cellpadding="2">
-								<tbody>
-									<tr>
-										<th width="60"><h:outputText value="Usuario" /></th>
-										<th width="5">:</th>
-										<th width="180"><h:outputText
-												value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Tipo" /></th>
-										<th>:</th>
-										<th><input type="text" value="#{loginBean.tipoUsuario}"
-											style="color: white;" /></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Hora" /></th>
-										<th>:</th>
-										<th><div id="reloj" style="color: white; width: 4px;"></div></th>
-									</tr>
-									<tr>
-										<th><h:outputText value="Fecha " /></th>
-										<th>:</th>
-										<th><input type="text" id="fechaNombre"
-											style="color: white;" /></th>
-									</tr>
-								</tbody>
-							</table>
-						</p:panel>
-					</h:panelGrid>
-				</ui:insert>
-			</div>
-			<p:separator />
-			<div align="center">
-				<table>
-					<tbody>
-						<tr>
-							<th><div id="estructuraCuerpo">
-									<ui:insert name="menu">
-										<h:form>
-											<p:growl id="mensajes" autoUpdate="true" />
-											<p:commandButton value="@--- Inicio --@"
-												action="/pages/matricula.xhtml" />
-											<p:panelMenu style="width:180px;">
-												<p:submenu label="Matricula" style="font-size: 11px;">
-													<p:menuitem value="Crear" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Modificar" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Cancelar" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Ver" style="font-size: 11px;"
-														icon="ui-icon-signal" />
+		<div id="estructuraCabecera" align="center">
+			<ui:insert name="header">
+				<h:panelGrid columns="2" styleClass="panelGridH">
+					<h:graphicImage url="/util/image/matricula.jpg" />
+					<p:panel style="background:#46C4C2;" header="Usuario de Visita">
+						<table width="240" cellpadding="2">
+							<tbody>
+								<tr>
+									<th width="60"><h:outputText value="Usuario" /></th>
+									<th>:</th>
+									<th width="180"><h:outputText
+											value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Tipo" /></th>
+									<th>:</th>
+									<th><input type="text" value="#{loginBean.tipoUsuario}"
+										style="color: white;" /></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Hora" /></th>
+									<th>:</th>
+									<th><div id="reloj" style="color: white;"></div></th>
+								</tr>
+								<tr>
+									<th><h:outputText value="Fecha " /></th>
+									<th>:</th>
+									<th><input type="text" id="fechaNombre"
+										style="color: white;" /></th>
+								</tr>
+							</tbody>
+						</table>
+					</p:panel>
+				</h:panelGrid>
+			</ui:insert>
+		</div>
+		<p:separator />
+		<div align="center">
+			<table>
+				<tbody>
+					<tr>
+						<th><div id="estructuraCuerpo">
+								<ui:insert name="menu">
+									<h:form>
+										<p:growl id="mensajes" autoUpdate="true" />
+										<p:commandButton value="@------- Inicio ------@"
+											action="/pages/matricula.xhtml" style="font-size: 13px;" />
+										<p:panelMenu style="width:180px;" styleClass="panelMenuP">
+											<p:submenu label="Matricula">
+												<p:menuitem value="Crear" icon="ui-icon-signal" />
+												<p:menuitem value="Modificar" icon="ui-icon-signal" />
+												<p:menuitem value="Cancelar" icon="ui-icon-signal" />
+												<p:menuitem value="Ver" icon="ui-icon-signal" />
+											</p:submenu>
+											<p:submenu label="Ver Notas">
+												<p:menuitem value="1º Bimestre" icon="ui-icon-signal" />
+												<p:menuitem value="2º Bimestre" icon="ui-icon-signal" />
+												<p:menuitem value="3º Bimestre" icon="ui-icon-signal" />
+												<p:menuitem value="4º Bimestre" icon="ui-icon-signal" />
+												<p:menuitem value="Promedios" icon="ui-icon-signal" />
+											</p:submenu>
+											<p:submenu label="Mantenimiento">
+												<p:menuitem value="Alumno" icon="ui-icon-disk"
+													action="/pages/matriculaMantenimientoAlumno.xhtml" />
+												<p:menuitem value="Apoderado" icon="ui-icon-disk"
+													action="/pages/matriculaMantenimientoApoderado.xhtml" />
+												<p:menuitem value="Parentesco" icon="ui-icon-signal" />
+												<p:submenu label="Avanzado">
+													<p:menuitem value="Docente" icon="ui-icon-signal" />
+													<p:menuitem value="Curso" icon="ui-icon-signal" />
+													<p:menuitem value="Aula" icon="ui-icon-signal" />
 												</p:submenu>
-												<p:submenu label="Ver Notas" style="font-size: 11px;">
-													<p:menuitem value="1º Bimestre" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="2º Bimestre" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="3º Bimestre" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="4º Bimestre" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Promedios" style="font-size: 11px;"
-														icon="ui-icon-signal" />
+											</p:submenu>
+											<p:submenu label="Configuración">
+												<p:menuitem value="Año Escolar" icon="ui-icon-signal" />
+												<p:menuitem value="Horario" icon="ui-icon-signal" />
+												<p:menuitem value="Asignación" icon="ui-icon-signal" />
+												<p:menuitem value="Colegio" icon="ui-icon-signal" />
+												<p:submenu label="Avanzado">
+													<p:menuitem value="Roles" icon="ui-icon-signal" />
+													<p:menuitem value="Usuarios" icon="ui-icon-signal" />
 												</p:submenu>
-												<p:submenu label="Mantenimiento" style="font-size: 11px;">
-													<p:menuitem value="Alumno"
-														action="/pages/matriculaMantenimientoAlumno.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Apoderado"
-														action="/pages/matriculaMantenimientoApoderado.xhtml"
-														style="font-size: 11px;" icon="ui-icon-disk" />
-													<p:menuitem value="Parentesco" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:submenu label="Avanzado" style="font-size: 11px;">
-														<p:menuitem value="Docente" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-														<p:menuitem value="Curso" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-														<p:menuitem value="Aula" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-													</p:submenu>
-												</p:submenu>
-												<p:submenu label="Configuración" style="font-size: 11px;">
-													<p:menuitem value="Año Escolar" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Horario" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Asignación" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:menuitem value="Colegio" style="font-size: 11px;"
-														icon="ui-icon-signal" />
-													<p:submenu label="Avanzado" style="font-size: 11px;">
-														<p:menuitem value="Roles" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-														<p:menuitem value="Usuarios" style="font-size: 11px;"
-															icon="ui-icon-signal" />
-													</p:submenu>
-												</p:submenu>
-											</p:panelMenu>
-											<p:commandButton value="@. Imprimir Pagina @"
-												onclick="window.print()" style="font-size: 13px;" />
-											<p:commandButton value="@ Mensaje Informe@"
-												onclick="javascript:alert('Usted esta programando :D');"
-												style="font-size: 13px;" />
-										</h:form>
-									</ui:insert>
-								</div></th>
-							<th><div id="estructuraSemiCuerpo">
-									<ui:insert name="body">
+											</p:submenu>
+										</p:panelMenu>
+										<p:commandButton value="@. Imprimir Pagina @"
+											onclick="window.print()" style="font-size: 13px;" />
+										<p:commandButton value="@ Mensaje Informe@"
+											onclick="javascript:alert('Usted esta programando :D');"
+											style="font-size: 13px;" />
+									</h:form>
+								</ui:insert>
+							</div></th>
+						<th><div id="estructuraSemiCuerpo">
+								<ui:insert name="body">
 
-									</ui:insert>
-								</div></th>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+								</ui:insert>
+							</div></th>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<script language="javascript" type="text/javascript"
 			src="../util/js/script.js"></script>
