@@ -56,7 +56,7 @@ public class NotasDaoImpl extends SessionFactoryImpl implements NotasDao {
     criteria = session.createCriteria(Notas.class);
     criteria.add(Restrictions.eq(CODIGO_ALUMNO, codigoAlumno));
     notasList = criteria.list();
-    session.close();
+    //session.close();
     return notasList;
   }
 }

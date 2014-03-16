@@ -13,13 +13,20 @@
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form id="form">
-				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi" styleClass="dataTableP">
+				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi"
+					styleClass="dataTableP">
 					<f:facet name="header">DETALLE DE DOCENTES POR CURSOS MATRICULADOS </f:facet>
-					<p:column headerText="Descrición del Curso" >
-						<h:outputText value="#{asi.curso.idCurso}" />
+					<p:column headerText="Descrición del Curso">
+						<h:outputText value="#{asi.curso.descripcion}" />
 					</p:column>
-					<p:column headerText="Docente" width="300">
-						<h:outputText value="#{asi.docente.idDocente}" />
+					<p:column headerText="DocenteNombre" width="150">
+						<h:outputText value="#{asi.docente.nombre}" />
+					</p:column>
+					<p:column headerText="Ap-Materno" width="120">
+						<h:outputText value="#{asi.docente.apMaterno}" />
+					</p:column>
+					<p:column headerText="Ap-Paterno" width="120">
+						<h:outputText value="#{asi.docente.apPaterno}" />
 					</p:column>
 					<p:column headerText="Estado" width="50">
 						<h:outputText value="#{asi.seccion}" />

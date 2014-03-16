@@ -55,9 +55,10 @@
 			<table>
 				<tbody>
 					<tr>
-						<th><div id="estructuraCuerpo">
+						<th>
+							<div id="estructuraCuerpo">
 								<ui:insert name="menu">
-									<h:form id="form">
+									<h:form id="formGeneral">
 										<p:growl id="mensajes" autoUpdate="true" />
 										<p:commandButton value="@--- Inicio --@"
 											action="/pages/consultas.xhtml" style="font-size: 15px;" />
@@ -106,22 +107,19 @@
 															value="Sigues dudando sobre esto, paciencia..." />
 													</h:panelGrid>
 												</p:tab>
-												<p:tab title="Contactos">
-													<h:panelGrid columns="2" cellpadding="10">
-														<h:outputText
-															value="Carambas, luego se va a implementar :D" />
-													</h:panelGrid>
-												</p:tab>
 											</p:accordionPanel>
-											-->
+-->
 									</h:form>
 								</ui:insert>
-							</div></th>
-						<th><div id="estructuraSemiCuerpo">
+							</div>
+						</th>
+						<th>
+							<div id="estructuraSemiCuerpo">
 								<ui:insert name="body">
 
 								</ui:insert>
-							</div></th>
+							</div>
+						</th>
 					</tr>
 				</tbody>
 			</table>

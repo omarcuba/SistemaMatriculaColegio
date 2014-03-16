@@ -14,38 +14,40 @@
 	<h:body>
 		<div id="estructuraCabecera" align="center">
 			<ui:insert name="header">
-				<h:panelGrid columns="2" styleClass="panelGridH">
-					<h:graphicImage url="/util/image/administrador.jpg" />
-					<p:panel style="background:#46C4C2;" header="Usuario de Visita">
-						<table width="240" cellpadding="2">
-							<tbody>
-								<tr>
-									<th width="60"><h:outputText value="Usuario" /></th>
-									<th>:</th>
-									<th width="180"><h:outputText
-											value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
-								</tr>
-								<tr>
-									<th><h:outputText value="Tipo" /></th>
-									<th>:</th>
-									<th><input type="text" value="#{loginBean.tipoUsuario}"
-										style="color: white;" /></th>
-								</tr>
-								<tr>
-									<th><h:outputText value="Hora" /></th>
-									<th>:</th>
-									<th><div id="reloj" style="color: white;"></div></th>
-								</tr>
-								<tr>
-									<th><h:outputText value="Fecha " /></th>
-									<th>:</th>
-									<th><input type="text" id="fechaNombre"
-										style="color: white;" /></th>
-								</tr>
-							</tbody>
-						</table>
-					</p:panel>
-				</h:panelGrid>
+				<h:form id="formGeneral">
+					<h:panelGrid columns="2" styleClass="panelGridH">
+						<h:graphicImage url="/util/image/administrador.jpg" />
+						<p:panel style="background:#46C4C2;" header="Usuario de Visita">
+							<table width="240" cellpadding="2">
+								<tbody>
+									<tr>
+										<th width="60"><h:outputText value="Usuario" /></th>
+										<th>:</th>
+										<th width="180"><h:outputText
+												value="#{loginBean.datoUsuarioVisita}" style="color:blue;" /></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="Tipo" /></th>
+										<th>:</th>
+										<th><input type="text" value="#{loginBean.tipoUsuario}"
+											style="color: white;" /></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="Hora" /></th>
+										<th>:</th>
+										<th><div id="reloj" style="color: white;"></div></th>
+									</tr>
+									<tr>
+										<th><h:outputText value="Fecha " /></th>
+										<th>:</th>
+										<th><input type="text" id="fechaNombre"
+											style="color: white;" /></th>
+									</tr>
+								</tbody>
+							</table>
+						</p:panel>
+					</h:panelGrid>
+				</h:form>
 			</ui:insert>
 		</div>
 		<p:separator />

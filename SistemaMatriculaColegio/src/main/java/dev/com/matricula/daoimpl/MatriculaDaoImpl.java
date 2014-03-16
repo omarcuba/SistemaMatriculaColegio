@@ -59,7 +59,7 @@ public class MatriculaDaoImpl extends SessionFactoryImpl implements MatriculaDao
     criteria = session.createCriteria(Matricula.class);
     criteria.add(Restrictions.eq(CODIGO_ANHOESCOLAR, "2013"));
     matriculaList = criteria.list();
-    session.close();
+    //session.close();
     return matriculaList;
   }
 }
