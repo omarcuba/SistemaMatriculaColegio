@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 
 import dev.com.matricula.dao.AsignacionDao;
 import dev.com.matricula.model.Asignacion;
-import dev.com.matricula.entity.AsignacionEntity;
 
 public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionDao {
 
@@ -19,7 +18,6 @@ public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionD
   private int entero;
   private String CODIGO_ANHOESCOLAR = "anhoescolar.idAnhoEscolar";
   private List<Asignacion> asignacionList;
-  private List<Asignacion> asignacionEntityList;
 
   @Override
   public boolean registrarAsignacion(Asignacion asignacion) {
@@ -61,8 +59,8 @@ public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionD
     criteria = session.createCriteria(Asignacion.class);
     criteria.add(Restrictions.eq(CODIGO_ANHOESCOLAR, "2013"));
     asignacionList = criteria.list();
-    //session.close();
+    // session.close();
     return asignacionList;
   }
-  
+
 }
