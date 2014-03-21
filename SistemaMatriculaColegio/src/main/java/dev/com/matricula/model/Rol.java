@@ -16,7 +16,7 @@ public class Rol implements java.io.Serializable {
   private char estado;
   private Integer codUsuario;
   private Date fechaOperacion;
-  private Set rolusuarios = new HashSet(0);
+  private Set rolUsuarios = new HashSet(0);
 
   public Rol() {
   }
@@ -28,13 +28,13 @@ public class Rol implements java.io.Serializable {
   }
 
   public Rol(int idRol, String descripcion, char estado, Integer codUsuario, Date fechaOperacion,
-          Set rolusuarios) {
+          Set rolUsuarios) {
     this.idRol = idRol;
     this.descripcion = descripcion;
     this.estado = estado;
     this.codUsuario = codUsuario;
     this.fechaOperacion = fechaOperacion;
-    this.rolusuarios = rolusuarios;
+    this.rolUsuarios = rolUsuarios;
   }
 
   public int getIdRol() {
@@ -77,12 +77,12 @@ public class Rol implements java.io.Serializable {
     this.fechaOperacion = fechaOperacion;
   }
 
-  public Set getRolusuarios() {
-    return this.rolusuarios;
+  public Set getRolUsuarios() {
+    return this.rolUsuarios;
   }
 
-  public void setRolusuarios(Set rolusuarios) {
-    this.rolusuarios = rolusuarios;
+  public void setRolUsuarios(Set rolUsuarios) {
+    this.rolUsuarios = rolUsuarios;
   }
 
 }

@@ -10,7 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-public class UsuarioDaoImpl extends SessionFactoryImpl implements UsuarioDao {
+public class UsuarioDaoImpl extends AbstractHibernateDao implements UsuarioDao {
 
   private Session session;
   private Criteria criteria;

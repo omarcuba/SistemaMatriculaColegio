@@ -1,41 +1,33 @@
 package dev.com.matricula.bean;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Curso;
 import dev.com.matricula.model.Matricula;
-import dev.com.matricula.service.ConsultaAlumnosService;
-import dev.com.matricula.serviceimpl.ConsultaAlumnosServiceImpl;
+import dev.com.matricula.service.ConsultaAlumnoService;
 
-@ManagedBean(name = "consultaAlumnos")
-@SessionScoped
-public class ConsultaAlumnosBean implements Serializable {
+public class ConsultaAlumnoBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Alumno alumno;
   private Curso curso;
   private Matricula matricula;
   private ArrayList<Matricula> matriculaList;
+  private ConsultaAlumnoService consultaAlumnoService;
 
-  private ConsultaAlumnosService consultaAlumnosService;
-
-  public ConsultaAlumnosBean() {
+  public ConsultaAlumnoBean() {
     alumno = new Alumno();
     curso = new Curso();
     matricula = new Matricula();
-    obtenerNotasAlumno();
   }
 
-  public List<Matricula> obtenerNotasAlumno() {
-    consultaAlumnosService = new ConsultaAlumnosServiceImpl();
-    matriculaList = (ArrayList<Matricula>) consultaAlumnosService.obtenerMatriculaAlumno(LoginBean.CODIGO_ALUMNO);
-    return matriculaList;
+  public String obtenerMatriculas() {
+    matriculaList =
+            (ArrayList<Matricula>) consultaAlumnoService
+                    .obtenerMatriculaAlumno(LoginBean.CODIGO_ALUMNO);
+    return "/pages/consultaAlumnos.xhtml";
 
   }
 
@@ -71,4 +63,7 @@ public class ConsultaAlumnosBean implements Serializable {
     this.matriculaList = matriculaList;
   }
 
+  public void setConsultaAlumnoService(ConsultaAlumnoService consultaAlumnoService) {
+    this.consultaAlumnoService = consultaAlumnoService;
+  }
 }

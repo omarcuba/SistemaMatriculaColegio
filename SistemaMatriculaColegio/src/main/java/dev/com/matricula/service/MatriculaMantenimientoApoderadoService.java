@@ -1,11 +1,11 @@
 package dev.com.matricula.service;
 
 import dev.com.matricula.model.Apoderado;
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.model.UsuarioAlumno;
 
-public interface MatriculaManteApoderadoService {
+public interface MatriculaMantenimientoApoderadoService {
 
   public Integer buscarUltimoidApoderado();
 
@@ -19,8 +19,8 @@ public interface MatriculaManteApoderadoService {
 
   boolean registrarUsuario(Usuario usuario);
 
-  boolean registrarRolUsuario(Rolusuario rolUsuario);
+  boolean registrarRolUsuario(RolUsuario rolUsuario);
 
-  boolean registrarUsuarioAlumno(Usuarioalumno usuarioAlumno);
+  boolean registrarUsuarioAlumno(UsuarioAlumno usuarioAlumno);
 
 }

@@ -14,7 +14,7 @@
         <many-to-one name="curso" class="dev.com.matricula.model.Curso" fetch="select">
             <column name="IdCurso" not-null="true" />
         </many-to-one>
-        <many-to-one name="anhoescolar" class="dev.com.matricula.model.Anhoescolar" fetch="select">
+        <many-to-one name="anhoEscolar" class="dev.com.matricula.model.AnhoEscolar" fetch="select">
             <column name="IdAnhoEscolar" length="4" not-null="true" />
         </many-to-one>
         <property name="seccion" type="char">

@@ -17,32 +17,32 @@
 				<h:panelGrid columns="2" cellpadding="5" cellspacing="3">
 
 					<h:outputLabel value="Nombre: " />
-					<p:inputMask value="#{UsuarioBean.usuario.nombre}" />
+					<p:inputMask value="#{usuarioBean.usuario.nombre}" />
 
 					<h:outputLabel value="Ap. Materno: " />
-					<p:inputMask value="#{UsuarioBean.usuario.apPaterno}" />
+					<p:inputMask value="#{usuarioBean.usuario.apPaterno}" />
 
 					<h:outputLabel value="Ap. Paterno: " />
-					<p:inputMask value="#{UsuarioBean.usuario.apMaterno}" />
+					<p:inputMask value="#{usuarioBean.usuario.apMaterno}" />
 
 					<h:outputLabel value="Dni: " />
-					<p:inputMask value="#{UsuarioBean.usuario.dni}" mask="99999999" />
+					<p:inputMask value="#{usuarioBean.usuario.dni}" mask="99999999" />
 
 					<h:outputLabel value="Usuario: " />
-					<p:inputMask value="#{UsuarioBean.usuario.login}" />
+					<p:inputMask value="#{usuarioBean.usuario.login}" />
 
 					<h:outputLabel value="Password: " />
-					<p:password value="#{UsuarioBean.usuario.clave}" />
+					<p:password value="#{usuarioBean.usuario.clave}" />
 
 					<h:outputLabel value="Confirmacion: " />
-					<p:password value="#{UsuarioBean.confirma}" />
+					<p:password value="#{usuarioBean.confirma}" />
 
 				</h:panelGrid>
 				<p:separator />
 				<p:growl id="messages" showDetail="false" sticky="true" />
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:commandButton id="grabar" value="Grabar" update="messages"
-						style="font-size:12px;" action="#{UsuarioBean.registrarUsuario}"
+						style="font-size:12px;" action="#{usuarioBean.registrarUsuario}"
 						oncomplete=":form" />
 					<p:commandButton id="limpiar" value="Limpiar"
 						action="REGISTRAR_USUARIO" style="font-size:12px;"

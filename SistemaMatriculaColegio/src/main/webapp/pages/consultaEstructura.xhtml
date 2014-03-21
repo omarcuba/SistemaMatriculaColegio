@@ -65,25 +65,25 @@
 										<p:panelMenu style="width:180px;" styleClass="panelMenuP">
 											<p:submenu label="Información">
 												<p:menuitem value="Datos de Alumno" icon="ui-icon-disk"
-													action="/pages/consultaDatoAlumno.xhtml" />
+													action="#{consultaDatoAlumnoBean.obtenerDatosAlumno}" />
 												<p:menuitem value="Notas generales" icon="ui-icon-disk"
 													action="/pages/consultaNotas.xhtml" />
 												<p:menuitem value="Cursos matriculados" icon="ui-icon-disk"
-													action="/pages/consultaCursos.xhtml" />
+													action="#{consultaNotaBean.obtenerNotasAlumno}" />
 												<p:menuitem value="Alumnos del grado" icon="ui-icon-disk"
-													action="/pages/consultaAlumnos.xhtml" />
+													action="#{consultaAlumnoBean.obtenerMatriculas}" />
 												<p:menuitem value="Asistencia del alumno"
 													icon="ui-icon-signal" />
 											</p:submenu>
 											<p:submenu label="Mantenimiento">
 												<p:menuitem value="Alumno" icon="ui-icon-disk"
-													action="/pages/consultaCursos.xhtml" />
+													action="#{consultaCursoBean.obtenerCursosAlumno}" />
 												<p:menuitem value="Apoderado" icon="ui-icon-signal" />
 												<p:menuitem value="Parentesco" icon="ui-icon-signal" />
 												<p:submenu label="Avanzado">
 													<p:menuitem value="Docente" icon="ui-icon-signal" />
 													<p:menuitem value="Curso" icon="ui-icon-disk"
-														action="/pages/consultaCursos.xhtml" />
+														action="#{consultaCursoBean.obtenerCursosAlumno}" />
 													<p:menuitem value="Aula" icon="ui-icon-signal" />
 												</p:submenu>
 											</p:submenu>

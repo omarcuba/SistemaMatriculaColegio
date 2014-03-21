@@ -10,13 +10,13 @@ import org.hibernate.criterion.Restrictions;
 import dev.com.matricula.dao.AsignacionDao;
 import dev.com.matricula.model.Asignacion;
 
-public class AsignacionDaoImpl extends SessionFactoryImpl implements AsignacionDao {
+public class AsignacionDaoImpl extends AbstractHibernateDao implements AsignacionDao {
 
   private Session session;
   private Criteria criteria;
   private Query query;
   private int entero;
-  private String CODIGO_ANHOESCOLAR = "anhoescolar.idAnhoEscolar";
+  private String CODIGO_ANHOESCOLAR = "anhoEscolar.idAnhoEscolar";
   private List<Asignacion> asignacionList;
 
   @Override

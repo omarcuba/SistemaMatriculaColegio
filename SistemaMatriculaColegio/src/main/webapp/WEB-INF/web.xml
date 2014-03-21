@@ -13,10 +13,7 @@
 		<welcome-file>inicio.xhtml</welcome-file>
 	</welcome-file-list>
 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml</param-value>
-	</context-param>
+	<!-- Inicio - Parametros de contexto -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
@@ -29,10 +26,25 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>start</param-value>
 	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:context/applicationContext-*.xml</param-value>
+	</context-param>
+	<!-- Fin - Parametros de contexto -->
 
+	<!-- Inicio de Listeners -->
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
+	<!-- Inicio - Necesario para la integracion Spring - JSf -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<!-- Fin - Necesario para la integracion Spring - JSf -->
+	<!-- Fin de Listeners -->
 
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -55,4 +67,5 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+
 </web-app>

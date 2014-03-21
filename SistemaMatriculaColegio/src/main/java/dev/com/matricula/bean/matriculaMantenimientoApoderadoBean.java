@@ -4,21 +4,15 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Apoderado;
 import dev.com.matricula.model.Rol;
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
-import dev.com.matricula.service.MatriculaManteApoderadoService;
-import dev.com.matricula.serviceimpl.MatriculaManteApoderadoServiceImpl;
+import dev.com.matricula.model.UsuarioAlumno;
+import dev.com.matricula.service.MatriculaMantenimientoApoderadoService;
 
-@ManagedBean(name = "matriculaManteApoderado")
-@SessionScoped
-public class matriculaMantenimientoApoderadoBean implements Serializable {
+public class MatriculaMantenimientoApoderadoBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Map<String, String> sexoMap = new HashMap<String, String>();
@@ -26,12 +20,12 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
   private Alumno alumno;
   private Apoderado apoderado;
   private Usuario usuario;
-  private Usuarioalumno usuarioAlumno;
+  private UsuarioAlumno usuarioAlumno;
   private Rol rol;
-  private Rolusuario rolUsuario;
-  private MatriculaManteApoderadoService matriculaManteApoderadoService;
+  private RolUsuario rolUsuario;
+  private MatriculaMantenimientoApoderadoService matriculaMantenimientoApoderadoService;
 
-  public matriculaMantenimientoApoderadoBean() {
+  public MatriculaMantenimientoApoderadoBean() {
     sexoMap.put("Masculino", "M");
     sexoMap.put("Femenino", "F");
     civilMap.put("Soltero", "S");
@@ -41,20 +35,19 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
     alumno = new Alumno();
     apoderado = new Apoderado();
     usuario = new Usuario();
-    rolUsuario = new Rolusuario();
+    rolUsuario = new RolUsuario();
     rol = new Rol();
-    usuarioAlumno = new Usuarioalumno();
+    usuarioAlumno = new UsuarioAlumno();
   }
 
   public String registrarApoderado() {
-    matriculaManteApoderadoService = new MatriculaManteApoderadoServiceImpl();
-    apoderado.setIdApoderado(matriculaManteApoderadoService.buscarUltimoidApoderado());
+    apoderado.setIdApoderado(matriculaMantenimientoApoderadoService.buscarUltimoidApoderado());
     apoderado.setCodUsuario(LoginBean.COD_USUARIO);
     // Registrar Alumno
-    boolean rsptApoderado = matriculaManteApoderadoService.registrarApoderado(apoderado);
+    boolean rsptApoderado = matriculaMantenimientoApoderadoService.registrarApoderado(apoderado);
 
     // Registrar Usuario
-    usuario.setIdUsuario(matriculaManteApoderadoService.buscarUltimoidUsuario());
+    usuario.setIdUsuario(matriculaMantenimientoApoderadoService.buscarUltimoidUsuario());
     usuario.setNombre(apoderado.getNombre());
     usuario.setApMaterno(apoderado.getApMaterno());
     usuario.setApPaterno(apoderado.getApPaterno());
@@ -63,26 +56,28 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
     usuario.setClave("12345");
     usuario.setEstado('0');
     usuario.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptUsuario = matriculaManteApoderadoService.registrarUsuario(usuario);
+    boolean rsptUsuario = matriculaMantenimientoApoderadoService.registrarUsuario(usuario);
 
     // Registrar Rol de Acceso
     rol.setIdRol(2);
-    rolUsuario.setIdRolUsuario(matriculaManteApoderadoService.buscarUltimoidRolUsuario());
+    rolUsuario.setIdRolUsuario(matriculaMantenimientoApoderadoService.buscarUltimoidRolUsuario());
     rolUsuario.setRol(rol);
     rolUsuario.setUsuario(usuario);
     rolUsuario.setEstado('1');
     rolUsuario.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptRolUsuario = matriculaManteApoderadoService.registrarRolUsuario(rolUsuario);
-    
-    //Apoderado para al alumno
+    boolean rsptRolUsuario = matriculaMantenimientoApoderadoService.registrarRolUsuario(rolUsuario);
+
+    // Apoderado para al alumno
     alumno.setIdAlumno(1009);
-    
-    //Registrar Usuario_Alumno
-    usuarioAlumno.setIdUsuarioAlumno(matriculaManteApoderadoService.buscarUltimoidUsuarioAlumno());
+
+    // Registrar Usuario_Alumno
+    usuarioAlumno.setIdUsuarioAlumno(matriculaMantenimientoApoderadoService
+            .buscarUltimoidUsuarioAlumno());
     usuarioAlumno.setIdUsuario(usuario.getIdUsuario());
     usuarioAlumno.setIdAlumno(alumno.getIdAlumno());
     usuarioAlumno.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptUsuarioAlumno = matriculaManteApoderadoService.registrarUsuarioAlumno(usuarioAlumno);
+    boolean rsptUsuarioAlumno =
+            matriculaMantenimientoApoderadoService.registrarUsuarioAlumno(usuarioAlumno);
 
     if (rsptApoderado && rsptUsuario && rsptRolUsuario && rsptUsuarioAlumno)
       return "MATRICULA";
@@ -122,11 +117,11 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
     this.usuario = usuario;
   }
 
-  public Rolusuario getRolUsuario() {
+  public RolUsuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(Rolusuario rolUsuario) {
+  public void setRolUsuario(RolUsuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 
@@ -138,11 +133,11 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
     this.rol = rol;
   }
 
-  public Usuarioalumno getUsuarioAlumno() {
+  public UsuarioAlumno getUsuarioAlumno() {
     return usuarioAlumno;
   }
 
-  public void setUsuarioAlumno(Usuarioalumno usuarioAlumno) {
+  public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
     this.usuarioAlumno = usuarioAlumno;
   }
 
@@ -154,4 +149,8 @@ public class matriculaMantenimientoApoderadoBean implements Serializable {
     this.apoderado = apoderado;
   }
 
+  public void setMatriculaMantenimientoApoderadoService(
+          MatriculaMantenimientoApoderadoService matriculaMantenimientoApoderadoService) {
+    this.matriculaMantenimientoApoderadoService = matriculaMantenimientoApoderadoService;
+  }
 }

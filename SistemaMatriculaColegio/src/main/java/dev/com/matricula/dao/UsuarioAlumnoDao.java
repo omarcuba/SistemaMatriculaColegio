@@ -2,16 +2,16 @@ package dev.com.matricula.dao;
 
 import java.util.List;
 
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.model.UsuarioAlumno;
 
 public interface UsuarioAlumnoDao {
 
-  public boolean registrarUsuarioAlumno(Usuarioalumno usuarioAlumno);
+  public boolean registrarUsuarioAlumno(UsuarioAlumno usuarioAlumno);
 
   public Integer obtenerUltimoIdUsuarioAlumno();
 
-  public List<Usuarioalumno> obtenerUsuarioAlumnos();
+  public List<UsuarioAlumno> obtenerUsuarioAlumnos();
 
-  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario);
+  public List<UsuarioAlumno> obtenerIdAlumno(int codigoUsuario);
 
 }

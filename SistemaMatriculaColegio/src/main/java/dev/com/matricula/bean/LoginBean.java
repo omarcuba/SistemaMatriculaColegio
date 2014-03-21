@@ -3,24 +3,18 @@ package dev.com.matricula.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.model.UsuarioAlumno;
 import dev.com.matricula.service.LoginService;
-import dev.com.matricula.serviceimpl.LoginServiceImpl;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
-@ManagedBean(name = "loginBean")
-@SessionScoped
 public class LoginBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Usuario usuario;
-  private Rolusuario rolUsuario;
+  private RolUsuario rolUsuario;
   private LoginService loginService;
-  private ArrayList<Usuarioalumno> usuarioAlumnosList;
+  private ArrayList<UsuarioAlumno> usuarioAlumnosList;
   private String ruta = "";
   private String rol = "";
   private int seleccionAlumno = 0;
@@ -32,13 +26,12 @@ public class LoginBean implements Serializable {
 
   public LoginBean() {
     usuario = new Usuario();
-    rolUsuario = new Rolusuario();
+    rolUsuario = new RolUsuario();
   }
 
   public String login() {
     String retorno = "LOGIN";
     if (!this.usuario.getLogin().isEmpty() && !this.usuario.getClave().isEmpty()) {
-      loginService = new LoginServiceImpl();
       // Validando Usuario
       usuario = loginService.obtenerDatoUsuarioAcceso(usuario.getLogin(), usuario.getClave());
       if (usuario != null) {
@@ -77,9 +70,8 @@ public class LoginBean implements Serializable {
   }
 
   private void obtenerDatosAlumno() {
-    loginService = new LoginServiceImpl();
-    usuarioAlumnosList = (ArrayList<Usuarioalumno>) loginService.obtenerIdAlumno(COD_USUARIO);
-    // Se necesita análisis para colocar el valor del tipo de alumno para
+    usuarioAlumnosList = (ArrayList<UsuarioAlumno>) loginService.obtenerIdAlumno(COD_USUARIO);
+    // Se necesita anï¿½lisis para colocar el valor del tipo de alumno para
     // mostrar con "SELECCIONALUMNO"
     // Dato que se ingresara por necesidad de Usuario
     CODIGO_ALUMNO = usuarioAlumnosList.get(seleccionAlumno).getIdAlumno();
@@ -90,10 +82,6 @@ public class LoginBean implements Serializable {
       datoUsuarioVisita =
               usuario.getNombre() + " " + usuario.getApPaterno() + " " + usuario.getApMaterno();
     }
-  }
-
-  public LoginService getLoginService() {
-    return loginService;
   }
 
   public void setLoginService(LoginService loginService) {
@@ -116,11 +104,11 @@ public class LoginBean implements Serializable {
     this.usuario = usuario;
   }
 
-  public Rolusuario getRolUsuario() {
+  public RolUsuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(Rolusuario rolUsuario) {
+  public void setRolUsuario(RolUsuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 
@@ -140,11 +128,11 @@ public class LoginBean implements Serializable {
     this.seleccionAlumno = seleccionAlumno;
   }
 
-  public ArrayList<Usuarioalumno> getUsuarioAlumnosList() {
+  public ArrayList<UsuarioAlumno> getUsuarioAlumnosList() {
     return usuarioAlumnosList;
   }
 
-  public void setUsuarioAlumnosList(ArrayList<Usuarioalumno> usuarioAlumnosList) {
+  public void setUsuarioAlumnosList(ArrayList<UsuarioAlumno> usuarioAlumnosList) {
     this.usuarioAlumnosList = usuarioAlumnosList;
   }
 

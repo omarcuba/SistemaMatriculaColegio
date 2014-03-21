@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import dev.com.matricula.dao.NotasDao;
 import dev.com.matricula.model.Notas;
 
-public class NotasDaoImpl extends SessionFactoryImpl implements NotasDao {
+public class NotasDaoImpl extends AbstractHibernateDao implements NotasDao {
 
   private Session session;
   private Criteria criteria;

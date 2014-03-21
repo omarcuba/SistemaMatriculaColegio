@@ -2,24 +2,19 @@ package dev.com.matricula.bean;
 
 import java.io.Serializable;
 
-import dev.com.matricula.model.Rol;
-import dev.com.matricula.model.Rolusuario;
-import dev.com.matricula.model.Usuario;
-import dev.com.matricula.service.UsuarioService;
-import dev.com.matricula.serviceimpl.UsuarioServiceImpl;
-
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-@ManagedBean(name = "UsuarioBean")
-@SessionScoped
+import dev.com.matricula.model.Rol;
+import dev.com.matricula.model.RolUsuario;
+import dev.com.matricula.model.Usuario;
+import dev.com.matricula.service.UsuarioService;
+
 public class UsuarioBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Usuario usuario;
-  private Rolusuario rolUsuario;
+  private RolUsuario rolUsuario;
   private Rol rol;
   private UsuarioService usuarioService;
   private String confirma = "";
@@ -29,13 +24,12 @@ public class UsuarioBean implements Serializable {
   public UsuarioBean() {
     usuario = new Usuario();
     rol = new Rol();
-    rolUsuario = new Rolusuario();
+    rolUsuario = new RolUsuario();
   }
 
   public String registrarUsuario() {
     FacesContext context = FacesContext.getCurrentInstance();
     if (usuario.getClave().equals(getConfirma())) {
-      usuarioService = new UsuarioServiceImpl();
 
       // Completando los Datos para la entidad Usuario
       usuario.setIdUsuario(usuarioService.buscarUltimoidUsuario());
@@ -60,16 +54,16 @@ public class UsuarioBean implements Serializable {
         }
       }
     }
-    context.addMessage(null, new FacesMessage("Error en confirmación de contraseña",
+    context.addMessage(null, new FacesMessage("Error en confirmaciï¿½n de contraseï¿½a",
             "No se pudo Registrar"));
     return "REGISTRAR_USUARIO";
   }
 
-  public Rolusuario getRolUsuario() {
+  public RolUsuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(Rolusuario rolUsuario) {
+  public void setRolUsuario(RolUsuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 
@@ -79,14 +73,6 @@ public class UsuarioBean implements Serializable {
 
   public void setRol(Rol rol) {
     this.rol = rol;
-  }
-
-  public UsuarioService getUsuarioService() {
-    return usuarioService;
-  }
-
-  public void setUsuarioService(UsuarioService usuarioService) {
-    this.usuarioService = usuarioService;
   }
 
   public String getConfirma() {
@@ -121,4 +107,7 @@ public class UsuarioBean implements Serializable {
     this.rsptAccesoRol = rsptAccesoRol;
   }
 
+  public void setUsuarioService(UsuarioService usuarioService) {
+    this.usuarioService = usuarioService;
+  }
 }

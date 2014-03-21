@@ -8,20 +8,20 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import dev.com.matricula.dao.RolUsuarioDao;
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 
-public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioDao {
+public class RolUsuarioDaoImpl extends AbstractHibernateDao implements RolUsuarioDao {
 
   private Session session;
   private Criteria criteria;
   private Query query;
   private int entero;
   private String CODIGO_USUARIO = "usuario.idUsuario";
-  private Rolusuario rolUsuario;
-  private List<Rolusuario> rolUsuarioList;
+  private RolUsuario rolUsuario;
+  private List<RolUsuario> rolUsuarioList;
 
   @Override
-  public boolean registrarRolUsuario(Rolusuario rolUsuario) {
+  public boolean registrarRolUsuario(RolUsuario rolUsuario) {
     try {
       session = getSessionFactory().openSession();
       session.beginTransaction();
@@ -44,21 +44,21 @@ public class RolUsuarioDaoImpl extends SessionFactoryImpl implements RolUsuarioD
   }
 
   @Override
-  public Rolusuario obtenerDatoRolUsuario(int codigoUsuario) {
+  public RolUsuario obtenerDatoRolUsuario(int codigoUsuario) {
     session = getSessionFactory().openSession();
     session.beginTransaction();
-    criteria = session.createCriteria(Rolusuario.class);
+    criteria = session.createCriteria(RolUsuario.class);
     criteria.add(Restrictions.eq(CODIGO_USUARIO, codigoUsuario));
-    rolUsuario = (Rolusuario) criteria.uniqueResult();
+    rolUsuario = (RolUsuario) criteria.uniqueResult();
     session.close();
     return rolUsuario;
   }
 
   @SuppressWarnings("unchecked")
   @Override
-  public List<Rolusuario> obtenerRolusuarios() {
+  public List<RolUsuario> obtenerRolusuarios() {
     session = getSessionFactory().openSession();
-    criteria = session.createCriteria(Rolusuario.class);
+    criteria = session.createCriteria(RolUsuario.class);
     rolUsuarioList = criteria.list();
     session.close();
     return rolUsuarioList;

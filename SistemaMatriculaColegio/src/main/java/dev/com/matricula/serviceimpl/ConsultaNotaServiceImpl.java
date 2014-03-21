@@ -1,19 +1,21 @@
 package dev.com.matricula.serviceimpl;
 
 import java.util.List;
-import dev.com.matricula.dao.NotasDao;
-import dev.com.matricula.daoimpl.NotasDaoImpl;
-import dev.com.matricula.model.Notas;
-import dev.com.matricula.service.ConsultaNotasService;
 
-public class ConsultaNotasServiceImpl implements ConsultaNotasService {
+import dev.com.matricula.dao.NotasDao;
+import dev.com.matricula.model.Notas;
+import dev.com.matricula.service.ConsultaNotaService;
+
+public class ConsultaNotaServiceImpl implements ConsultaNotaService {
 
   private NotasDao notasDao;
 
   @Override
   public List<Notas> obtenerNotasAlumno(int codigo) {
-    notasDao = new NotasDaoImpl();
     return notasDao.obtenerNotasAlumno(codigo);
   }
 
+  public void setNotasDao(NotasDao notasDao) {
+    this.notasDao = notasDao;
+  }
 }

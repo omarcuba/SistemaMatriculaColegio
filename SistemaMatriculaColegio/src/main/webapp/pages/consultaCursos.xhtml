@@ -13,7 +13,7 @@
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form id="form">
-				<p:dataTable value="#{consultaCursos.asignacionList}" var="asi"
+				<p:dataTable value="#{consultaCursoBean.asignacionList}" var="asi"
 					styleClass="dataTableP">
 					<f:facet name="header">DETALLE DE DOCENTES POR CURSOS MATRICULADOS </f:facet>
 					<p:column headerText="Descrición del Curso">
@@ -32,7 +32,7 @@
 						<h:outputText value="#{asi.seccion}" />
 					</p:column>
 					<p:column headerText="Año" width="50">
-						<h:outputText value="#{asi.anhoescolar.idAnhoEscolar}" />
+						<h:outputText value="#{asi.anhoEscolar.idAnhoEscolar}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>

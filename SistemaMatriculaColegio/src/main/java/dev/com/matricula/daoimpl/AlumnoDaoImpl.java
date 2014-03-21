@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import dev.com.matricula.dao.AlumnoDao;
 import dev.com.matricula.model.Alumno;
 
-public class AlumnoDaoImpl extends SessionFactoryImpl implements AlumnoDao {
+public class AlumnoDaoImpl extends AbstractHibernateDao implements AlumnoDao {
 
   private Session session;
   private Criteria criteria;

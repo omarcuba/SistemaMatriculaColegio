@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 28/02/2014 12:15:28 PM by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="dev.com.matricula.model.Anhoescolar" table="anhoescolar" catalog="bdmatricula">
+    <class name="dev.com.matricula.model.AnhoEscolar" table="anhoescolar" catalog="bdmatricula">
         <id name="idAnhoEscolar" type="string">
             <column name="IdAnhoEscolar" length="4" />
             <generator class="assigned" />

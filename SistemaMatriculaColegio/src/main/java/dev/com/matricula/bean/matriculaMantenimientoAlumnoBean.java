@@ -4,49 +4,42 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Rol;
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
-import dev.com.matricula.service.MatriculaManteAlumnoService;
-import dev.com.matricula.serviceimpl.MatriculaManteAlumnoServiceImpl;
+import dev.com.matricula.model.UsuarioAlumno;
+import dev.com.matricula.service.MatriculaMantenimientoAlumnoService;
 
-@ManagedBean(name = "matriculaManteAlumno")
-@SessionScoped
-public class matriculaMantenimientoAlumnoBean implements Serializable {
+public class MatriculaMantenimientoAlumnoBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Map<String, String> sexoMap = new HashMap<String, String>();
   private Alumno alumno;
   private Usuario usuario;
-  private Usuarioalumno usuarioAlumno;
+  private UsuarioAlumno usuarioAlumno;
   private Rol rol;
-  private Rolusuario rolUsuario;
-  private MatriculaManteAlumnoService matriculaManteAlumnoService;
+  private RolUsuario rolUsuario;
+  private MatriculaMantenimientoAlumnoService matriculaMantenimientoAlumnoService;
 
-  public matriculaMantenimientoAlumnoBean() {
+  public MatriculaMantenimientoAlumnoBean() {
     sexoMap.put("Masculino", "M");
     sexoMap.put("Femenino", "F");
     alumno = new Alumno();
     usuario = new Usuario();
-    rolUsuario = new Rolusuario();
+    rolUsuario = new RolUsuario();
     rol = new Rol();
-    usuarioAlumno = new Usuarioalumno();
+    usuarioAlumno = new UsuarioAlumno();
   }
 
   public String registrarAlumno() {
-    matriculaManteAlumnoService = new MatriculaManteAlumnoServiceImpl();
-    alumno.setIdAlumno(matriculaManteAlumnoService.buscarUltimoidAlumno());
+    alumno.setIdAlumno(matriculaMantenimientoAlumnoService.buscarUltimoidAlumno());
     alumno.setCodUsuario(LoginBean.COD_USUARIO);
     // Registrar Alumno
-    boolean rsptAlumno = matriculaManteAlumnoService.registrarAlumno(alumno);
+    boolean rsptAlumno = matriculaMantenimientoAlumnoService.registrarAlumno(alumno);
 
     // Registrar Usuario
-    usuario.setIdUsuario(matriculaManteAlumnoService.buscarUltimoidUsuario());
+    usuario.setIdUsuario(matriculaMantenimientoAlumnoService.buscarUltimoidUsuario());
     usuario.setNombre(alumno.getNombre());
     usuario.setApMaterno(alumno.getApMaterno());
     usuario.setApPaterno(alumno.getApPaterno());
@@ -55,23 +48,25 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     usuario.setClave("123456");
     usuario.setEstado('0');
     usuario.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptUsuario = matriculaManteAlumnoService.registrarUsuario(usuario);
+    boolean rsptUsuario = matriculaMantenimientoAlumnoService.registrarUsuario(usuario);
 
     // Registrar Rol de Acceso
     rol.setIdRol(1);
-    rolUsuario.setIdRolUsuario(matriculaManteAlumnoService.buscarUltimoidRolUsuario());
+    rolUsuario.setIdRolUsuario(matriculaMantenimientoAlumnoService.buscarUltimoidRolUsuario());
     rolUsuario.setRol(rol);
     rolUsuario.setUsuario(usuario);
     rolUsuario.setEstado('1');
     rolUsuario.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptRolUsuario = matriculaManteAlumnoService.registrarRolUsuario(rolUsuario);
+    boolean rsptRolUsuario = matriculaMantenimientoAlumnoService.registrarRolUsuario(rolUsuario);
 
     // Registrar Usuario_Alumno
-    usuarioAlumno.setIdUsuarioAlumno(matriculaManteAlumnoService.buscarUltimoidUsuarioAlumno());
+    usuarioAlumno.setIdUsuarioAlumno(matriculaMantenimientoAlumnoService
+            .buscarUltimoidUsuarioAlumno());
     usuarioAlumno.setIdUsuario(usuario.getIdUsuario());
     usuarioAlumno.setIdAlumno(alumno.getIdAlumno());
     usuarioAlumno.setCodUsuario(LoginBean.COD_USUARIO);
-    boolean rsptUsuarioAlumno = matriculaManteAlumnoService.registrarUsuarioAlumno(usuarioAlumno);
+    boolean rsptUsuarioAlumno =
+            matriculaMantenimientoAlumnoService.registrarUsuarioAlumno(usuarioAlumno);
 
     if (rsptAlumno && rsptUsuario && rsptRolUsuario && rsptUsuarioAlumno)
       return "MATRICULA";
@@ -103,11 +98,11 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     this.usuario = usuario;
   }
 
-  public Rolusuario getRolUsuario() {
+  public RolUsuario getRolUsuario() {
     return rolUsuario;
   }
 
-  public void setRolUsuario(Rolusuario rolUsuario) {
+  public void setRolUsuario(RolUsuario rolUsuario) {
     this.rolUsuario = rolUsuario;
   }
 
@@ -119,12 +114,16 @@ public class matriculaMantenimientoAlumnoBean implements Serializable {
     this.rol = rol;
   }
 
-  public Usuarioalumno getUsuarioAlumno() {
+  public UsuarioAlumno getUsuarioAlumno() {
     return usuarioAlumno;
   }
 
-  public void setUsuarioAlumno(Usuarioalumno usuarioAlumno) {
+  public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
     this.usuarioAlumno = usuarioAlumno;
   }
 
+  public void setMatriculaMantenimientoAlumnoService(
+          MatriculaMantenimientoAlumnoService matriculaMantenimientoAlumnoService) {
+    this.matriculaMantenimientoAlumnoService = matriculaMantenimientoAlumnoService;
+  }
 }

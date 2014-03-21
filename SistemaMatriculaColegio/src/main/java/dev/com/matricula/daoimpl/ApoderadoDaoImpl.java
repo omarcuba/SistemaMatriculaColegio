@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import dev.com.matricula.dao.ApoderadoDao;
 import dev.com.matricula.model.Apoderado;
 
-public class ApoderadoDaoImpl extends SessionFactoryImpl implements ApoderadoDao {
+public class ApoderadoDaoImpl extends AbstractHibernateDao implements ApoderadoDao {
 
   private Session session;
   private Criteria criteria;

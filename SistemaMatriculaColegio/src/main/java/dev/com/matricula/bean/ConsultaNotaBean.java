@@ -1,41 +1,31 @@
 package dev.com.matricula.bean;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Curso;
 import dev.com.matricula.model.Notas;
-import dev.com.matricula.service.ConsultaNotasService;
-import dev.com.matricula.serviceimpl.ConsultaNotasServiceImpl;
+import dev.com.matricula.service.ConsultaNotaService;
 
-@ManagedBean(name = "consultaNotas")
-@SessionScoped
-public class ConsultaNotasBean implements Serializable {
+public class ConsultaNotaBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Alumno alumno;
   private Curso curso;
   private Notas notas;
   private ArrayList<Notas> notasList;
+  private ConsultaNotaService consultaNotaService;
 
-  private ConsultaNotasService consultaNotasService;
-
-  public ConsultaNotasBean() {
+  public ConsultaNotaBean() {
     alumno = new Alumno();
     curso = new Curso();
     notas = new Notas();
-    obtenerNotasAlumno();
   }
 
-  public List<Notas> obtenerNotasAlumno() {
-    consultaNotasService = new ConsultaNotasServiceImpl();
-    notasList = (ArrayList<Notas>) consultaNotasService.obtenerNotasAlumno(LoginBean.CODIGO_ALUMNO);
-    return notasList;
+  public String obtenerNotasAlumno() {
+    notasList = (ArrayList<Notas>) consultaNotaService.obtenerNotasAlumno(LoginBean.CODIGO_ALUMNO);
+    return "/pages/consultaCursos.xhtml";
 
   }
 
@@ -71,12 +61,8 @@ public class ConsultaNotasBean implements Serializable {
     this.notasList = notasList;
   }
 
-  public ConsultaNotasService getConsultaNotasService() {
-    return consultaNotasService;
-  }
-
-  public void setConsultaNotasService(ConsultaNotasService consultaNotasService) {
-    this.consultaNotasService = consultaNotasService;
+  public void setConsultaNotaService(ConsultaNotaService consultaNotaService) {
+    this.consultaNotaService = consultaNotaService;
   }
 
 }

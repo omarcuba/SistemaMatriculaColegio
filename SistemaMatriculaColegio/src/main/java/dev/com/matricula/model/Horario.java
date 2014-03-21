@@ -13,7 +13,7 @@ public class Horario implements java.io.Serializable {
   private Docente docente;
   private Aula aula;
   private Curso curso;
-  private Anhoescolar anhoescolar;
+  private AnhoEscolar anhoEscolar;
   private String dia;
   private Date horaInicial;
   private Date horaFinal;
@@ -23,25 +23,25 @@ public class Horario implements java.io.Serializable {
   public Horario() {
   }
 
-  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, Anhoescolar anhoescolar,
+  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, AnhoEscolar anhoEscolar,
           String dia, Date horaInicial, Date horaFinal) {
     this.idHorario = idHorario;
     this.docente = docente;
     this.aula = aula;
     this.curso = curso;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.dia = dia;
     this.horaInicial = horaInicial;
     this.horaFinal = horaFinal;
   }
 
-  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, Anhoescolar anhoescolar,
+  public Horario(int idHorario, Docente docente, Aula aula, Curso curso, AnhoEscolar anhoEscolar,
           String dia, Date horaInicial, Date horaFinal, Integer codUsuario, Date fechaOperacion) {
     this.idHorario = idHorario;
     this.docente = docente;
     this.aula = aula;
     this.curso = curso;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.dia = dia;
     this.horaInicial = horaInicial;
     this.horaFinal = horaFinal;
@@ -81,12 +81,12 @@ public class Horario implements java.io.Serializable {
     this.curso = curso;
   }
 
-  public Anhoescolar getAnhoescolar() {
-    return this.anhoescolar;
+  public AnhoEscolar getAnhoEscolar() {
+    return this.anhoEscolar;
   }
 
-  public void setAnhoescolar(Anhoescolar anhoescolar) {
-    this.anhoescolar = anhoescolar;
+  public void setAnhoEscolar(AnhoEscolar anhoEscolar) {
+    this.anhoEscolar = anhoEscolar;
   }
 
   public String getDia() {

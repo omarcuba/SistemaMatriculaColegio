@@ -2,15 +2,15 @@ package dev.com.matricula.service;
 
 import java.util.List;
 
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.model.UsuarioAlumno;
 
 public interface LoginService {
 
   public Usuario obtenerDatoUsuarioAcceso(String login, String clave);
 
-  public Rolusuario obtenerDatoUsuarioRol(int idUsuario);
+  public RolUsuario obtenerDatoUsuarioRol(int idUsuario);
 
-  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario);
+  public List<UsuarioAlumno> obtenerIdAlumno(int codigoUsuario);
 }

@@ -8,7 +8,7 @@ public class Asignacion implements java.io.Serializable {
   private int idAsignacion;
   private Docente docente;
   private Curso curso;
-  private Anhoescolar anhoescolar;
+  private AnhoEscolar anhoEscolar;
   private char seccion;
   private Integer codUsuario;
   private Date fechaOperacion;
@@ -16,21 +16,21 @@ public class Asignacion implements java.io.Serializable {
   public Asignacion() {
   }
 
-  public Asignacion(int idAsignacion, Docente docente, Curso curso, Anhoescolar anhoescolar,
+  public Asignacion(int idAsignacion, Docente docente, Curso curso, AnhoEscolar anhoEscolar,
           char seccion) {
     this.idAsignacion = idAsignacion;
     this.docente = docente;
     this.curso = curso;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.seccion = seccion;
   }
 
-  public Asignacion(int idAsignacion, Docente docente, Curso curso, Anhoescolar anhoescolar,
+  public Asignacion(int idAsignacion, Docente docente, Curso curso, AnhoEscolar anhoEscolar,
           char seccion, Integer codUsuario, Date fechaOperacion) {
     this.idAsignacion = idAsignacion;
     this.docente = docente;
     this.curso = curso;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.seccion = seccion;
     this.codUsuario = codUsuario;
     this.fechaOperacion = fechaOperacion;
@@ -60,12 +60,12 @@ public class Asignacion implements java.io.Serializable {
     this.curso = curso;
   }
 
-  public Anhoescolar getAnhoescolar() {
-    return this.anhoescolar;
+  public AnhoEscolar getAnhoEscolar() {
+    return this.anhoEscolar;
   }
 
-  public void setAnhoescolar(Anhoescolar anhoescolar) {
-    this.anhoescolar = anhoescolar;
+  public void setAnhoEscolar(AnhoEscolar anhoEscolar) {
+    this.anhoEscolar = anhoEscolar;
   }
 
   public char getSeccion() {

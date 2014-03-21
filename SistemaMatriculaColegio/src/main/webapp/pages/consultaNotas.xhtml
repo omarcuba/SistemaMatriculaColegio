@@ -13,7 +13,7 @@
 	<ui:composition template="/pages/consultaEstructura.xhtml">
 		<ui:define name="body">
 			<h:form id="form">
-				<p:dataTable value="#{consultaNotas.notasList}" var="noti"
+				<p:dataTable value="#{consultaNotaBean.notasList}" var="noti"
 					styleClass="dataTableP">
 					<f:facet name="header">DETALLE GENERAL DE NOTAS DEL ALUMNO </f:facet>
 					<p:column headerText="Descripción del Curso">

@@ -2,16 +2,16 @@ package dev.com.matricula.dao;
 
 import java.util.List;
 
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 
 public interface RolUsuarioDao {
 
-  public boolean registrarRolUsuario(Rolusuario rolUsuario);
+  public boolean registrarRolUsuario(RolUsuario rolUsuario);
 
   public Integer obtenerUltimoIdRolUsuario();
 
-  public Rolusuario obtenerDatoRolUsuario(int codigoUsuario);
+  public RolUsuario obtenerDatoRolUsuario(int codigoUsuario);
 
-  public List<Rolusuario> obtenerRolusuarios();
+  public List<RolUsuario> obtenerRolusuarios();
 
 }

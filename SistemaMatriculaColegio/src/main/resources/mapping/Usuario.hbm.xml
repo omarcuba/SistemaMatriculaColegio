@@ -35,11 +35,11 @@
         <property name="fechaOperacion" type="timestamp">
             <column name="FechaOperacion" length="19" />
         </property>
-        <set name="rolusuarios" table="rolusuario" inverse="true" lazy="true" fetch="select">
+        <set name="rolUsuarios" table="rolusuario" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="IdUsuario" not-null="true" />
             </key>
-            <one-to-many class="dev.com.matricula.model.Rolusuario" />
+            <one-to-many class="dev.com.matricula.model.RolUsuario" />
         </set>
     </class>
 </hibernate-mapping>

@@ -19,40 +19,40 @@
 						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
 							<h:outputLabel value="Nombres(*)" />
 							<h:outputLabel value=":" />
-							<p:inputMask value="#{matriculaManteApoderado.apoderado.nombre}" />
+							<p:inputMask value="#{matriculaMantenimientoApoderadoBean.apoderado.nombre}" />
 							<h:outputLabel value="Apellido Paterno (*)" />
 							<h:outputLabel value=":" />
 							<p:inputMask
-								value="#{matriculaManteApoderado.apoderado.apPaterno}" />
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.apPaterno}" />
 							<h:outputLabel value="Apellido Materno(*)" />
 							<h:outputLabel value=":" />
 							<p:inputMask
-								value="#{matriculaManteApoderado.apoderado.apMaterno}" />
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.apMaterno}" />
 							<h:outputLabel value="Dni(*)" />
 							<h:outputLabel value=":" />
-							<p:inputMask value="#{matriculaManteApoderado.apoderado.dni}" />
+							<p:inputMask value="#{matriculaMantenimientoApoderadoBean.apoderado.dni}" />
 							<h:outputLabel value="Teléfono" />
 							<h:outputLabel value=":" />
 							<p:inputMask
-								value="#{matriculaManteApoderado.apoderado.telefono}" />
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.telefono}" />
 							<h:outputLabel value="Sexo(*)" />
 							<h:outputLabel value=":" />
 							<p:selectOneMenu id="sexo" style="width:160px;"
-								value="#{matriculaManteApoderado.apoderado.sexo}">
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.sexo}">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
-								<f:selectItems value="#{matriculaManteAlumno.sexoMap}" />
+								<f:selectItems value="#{matriculaMantenimientoAlumnoBean.sexoMap}" />
 							</p:selectOneMenu>
 							<h:outputLabel value="Estado Civil(*)" />
 							<h:outputLabel value=":" />
 							<p:selectOneMenu id="estadoCivil" style="width:160px;"
-								value="#{matriculaManteApoderado.apoderado.estadoCivil}">
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.estadoCivil}">
 								<f:selectItem itemLabel="Seleccione" itemValue="" />
-								<f:selectItems value="#{matriculaManteApoderado.civilMap}" />
+								<f:selectItems value="#{matriculaMantenimientoApoderadoBean.civilMap}" />
 							</p:selectOneMenu>
 							<h:outputLabel value="Direccion" />
 							<h:outputLabel value=":" />
 							<p:inputMask
-								value="#{matriculaManteApoderado.apoderado.direccion}" />
+								value="#{matriculaMantenimientoApoderadoBean.apoderado.direccion}" />
 							<h:outputText style="font-size: 10px; color: red;"
 								value="Campos Obligatorios(*)" />
 						</h:panelGrid>
@@ -60,7 +60,7 @@
 						<p:growl id="messages" showDetail="false" sticky="true" />
 						<h:panelGrid columns="3" cellpadding="5" styleClass="panelGridH">
 							<p:commandButton id="grabar" value="Grabar" update="messages"
-								action="#{matriculaManteApoderado.registrarApoderado}"
+								action="#{matriculaMantenimientoApoderadoBean.registrarApoderado}"
 								oncomplete=":form" />
 							<p:commandButton value="Limpiar" oncomplete=":form" />
 							<p:commandButton value="Cancelar" oncomplete=":form" />

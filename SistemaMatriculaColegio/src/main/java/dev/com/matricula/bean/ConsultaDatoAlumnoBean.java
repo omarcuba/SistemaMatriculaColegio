@@ -2,15 +2,9 @@ package dev.com.matricula.bean;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.service.ConsultaDatoAlumnoService;
-import dev.com.matricula.serviceimpl.ConsultaDatoAlumnoServiceImpl;
 
-@ManagedBean(name = "consultaDatoAlumno")
-@SessionScoped
 public class ConsultaDatoAlumnoBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -19,15 +13,13 @@ public class ConsultaDatoAlumnoBean implements Serializable {
 
   public ConsultaDatoAlumnoBean() {
     alumno = new Alumno();
-    obtenerDatosAlumno();
   }
 
-  private Alumno obtenerDatosAlumno() {
-    consultaDatoAlumnoService = new ConsultaDatoAlumnoServiceImpl();
+  public String obtenerDatosAlumno() {
     alumno = consultaDatoAlumnoService.obtenerDatoAlumno(LoginBean.CODIGO_ALUMNO);
     System.out.println("Alumno: " + alumno.getNombre()); // No vuelve a cargar
                                                          // para la segunda vez
-    return alumno;
+    return "/pages/consultaDatoAlumno.xhtml";
   }
 
   public Alumno getAlumno() {
@@ -36,10 +28,6 @@ public class ConsultaDatoAlumnoBean implements Serializable {
 
   public void setAlumno(Alumno alumno) {
     this.alumno = alumno;
-  }
-
-  public ConsultaDatoAlumnoService getConsultaDatoAlumnoService() {
-    return consultaDatoAlumnoService;
   }
 
   public void setConsultaDatoAlumnoService(ConsultaDatoAlumnoService consultaDatoAlumnoService) {

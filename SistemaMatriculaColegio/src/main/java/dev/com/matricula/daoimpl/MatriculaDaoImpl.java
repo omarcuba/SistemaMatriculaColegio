@@ -10,13 +10,13 @@ import org.hibernate.criterion.Restrictions;
 import dev.com.matricula.dao.MatriculaDao;
 import dev.com.matricula.model.Matricula;
 
-public class MatriculaDaoImpl extends SessionFactoryImpl implements MatriculaDao {
+public class MatriculaDaoImpl extends AbstractHibernateDao implements MatriculaDao {
 
   private Session session;
   private Criteria criteria;
   private Query query;
   private int entero;
-  private String CODIGO_ANHOESCOLAR = "anhoescolar.idAnhoEscolar";
+  private String CODIGO_ANHOESCOLAR = "anhoEscolar.idAnhoEscolar";
   private List<Matricula> matriculaList;
 
   @Override
@@ -59,7 +59,7 @@ public class MatriculaDaoImpl extends SessionFactoryImpl implements MatriculaDao
     criteria = session.createCriteria(Matricula.class);
     criteria.add(Restrictions.eq(CODIGO_ANHOESCOLAR, "2013"));
     matriculaList = criteria.list();
-    //session.close();
+    // session.close();
     return matriculaList;
   }
 }

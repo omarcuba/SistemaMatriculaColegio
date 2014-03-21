@@ -4,17 +4,13 @@ import dev.com.matricula.dao.AlumnoDao;
 import dev.com.matricula.dao.RolUsuarioDao;
 import dev.com.matricula.dao.UsuarioAlumnoDao;
 import dev.com.matricula.dao.UsuarioDao;
-import dev.com.matricula.daoimpl.AlumnoDaoImpl;
-import dev.com.matricula.daoimpl.RolUsuarioDaoImpl;
-import dev.com.matricula.daoimpl.UsuarioAlumnoDaoImpl;
-import dev.com.matricula.daoimpl.UsuarioDaoImpl;
 import dev.com.matricula.model.Alumno;
-import dev.com.matricula.model.Rolusuario;
+import dev.com.matricula.model.RolUsuario;
 import dev.com.matricula.model.Usuario;
-import dev.com.matricula.model.Usuarioalumno;
-import dev.com.matricula.service.MatriculaManteAlumnoService;
+import dev.com.matricula.model.UsuarioAlumno;
+import dev.com.matricula.service.MatriculaMantenimientoAlumnoService;
 
-public class MatriculaManteAlumnoServiceImpl implements MatriculaManteAlumnoService {
+public class MatriculaMantenimientoAlumnoServiceImpl implements MatriculaMantenimientoAlumnoService {
 
   private AlumnoDao alumnoDao;
   private UsuarioDao usuarioDao;
@@ -23,49 +19,57 @@ public class MatriculaManteAlumnoServiceImpl implements MatriculaManteAlumnoServ
 
   @Override
   public Integer buscarUltimoidAlumno() {
-    alumnoDao = new AlumnoDaoImpl();
     return alumnoDao.obtenerUltimoIdAlumno();
   }
 
   @Override
   public Integer buscarUltimoidUsuario() {
-    usuarioDao = new UsuarioDaoImpl();
     return usuarioDao.obtenerUltimoIdUsuario();
   }
 
   @Override
   public Integer buscarUltimoidRolUsuario() {
-    rolUsuarioDao = new RolUsuarioDaoImpl();
     return rolUsuarioDao.obtenerUltimoIdRolUsuario();
   }
 
   @Override
   public Integer buscarUltimoidUsuarioAlumno() {
-    usuarioAlumnoDao = new UsuarioAlumnoDaoImpl();
     return usuarioAlumnoDao.obtenerUltimoIdUsuarioAlumno();
   }
 
   @Override
   public boolean registrarAlumno(Alumno alumno) {
-    alumnoDao = new AlumnoDaoImpl();
     return alumnoDao.registrarAlumno(alumno);
   }
 
   @Override
   public boolean registrarUsuario(Usuario usuario) {
-    usuarioDao = new UsuarioDaoImpl();
     return usuarioDao.registrarUsuario(usuario);
   }
 
   @Override
-  public boolean registrarRolUsuario(Rolusuario rolUsuario) {
-    rolUsuarioDao = new RolUsuarioDaoImpl();
+  public boolean registrarRolUsuario(RolUsuario rolUsuario) {
     return rolUsuarioDao.registrarRolUsuario(rolUsuario);
   }
 
   @Override
-  public boolean registrarUsuarioAlumno(Usuarioalumno usuarioAlumno) {
-    usuarioAlumnoDao = new UsuarioAlumnoDaoImpl();
+  public boolean registrarUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
     return usuarioAlumnoDao.registrarUsuarioAlumno(usuarioAlumno);
+  }
+
+  public void setAlumnoDao(AlumnoDao alumnoDao) {
+    this.alumnoDao = alumnoDao;
+  }
+
+  public void setUsuarioDao(UsuarioDao usuarioDao) {
+    this.usuarioDao = usuarioDao;
+  }
+
+  public void setRolUsuarioDao(RolUsuarioDao rolUsuarioDao) {
+    this.rolUsuarioDao = rolUsuarioDao;
+  }
+
+  public void setUsuarioAlumnoDao(UsuarioAlumnoDao usuarioAlumnoDao) {
+    this.usuarioAlumnoDao = usuarioAlumnoDao;
   }
 }

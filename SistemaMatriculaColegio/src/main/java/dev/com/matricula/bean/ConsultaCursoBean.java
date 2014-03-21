@@ -1,41 +1,33 @@
 package dev.com.matricula.bean;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 import dev.com.matricula.model.Alumno;
 import dev.com.matricula.model.Asignacion;
 import dev.com.matricula.model.Curso;
 import dev.com.matricula.service.ConsultaCursosService;
-import dev.com.matricula.serviceimpl.ConsultaCursosServiceImpl;
 
-@ManagedBean(name = "consultaCursos")
-@SessionScoped
-public class ConsultaCursosBean implements Serializable {
+public class ConsultaCursoBean implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private Alumno alumno;
   private Curso curso;
   private Asignacion asignacion;
   private ArrayList<Asignacion> asignacionList;
+  private ConsultaCursosService consultaCursoService;
 
-  private ConsultaCursosService consultaCursosService;
-
-  public ConsultaCursosBean() {
+  public ConsultaCursoBean() {
     alumno = new Alumno();
     curso = new Curso();
     asignacion = new Asignacion();
-    obtenerNotasAlumno();
   }
 
-  public List<Asignacion> obtenerNotasAlumno() {
-    consultaCursosService = new ConsultaCursosServiceImpl();
-    asignacionList = (ArrayList<Asignacion>) consultaCursosService.obtenerCursosAlumno(LoginBean.CODIGO_ALUMNO);
-    return asignacionList;
+  public String obtenerCursosAlumno() {
+    asignacionList =
+            (ArrayList<Asignacion>) consultaCursoService
+                    .obtenerCursosAlumno(LoginBean.CODIGO_ALUMNO);
+    return "/pages/consultaCursos.xhtml";
 
   }
 
@@ -55,8 +47,6 @@ public class ConsultaCursosBean implements Serializable {
     this.curso = curso;
   }
 
-  
-
   public Asignacion getAsignacion() {
     return asignacion;
   }
@@ -73,5 +63,8 @@ public class ConsultaCursosBean implements Serializable {
     this.asignacionList = asignacionList;
   }
 
+  public void setConsultaCursoService(ConsultaCursosService consultaCursoService) {
+    this.consultaCursoService = consultaCursoService;
+  }
 
 }

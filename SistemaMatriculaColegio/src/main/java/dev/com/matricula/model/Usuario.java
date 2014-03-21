@@ -21,7 +21,7 @@ public class Usuario implements java.io.Serializable {
   private char estado;
   private Integer codUsuario;
   private Date fechaOperacion;
-  private Set rolusuarios = new HashSet(0);
+  private Set rolUsuarios = new HashSet(0);
 
   public Usuario() {
   }
@@ -40,7 +40,7 @@ public class Usuario implements java.io.Serializable {
 
   public Usuario(int idUsuario, String nombre, String apPaterno, String apMaterno, String dni,
           String login, String clave, char estado, Integer codUsuario, Date fechaOperacion,
-          Set rolusuarios) {
+          Set rolUsuarios) {
     this.idUsuario = idUsuario;
     this.nombre = nombre;
     this.apPaterno = apPaterno;
@@ -51,7 +51,7 @@ public class Usuario implements java.io.Serializable {
     this.estado = estado;
     this.codUsuario = codUsuario;
     this.fechaOperacion = fechaOperacion;
-    this.rolusuarios = rolusuarios;
+    this.rolUsuarios = rolUsuarios;
   }
 
   public int getIdUsuario() {
@@ -134,12 +134,12 @@ public class Usuario implements java.io.Serializable {
     this.fechaOperacion = fechaOperacion;
   }
 
-  public Set getRolusuarios() {
-    return this.rolusuarios;
+  public Set getRolUsuarios() {
+    return this.rolUsuarios;
   }
 
-  public void setRolusuarios(Set rolusuarios) {
-    this.rolusuarios = rolusuarios;
+  public void setRolUsuarios(Set rolUsuarios) {
+    this.rolUsuarios = rolUsuarios;
   }
 
 }

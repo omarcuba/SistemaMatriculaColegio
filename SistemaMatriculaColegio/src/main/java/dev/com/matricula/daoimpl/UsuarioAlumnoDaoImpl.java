@@ -3,24 +3,24 @@ package dev.com.matricula.daoimpl;
 import java.util.List;
 
 import dev.com.matricula.dao.UsuarioAlumnoDao;
-import dev.com.matricula.model.Usuarioalumno;
+import dev.com.matricula.model.UsuarioAlumno;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioAlumnoDao {
+public class UsuarioAlumnoDaoImpl extends AbstractHibernateDao implements UsuarioAlumnoDao {
 
   private Session session;
   private Criteria criteria;
   private Query query;
   private int entero;
   private String CODIGO_USUARIO = "idUsuario";
-  private List<Usuarioalumno> usuarioAlumnolist;
+  private List<UsuarioAlumno> usuarioAlumnolist;
 
   @Override
-  public boolean registrarUsuarioAlumno(Usuarioalumno usuarioAlumno) {
+  public boolean registrarUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
     try {
       session = getSessionFactory().openSession();
       session.beginTransaction();
@@ -45,10 +45,10 @@ public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioA
 
   @SuppressWarnings("unchecked")
   @Override
-  public List<Usuarioalumno> obtenerUsuarioAlumnos() {
+  public List<UsuarioAlumno> obtenerUsuarioAlumnos() {
     session = getSessionFactory().openSession();
     session.beginTransaction();
-    criteria = session.createCriteria(Usuarioalumno.class);
+    criteria = session.createCriteria(UsuarioAlumno.class);
     usuarioAlumnolist = criteria.list();
     session.close();
     return usuarioAlumnolist;
@@ -56,10 +56,10 @@ public class UsuarioAlumnoDaoImpl extends SessionFactoryImpl implements UsuarioA
 
   @SuppressWarnings("unchecked")
   @Override
-  public List<Usuarioalumno> obtenerIdAlumno(int codigoUsuario) {
+  public List<UsuarioAlumno> obtenerIdAlumno(int codigoUsuario) {
     session = getSessionFactory().openSession();
     session.beginTransaction();
-    criteria = session.createCriteria(Usuarioalumno.class);
+    criteria = session.createCriteria(UsuarioAlumno.class);
     criteria.add(Restrictions.eq(CODIGO_USUARIO, codigoUsuario));
     usuarioAlumnolist = criteria.list();
     session.close();

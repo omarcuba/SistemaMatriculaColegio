@@ -50,4 +50,11 @@
 
 
 	</navigation-rule>
+
+	<!-- Inicio - Necesario para la integracion Spring - JSf -->
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+	<!-- Fin - Necesario para la integracion Spring - JSf -->
+
 </faces-config>

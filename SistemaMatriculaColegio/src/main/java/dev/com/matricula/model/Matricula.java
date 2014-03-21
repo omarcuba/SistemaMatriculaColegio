@@ -13,7 +13,7 @@ public class Matricula implements java.io.Serializable {
   private Colegio colegio;
   private Alumno alumno;
   private Apoderado apoderado;
-  private Anhoescolar anhoescolar;
+  private AnhoEscolar anhoEscolar;
   private Date fechaMatricula;
   private Date horaMatricula;
   private char nivel;
@@ -30,13 +30,13 @@ public class Matricula implements java.io.Serializable {
   }
 
   public Matricula(int idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
-          Anhoescolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
+          AnhoEscolar anhoEscolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
           char seccion, char turno, char estado) {
     this.idMatricula = idMatricula;
     this.colegio = colegio;
     this.alumno = alumno;
     this.apoderado = apoderado;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.fechaMatricula = fechaMatricula;
     this.horaMatricula = horaMatricula;
     this.nivel = nivel;
@@ -47,14 +47,14 @@ public class Matricula implements java.io.Serializable {
   }
 
   public Matricula(int idMatricula, Colegio colegio, Alumno alumno, Apoderado apoderado,
-          Anhoescolar anhoescolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
+          AnhoEscolar anhoEscolar, Date fechaMatricula, Date horaMatricula, char nivel, char grado,
           char seccion, char turno, String situacion, char estado, String observacion,
           Integer codUsuario, Date fechaOperacion) {
     this.idMatricula = idMatricula;
     this.colegio = colegio;
     this.alumno = alumno;
     this.apoderado = apoderado;
-    this.anhoescolar = anhoescolar;
+    this.anhoEscolar = anhoEscolar;
     this.fechaMatricula = fechaMatricula;
     this.horaMatricula = horaMatricula;
     this.nivel = nivel;
@@ -100,12 +100,12 @@ public class Matricula implements java.io.Serializable {
     this.apoderado = apoderado;
   }
 
-  public Anhoescolar getAnhoescolar() {
-    return this.anhoescolar;
+  public AnhoEscolar getAnhoEscolar() {
+    return this.anhoEscolar;
   }
 
-  public void setAnhoescolar(Anhoescolar anhoescolar) {
-    this.anhoescolar = anhoescolar;
+  public void setAnhoEscolar(AnhoEscolar anhoEscolar) {
+    this.anhoEscolar = anhoEscolar;
   }
 
   public Date getFechaMatricula() {
